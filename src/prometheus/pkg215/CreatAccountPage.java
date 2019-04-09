@@ -84,6 +84,8 @@ public class CreatAccountPage extends javax.swing.JFrame {
         lastName_label.setText("Last Name");
         jPanel1.add(lastName_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 210, 40));
 
+        lastName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        lastName_textfield.setForeground(new java.awt.Color(51, 51, 51));
         lastName_textfield.setText("Enter your Last Name");
         lastName_textfield.setBorder(null);
         lastName_textfield.setOpaque(false);
@@ -94,6 +96,8 @@ public class CreatAccountPage extends javax.swing.JFrame {
         answer_label.setText("Answer");
         jPanel1.add(answer_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 210, 40));
 
+        answer_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        answer_textfield.setForeground(new java.awt.Color(51, 51, 51));
         answer_textfield.setText("Enter your answer");
         answer_textfield.setBorder(null);
         answer_textfield.setOpaque(false);
@@ -109,6 +113,8 @@ public class CreatAccountPage extends javax.swing.JFrame {
         confirm_password_label.setText("Confirm Password");
         jPanel1.add(confirm_password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 210, 40));
 
+        confirm_password_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        confirm_password_textfield.setForeground(new java.awt.Color(51, 51, 51));
         confirm_password_textfield.setText("Retype your password");
         confirm_password_textfield.setBorder(null);
         confirm_password_textfield.setOpaque(false);
@@ -128,6 +134,8 @@ public class CreatAccountPage extends javax.swing.JFrame {
         username_label.setText("Username");
         jPanel1.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 210, 40));
 
+        username_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        username_textfield.setForeground(new java.awt.Color(51, 51, 51));
         username_textfield.setText("Enter your username");
         username_textfield.setBorder(null);
         username_textfield.setOpaque(false);
@@ -151,11 +159,15 @@ public class CreatAccountPage extends javax.swing.JFrame {
         security_question_label.setText("Security Question");
         jPanel1.add(security_question_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 160, 40));
 
+        firstName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        firstName_textfield.setForeground(new java.awt.Color(51, 51, 51));
         firstName_textfield.setText("Enter your First Name");
         firstName_textfield.setBorder(null);
         firstName_textfield.setOpaque(false);
         jPanel1.add(firstName_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 210, 40));
 
+        password_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        password_textfield.setForeground(new java.awt.Color(51, 51, 51));
         password_textfield.setText("Enter your password");
         password_textfield.setBorder(null);
         password_textfield.setOpaque(false);
@@ -183,6 +195,8 @@ public class CreatAccountPage extends javax.swing.JFrame {
         email_label.setText("Email");
         jPanel1.add(email_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 210, 40));
 
+        email_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        email_textfield.setForeground(new java.awt.Color(51, 51, 51));
         email_textfield.setText("Enter Your Email");
         email_textfield.setBorder(null);
         email_textfield.setOpaque(false);
