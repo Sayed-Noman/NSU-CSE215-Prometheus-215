@@ -47,13 +47,20 @@ public class LoginPage extends javax.swing.JFrame {
     private void initComponents() {
 
         Login_base_panel = new javax.swing.JPanel();
-        user_name_lable = new javax.swing.JLabel();
+        welcome_lable = new javax.swing.JLabel();
         Username_textfield = new javax.swing.JTextField();
         password_lable = new javax.swing.JLabel();
         separetor_username = new javax.swing.JSeparator();
         password_field = new javax.swing.JPasswordField();
         separetor_password = new javax.swing.JSeparator();
         Login_button = new javax.swing.JButton();
+        dont_have_account_label = new javax.swing.JLabel();
+        login_adminType_cobobox = new javax.swing.JComboBox<>();
+        user_name_lable2 = new javax.swing.JLabel();
+        forgot_password_label = new javax.swing.JLabel();
+        exit_button = new javax.swing.JButton();
+        home_button = new javax.swing.JButton();
+        login_adminType_label = new javax.swing.JLabel();
         login_background_image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,10 +70,9 @@ public class LoginPage extends javax.swing.JFrame {
         Login_base_panel.setPreferredSize(new java.awt.Dimension(950, 510));
         Login_base_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        user_name_lable.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 20)); // NOI18N
-        user_name_lable.setForeground(new java.awt.Color(255, 255, 255));
-        user_name_lable.setText("Username");
-        Login_base_panel.add(user_name_lable, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 340, 50));
+        welcome_lable.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 24)); // NOI18N
+        welcome_lable.setText("Welcome to Prometheus-215");
+        Login_base_panel.add(welcome_lable, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 340, 50));
 
         Username_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         Username_textfield.setForeground(new java.awt.Color(228, 241, 254));
@@ -95,7 +101,41 @@ public class LoginPage extends javax.swing.JFrame {
                 Login_buttonActionPerformed(evt);
             }
         });
-        Login_base_panel.add(Login_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 330, 50));
+        Login_base_panel.add(Login_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 330, 50));
+
+        dont_have_account_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
+        dont_have_account_label.setForeground(new java.awt.Color(204, 204, 204));
+        dont_have_account_label.setText("Don't have an accoun?");
+        Login_base_panel.add(dont_have_account_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 130, 50));
+
+        login_adminType_cobobox.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 13)); // NOI18N
+        login_adminType_cobobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Traffic Police", "Driver" }));
+        Login_base_panel.add(login_adminType_cobobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 120, 40));
+
+        user_name_lable2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 20)); // NOI18N
+        user_name_lable2.setForeground(new java.awt.Color(255, 255, 255));
+        user_name_lable2.setText("Username");
+        Login_base_panel.add(user_name_lable2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 340, 50));
+
+        forgot_password_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
+        forgot_password_label.setForeground(new java.awt.Color(204, 204, 204));
+        forgot_password_label.setText("Forgot Password?");
+        Login_base_panel.add(forgot_password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 100, 50));
+
+        exit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        exit_button.setForeground(new java.awt.Color(255, 255, 255));
+        exit_button.setText("Exit");
+        Login_base_panel.add(exit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 70, 30));
+
+        home_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        home_button.setForeground(new java.awt.Color(255, 255, 255));
+        home_button.setText("Home");
+        Login_base_panel.add(home_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 70, 30));
+
+        login_adminType_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 20)); // NOI18N
+        login_adminType_label.setForeground(new java.awt.Color(255, 255, 255));
+        login_adminType_label.setText("Admin Type");
+        Login_base_panel.add(login_adminType_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 120, 50));
 
         login_background_image.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_backgrounds\\Login_background.jpg")); // NOI18N
         Login_base_panel.add(login_background_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -150, 1000, 840));
@@ -162,11 +202,18 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JPanel Login_base_panel;
     private javax.swing.JButton Login_button;
     private javax.swing.JTextField Username_textfield;
+    private javax.swing.JLabel dont_have_account_label;
+    private javax.swing.JButton exit_button;
+    private javax.swing.JLabel forgot_password_label;
+    private javax.swing.JButton home_button;
+    private javax.swing.JComboBox<String> login_adminType_cobobox;
+    private javax.swing.JLabel login_adminType_label;
     private javax.swing.JLabel login_background_image;
     private javax.swing.JPasswordField password_field;
     private javax.swing.JLabel password_lable;
     private javax.swing.JSeparator separetor_password;
     private javax.swing.JSeparator separetor_username;
-    private javax.swing.JLabel user_name_lable;
+    private javax.swing.JLabel user_name_lable2;
+    private javax.swing.JLabel welcome_lable;
     // End of variables declaration//GEN-END:variables
 }
