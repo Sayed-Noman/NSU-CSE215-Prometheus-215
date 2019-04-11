@@ -12,7 +12,7 @@ public class JavaDbConnect {
     public static Connection databaseConnect(){
         try{
             Class.forName("org.sqlite.JDBC");
-            connection=DriverManager.getConnection("jdbc:sqlite:prometheus.dv");
+            connection=DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\prometheusdb.sqlite");
             return connection;
         }catch(ClassNotFoundException | SQLException e){
             JOptionPane.showMessageDialog(null,e);

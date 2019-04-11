@@ -7,12 +7,20 @@ package prometheus.pkg215;
 import java.awt.Toolkit;
 import java.awt.Dimension;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
  * @author Acer
  */
 public class LoginPage extends javax.swing.JFrame {
+    
+    //creating connection to database
+    Connection connection;
+    ResultSet rs;
+    PreparedStatement pst;
 
     /**
      * Creates new form LoginPage
@@ -156,7 +164,8 @@ public class LoginPage extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(976, 579));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_buttonActionPerformed

@@ -54,6 +54,11 @@ public class HomePage extends javax.swing.JFrame {
         Homepage_login_button.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         Homepage_login_button.setForeground(new java.awt.Color(255, 255, 255));
         Homepage_login_button.setText("Login");
+        Homepage_login_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Homepage_login_buttonActionPerformed(evt);
+            }
+        });
         main_base_panel.add(Homepage_login_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 370, 40));
 
         CreatAccount_button.setBackground(new java.awt.Color(1, 50, 67));
@@ -95,7 +100,8 @@ public class HomePage extends javax.swing.JFrame {
             .addComponent(main_base_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(966, 549));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Exit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit_buttonActionPerformed
@@ -108,7 +114,17 @@ public class HomePage extends javax.swing.JFrame {
 
     private void CreatAccount_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreatAccount_buttonActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        CreatAccountPage ob=new CreatAccountPage();
+        ob.setVisible(true);
     }//GEN-LAST:event_CreatAccount_buttonActionPerformed
+
+    private void Homepage_login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Homepage_login_buttonActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        LoginPage lp=new LoginPage();
+        lp.setVisible(true);
+    }//GEN-LAST:event_Homepage_login_buttonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,11 +5,20 @@
  */
 package prometheus.pkg215;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Acer
  */
 public class forgotPasswordPage extends javax.swing.JFrame {
+    
+    //creating connection to database
+    Connection connection;
+    ResultSet rs;
+    PreparedStatement pst;
 
     /**
      * Creates new form forgotPasswordPage
@@ -186,7 +195,8 @@ public class forgotPasswordPage extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(976, 579));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void email_textfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_textfieldActionPerformed

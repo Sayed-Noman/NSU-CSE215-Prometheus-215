@@ -6,17 +6,29 @@
 
 package prometheus.pkg215;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Acer
  */
 public class CreatAccountPage extends javax.swing.JFrame {
 
+    
+    //creating connection to database
+    Connection connection;
+    ResultSet rs;
+    PreparedStatement pst;
+    
     /**
      * Creates new form CreatAccountPage
      */
     public CreatAccountPage() {
         initComponents();
+        //creating connection to accountpage with database
+        connection=JavaDbConnect.databaseConnect();
         //theese code of line will set transparent textfields
         this.creatAccount_page_bacground_image.setBackground(new Color(0,0,0,0));
         firstName_textfield.setBackground(new Color(0,0,0,0));
@@ -67,7 +79,7 @@ public class CreatAccountPage extends javax.swing.JFrame {
         terms_and_condition_label = new javax.swing.JLabel();
         creat_account_button = new javax.swing.JButton();
         firstName_label = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        admin_type_combobox = new javax.swing.JComboBox<>();
         exitpage_button = new javax.swing.JButton();
         homepage_button = new javax.swing.JButton();
         creatAccount_page_bacground_image = new javax.swing.JLabel();
@@ -218,6 +230,11 @@ public class CreatAccountPage extends javax.swing.JFrame {
         creat_account_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         creat_account_button.setForeground(new java.awt.Color(255, 255, 255));
         creat_account_button.setText("Create Account");
+        creat_account_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creat_account_buttonActionPerformed(evt);
+            }
+        });
         create_account_base_panel.add(creat_account_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 510, 160, 50));
 
         firstName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
@@ -225,8 +242,8 @@ public class CreatAccountPage extends javax.swing.JFrame {
         firstName_label.setText("First Name");
         create_account_base_panel.add(firstName_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 210, 40));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Traffic Police", "Driver" }));
-        create_account_base_panel.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 140, 40));
+        admin_type_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Traffic Police", "Driver" }));
+        create_account_base_panel.add(admin_type_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 140, 40));
 
         exitpage_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         exitpage_button.setForeground(new java.awt.Color(255, 255, 255));
@@ -236,6 +253,11 @@ public class CreatAccountPage extends javax.swing.JFrame {
         homepage_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         homepage_button.setForeground(new java.awt.Color(255, 255, 255));
         homepage_button.setText("Home");
+        homepage_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homepage_buttonActionPerformed(evt);
+            }
+        });
         create_account_base_panel.add(homepage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 40));
 
         creatAccount_page_bacground_image.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_backgrounds\\CreatAccount_page_background.jpg")); // NOI18N
@@ -257,7 +279,8 @@ public class CreatAccountPage extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(996, 649));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void answer_textfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answer_textfieldActionPerformed
@@ -271,6 +294,38 @@ public class CreatAccountPage extends javax.swing.JFrame {
     private void email_textfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_textfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_email_textfieldActionPerformed
+
+    private void creat_account_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creat_account_buttonActionPerformed
+        // TODO add your handling code here:
+        try{
+            String sql="Insert into accounts (FirstName,LastName,UserName,Email,Password,ConfirmPassword,SecurityQuestion,SecurityQuestionAnswer,AdminType) values (?,?,?,?,?,?,?,?,?)";
+            pst=connection.prepareStatement(sql);
+            pst.setString(1,firstName_textfield.getText());
+            pst.setString(2,lastName_textfield.getText());
+            pst.setString(3,username_textfield.getText());
+            pst.setString(4,email_textfield.getText());
+            pst.setString(5,password_textfield.getText());
+            pst.setString(6,confirm_password_textfield.getText());
+            pst.setString(7,(String)security_question_combobox.getSelectedItem());
+            pst.setString(8,answer_textfield.getText());
+            pst.setString(9,(String) admin_type_combobox.getSelectedItem());
+            pst.execute();
+            JOptionPane.showMessageDialog(null,"Account Successfully Created");
+            
+            
+             
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_creat_account_buttonActionPerformed
+
+    private void homepage_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homepage_buttonActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        HomePage hp= new HomePage();
+        hp.setVisible(true);
+    }//GEN-LAST:event_homepage_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,6 +363,7 @@ public class CreatAccountPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> admin_type_combobox;
     private javax.swing.JLabel admin_type_label;
     private javax.swing.JCheckBox agree_checkbox;
     private javax.swing.JLabel answer_label;
@@ -323,7 +379,6 @@ public class CreatAccountPage extends javax.swing.JFrame {
     private javax.swing.JLabel firstName_label;
     private javax.swing.JTextField firstName_textfield;
     private javax.swing.JButton homepage_button;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
