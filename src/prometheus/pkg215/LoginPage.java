@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,6 +28,9 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
+        
+        connection=JavaDbConnect.databaseConnect();
+        
         //thes two line will ste the jframe screen into the middle
         //Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();
        // this.setLocation(dim.width/2-this.getSize().width/2,dim.height/2-this.getSize().height/2);
@@ -63,7 +67,7 @@ public class LoginPage extends javax.swing.JFrame {
         separetor_password = new javax.swing.JSeparator();
         Login_button = new javax.swing.JButton();
         dont_have_account_label = new javax.swing.JLabel();
-        login_adminType_cobobox = new javax.swing.JComboBox<>();
+        login_adminType_combobox = new javax.swing.JComboBox<>();
         user_name_lable2 = new javax.swing.JLabel();
         forgot_password_label = new javax.swing.JLabel();
         exit_button = new javax.swing.JButton();
@@ -116,9 +120,9 @@ public class LoginPage extends javax.swing.JFrame {
         dont_have_account_label.setText("Don't have an accoun?");
         Login_base_panel.add(dont_have_account_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 130, 50));
 
-        login_adminType_cobobox.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 13)); // NOI18N
-        login_adminType_cobobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Traffic Police", "Driver" }));
-        Login_base_panel.add(login_adminType_cobobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 120, 40));
+        login_adminType_combobox.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 13)); // NOI18N
+        login_adminType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Traffic Police", "Driver" }));
+        Login_base_panel.add(login_adminType_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 120, 40));
 
         user_name_lable2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 20)); // NOI18N
         user_name_lable2.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,6 +174,41 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void Login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_buttonActionPerformed
         // TODO add your handling code here:
+        String sql="select * from accounts where UserName=? and Password=? and AdminType=?";
+        try{
+             pst=connection.prepareStatement(sql);
+             pst.setString(1,Username_textfield.getText());
+             pst.setString(2,password_field.getText());
+             pst.setString(3,(String)login_adminType_combobox.getSelectedItem());
+              rs=pst.executeQuery();
+             
+             
+             if(rs.next()){
+                 
+                 JOptionPane.showMessageDialog(null,"Username and Password Matched and You are Loged in as "+rs.getString("AdminType"));
+                 rs.close();
+                 pst.close();
+                 if(login_adminType_combobox.getSelectedIndex()==0){
+                     this.setVisible(false);
+                     TrafficPolicePage tf=new TrafficPolicePage();
+                     tf.setVisible(true);
+                 }else if(login_adminType_combobox.getSelectedIndex()==1 ){
+                     this.setVisible(false);
+                     DriverPage dp=new DriverPage();
+                     dp.setVisible(true);
+                 }else{   
+                    JOptionPane.showMessageDialog(null,"Invalid UserName and Password" );    
+                }
+             }
+             else{   
+                    JOptionPane.showMessageDialog(null,"Invalid UserName and Password" );    
+                }
+           
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+        
     }//GEN-LAST:event_Login_buttonActionPerformed
 
     /**
@@ -215,7 +254,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JButton exit_button;
     private javax.swing.JLabel forgot_password_label;
     private javax.swing.JButton home_button;
-    private javax.swing.JComboBox<String> login_adminType_cobobox;
+    private javax.swing.JComboBox<String> login_adminType_combobox;
     private javax.swing.JLabel login_adminType_label;
     private javax.swing.JLabel login_background_image;
     private javax.swing.JPasswordField password_field;
