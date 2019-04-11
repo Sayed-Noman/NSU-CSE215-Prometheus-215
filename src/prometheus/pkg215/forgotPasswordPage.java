@@ -8,6 +8,7 @@ package prometheus.pkg215;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,6 +26,50 @@ public class forgotPasswordPage extends javax.swing.JFrame {
      */
     public forgotPasswordPage() {
         initComponents();
+        connection=JavaDbConnect.databaseConnect();
+    }
+    
+    //Search function to show information
+    public void Search(){
+        String usr_name=username_textfield.getText();
+        String sql="select * from accounts where UserName='"+usr_name+"'";
+        try{
+            pst=connection.prepareStatement(sql);
+            rs=pst.executeQuery();
+            if (rs.next()){
+            email_textfield.setText(rs.getString(4));
+            security_question_textfield.setText(rs.getString(7));
+            admin_type_textfield.setText(rs.getString(9));
+            rs.close();
+            pst.close();
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Incorrect Username");
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }
+    
+    
+    //to retrive password
+    public void Retrive(){
+        String usr_name=username_textfield.getText();
+        String seq_answer=answer_textfield.getText();
+        String sql="select * from accounts where SecurityQuestionAnswer='"+seq_answer+"'";
+        try{
+            pst=connection.prepareStatement(sql);
+            rs=pst.executeQuery();
+            
+            if(rs.next()){
+            your_password_textfield.setText(rs.getString(5));
+            
+           }
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }  
+        
     }
 
     /**
@@ -49,6 +94,7 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         security_question_textfield = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         answer_label = new javax.swing.JLabel();
+        admin_type_textfield = new javax.swing.JTextField();
         answer_textfield = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -56,7 +102,6 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         email_search_button = new javax.swing.JButton();
         exit_button = new javax.swing.JButton();
         email_label = new javax.swing.JLabel();
-        adminType_combobox = new javax.swing.JComboBox<>();
         home_button = new javax.swing.JButton();
         forgot_password_page_background_image_label = new javax.swing.JLabel();
 
@@ -71,8 +116,10 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         security_qustion_lable.setText("Your Security Question");
         forgot_password_base_panel.add(security_qustion_lable, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 220, 40));
 
+        your_password_textfield.setEditable(false);
         your_password_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         your_password_textfield.setForeground(new java.awt.Color(255, 0, 0));
+        your_password_textfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         your_password_textfield.setBorder(null);
         your_password_textfield.setOpaque(false);
         forgot_password_base_panel.add(your_password_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 330, 40));
@@ -82,12 +129,12 @@ public class forgotPasswordPage extends javax.swing.JFrame {
 
         select_admin_type_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         select_admin_type_label.setForeground(new java.awt.Color(255, 255, 255));
-        select_admin_type_label.setText("Select Admin Type");
-        forgot_password_base_panel.add(select_admin_type_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 150, 40));
+        select_admin_type_label.setText("Admin Type");
+        forgot_password_base_panel.add(select_admin_type_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 120, 40));
 
+        email_textfield.setEditable(false);
         email_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         email_textfield.setForeground(new java.awt.Color(51, 51, 51));
-        email_textfield.setText("Enter Your Email ");
         email_textfield.setBorder(null);
         email_textfield.setOpaque(false);
         email_textfield.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +142,7 @@ public class forgotPasswordPage extends javax.swing.JFrame {
                 email_textfieldActionPerformed(evt);
             }
         });
-        forgot_password_base_panel.add(email_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 330, 40));
+        forgot_password_base_panel.add(email_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 330, 40));
 
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         forgot_password_base_panel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 330, 10));
@@ -107,15 +154,17 @@ public class forgotPasswordPage extends javax.swing.JFrame {
 
         username_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         username_textfield.setForeground(new java.awt.Color(51, 51, 51));
+        username_textfield.setText("Enter Username");
         username_textfield.setBorder(null);
         username_textfield.setOpaque(false);
-        forgot_password_base_panel.add(username_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 330, 40));
+        forgot_password_base_panel.add(username_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 330, 40));
 
         username_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         username_label.setForeground(new java.awt.Color(255, 255, 255));
         username_label.setText("Username");
-        forgot_password_base_panel.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 150, 40));
+        forgot_password_base_panel.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 150, 40));
 
+        security_question_textfield.setEditable(false);
         security_question_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         security_question_textfield.setForeground(new java.awt.Color(51, 51, 51));
         security_question_textfield.setBorder(null);
@@ -135,8 +184,21 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         answer_label.setText("Answer");
         forgot_password_base_panel.add(answer_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 150, 40));
 
+        admin_type_textfield.setEditable(false);
+        admin_type_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
+        admin_type_textfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        admin_type_textfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        admin_type_textfield.setOpaque(false);
+        admin_type_textfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admin_type_textfieldActionPerformed(evt);
+            }
+        });
+        forgot_password_base_panel.add(admin_type_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 160, 50));
+
         answer_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         answer_textfield.setForeground(new java.awt.Color(51, 51, 51));
+        answer_textfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         answer_textfield.setText("Submit your Answer");
         answer_textfield.setBorder(null);
         answer_textfield.setOpaque(false);
@@ -151,11 +213,21 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         retrive_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         retrive_button.setForeground(new java.awt.Color(255, 255, 255));
         retrive_button.setText("Retrive");
+        retrive_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retrive_buttonActionPerformed(evt);
+            }
+        });
         forgot_password_base_panel.add(retrive_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 90, 40));
 
         email_search_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         email_search_button.setForeground(new java.awt.Color(255, 255, 255));
         email_search_button.setText("Search");
+        email_search_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                email_search_buttonActionPerformed(evt);
+            }
+        });
         forgot_password_base_panel.add(email_search_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 90, 40));
 
         exit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
@@ -166,15 +238,16 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         email_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         email_label.setForeground(new java.awt.Color(255, 255, 255));
         email_label.setText("Email");
-        forgot_password_base_panel.add(email_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 150, 40));
-
-        adminType_combobox.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 13)); // NOI18N
-        adminType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Traffic Police", "Driver" }));
-        forgot_password_base_panel.add(adminType_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 130, 40));
+        forgot_password_base_panel.add(email_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 150, 40));
 
         home_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         home_button.setForeground(new java.awt.Color(255, 255, 255));
         home_button.setText("Home");
+        home_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                home_buttonActionPerformed(evt);
+            }
+        });
         forgot_password_base_panel.add(home_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 30));
 
         forgot_password_page_background_image_label.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_backgrounds\\forgot_password_page_background.jpg")); // NOI18N
@@ -206,6 +279,27 @@ public class forgotPasswordPage extends javax.swing.JFrame {
     private void security_question_textfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_security_question_textfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_security_question_textfieldActionPerformed
+
+    private void email_search_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_search_buttonActionPerformed
+        // TODO add your handling code here:
+        Search();
+    }//GEN-LAST:event_email_search_buttonActionPerformed
+
+    private void retrive_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retrive_buttonActionPerformed
+        // TODO add your handling code here:
+        Retrive();
+    }//GEN-LAST:event_retrive_buttonActionPerformed
+
+    private void admin_type_textfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_type_textfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_admin_type_textfieldActionPerformed
+
+    private void home_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_buttonActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        HomePage hp=new HomePage();
+        hp.setVisible(true);
+    }//GEN-LAST:event_home_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,7 +337,7 @@ public class forgotPasswordPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> adminType_combobox;
+    private javax.swing.JTextField admin_type_textfield;
     private javax.swing.JLabel answer_label;
     private javax.swing.JTextField answer_textfield;
     private javax.swing.JLabel email_label;
