@@ -242,6 +242,7 @@ public class CreatAccountPage extends javax.swing.JFrame {
         firstName_label.setText("First Name");
         create_account_base_panel.add(firstName_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 210, 40));
 
+        admin_type_combobox.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         admin_type_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Traffic Police", "Driver" }));
         create_account_base_panel.add(admin_type_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 140, 40));
 
@@ -261,7 +262,6 @@ public class CreatAccountPage extends javax.swing.JFrame {
         create_account_base_panel.add(homepage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 40));
 
         creatAccount_page_bacground_image.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_backgrounds\\CreatAccount_page_background.jpg")); // NOI18N
-        creatAccount_page_bacground_image.setPreferredSize(new java.awt.Dimension(980, 610));
         create_account_base_panel.add(creatAccount_page_bacground_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
