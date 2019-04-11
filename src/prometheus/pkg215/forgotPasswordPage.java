@@ -52,7 +52,6 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         forgot_password_page_background_image_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(960, 540));
         setSize(new java.awt.Dimension(960, 540));
 
         forgot_password_base_panel.setPreferredSize(new java.awt.Dimension(960, 540));

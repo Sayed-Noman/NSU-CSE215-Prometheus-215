@@ -39,7 +39,7 @@ public class CreatAccountPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        create_account_base_panel = new javax.swing.JPanel();
         lastName_label = new javax.swing.JLabel();
         lastName_textfield = new javax.swing.JTextField();
         answer_label = new javax.swing.JLabel();
@@ -73,28 +73,27 @@ public class CreatAccountPage extends javax.swing.JFrame {
         creatAccount_page_bacground_image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(980, 610));
         setSize(new java.awt.Dimension(980, 610));
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(980, 610));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        create_account_base_panel.setPreferredSize(new java.awt.Dimension(980, 610));
+        create_account_base_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lastName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         lastName_label.setForeground(new java.awt.Color(255, 255, 255));
         lastName_label.setText("Last Name");
-        jPanel1.add(lastName_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 210, 40));
+        create_account_base_panel.add(lastName_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 210, 40));
 
         lastName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
         lastName_textfield.setForeground(new java.awt.Color(51, 51, 51));
         lastName_textfield.setText("Enter your Last Name");
         lastName_textfield.setBorder(null);
         lastName_textfield.setOpaque(false);
-        jPanel1.add(lastName_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 100, 210, 40));
+        create_account_base_panel.add(lastName_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 100, 210, 40));
 
         answer_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         answer_label.setForeground(new java.awt.Color(255, 255, 255));
         answer_label.setText("Answer");
-        jPanel1.add(answer_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 210, 40));
+        create_account_base_panel.add(answer_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 210, 40));
 
         answer_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
         answer_textfield.setForeground(new java.awt.Color(51, 51, 51));
@@ -106,33 +105,33 @@ public class CreatAccountPage extends javax.swing.JFrame {
                 answer_textfieldActionPerformed(evt);
             }
         });
-        jPanel1.add(answer_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 440, 40));
+        create_account_base_panel.add(answer_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 440, 40));
 
         confirm_password_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         confirm_password_label.setForeground(new java.awt.Color(255, 255, 255));
         confirm_password_label.setText("Confirm Password");
-        jPanel1.add(confirm_password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 210, 40));
+        create_account_base_panel.add(confirm_password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 210, 40));
 
         confirm_password_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
         confirm_password_textfield.setForeground(new java.awt.Color(51, 51, 51));
         confirm_password_textfield.setText("Retype your password");
         confirm_password_textfield.setBorder(null);
         confirm_password_textfield.setOpaque(false);
-        jPanel1.add(confirm_password_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 210, 40));
+        create_account_base_panel.add(confirm_password_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 210, 40));
 
         jSeparator1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, 210, 20));
+        create_account_base_panel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, 210, 20));
 
         jSeparator3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 210, 20));
+        create_account_base_panel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 210, 20));
 
         jSeparator2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 440, 20));
+        create_account_base_panel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 440, 20));
 
         username_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         username_label.setForeground(new java.awt.Color(255, 255, 255));
         username_label.setText("Username");
-        jPanel1.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 210, 40));
+        create_account_base_panel.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 210, 40));
 
         username_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
         username_textfield.setForeground(new java.awt.Color(51, 51, 51));
@@ -144,56 +143,56 @@ public class CreatAccountPage extends javax.swing.JFrame {
                 username_textfieldActionPerformed(evt);
             }
         });
-        jPanel1.add(username_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 440, 40));
+        create_account_base_panel.add(username_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 440, 40));
 
         jSeparator4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, 440, 20));
+        create_account_base_panel.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, 440, 20));
 
         admin_type_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         admin_type_label.setForeground(new java.awt.Color(255, 255, 255));
         admin_type_label.setText("Admin Type");
-        jPanel1.add(admin_type_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 150, 40));
+        create_account_base_panel.add(admin_type_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 150, 40));
 
         security_question_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         security_question_label.setForeground(new java.awt.Color(255, 255, 255));
         security_question_label.setText("Security Question");
-        jPanel1.add(security_question_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 160, 40));
+        create_account_base_panel.add(security_question_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 160, 40));
 
         firstName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
         firstName_textfield.setForeground(new java.awt.Color(51, 51, 51));
         firstName_textfield.setText("Enter your First Name");
         firstName_textfield.setBorder(null);
         firstName_textfield.setOpaque(false);
-        jPanel1.add(firstName_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 210, 40));
+        create_account_base_panel.add(firstName_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 210, 40));
 
         password_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
         password_textfield.setForeground(new java.awt.Color(51, 51, 51));
         password_textfield.setText("Enter your password");
         password_textfield.setBorder(null);
         password_textfield.setOpaque(false);
-        jPanel1.add(password_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 210, 40));
+        create_account_base_panel.add(password_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 210, 40));
 
         jSeparator5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 210, 20));
+        create_account_base_panel.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 210, 20));
 
         jSeparator6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 210, 20));
+        create_account_base_panel.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 210, 20));
 
         jSeparator7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 440, 20));
+        create_account_base_panel.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 440, 20));
 
         password_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         password_label.setForeground(new java.awt.Color(255, 255, 255));
         password_label.setText("Password");
-        jPanel1.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 210, 40));
+        create_account_base_panel.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 210, 40));
 
         security_question_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Who is the best player Messi or Ronaldo?", "Who the best defender Ramos or pique?", "Who is the best GK Courtois or Navas?", "Who is best Coach Zidane or Mourniho?" }));
-        jPanel1.add(security_question_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 280, 40));
+        create_account_base_panel.add(security_question_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 280, 40));
 
         email_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         email_label.setForeground(new java.awt.Color(255, 255, 255));
         email_label.setText("Email");
-        jPanel1.add(email_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 210, 40));
+        create_account_base_panel.add(email_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 210, 40));
 
         email_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
         email_textfield.setForeground(new java.awt.Color(51, 51, 51));
@@ -205,56 +204,56 @@ public class CreatAccountPage extends javax.swing.JFrame {
                 email_textfieldActionPerformed(evt);
             }
         });
-        jPanel1.add(email_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 440, 40));
+        create_account_base_panel.add(email_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 440, 40));
 
         agree_checkbox.setForeground(new java.awt.Color(0, 0, 204));
         agree_checkbox.setText("Agree");
         agree_checkbox.setOpaque(false);
-        jPanel1.add(agree_checkbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, 60, 30));
+        create_account_base_panel.add(agree_checkbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, 60, 30));
 
         terms_and_condition_label.setForeground(new java.awt.Color(102, 102, 102));
         terms_and_condition_label.setText("<html>\n  <body>\n<u>terms & conditions</u>\n</body>\n</html>");
-        jPanel1.add(terms_and_condition_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, 120, 30));
+        create_account_base_panel.add(terms_and_condition_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, 120, 30));
 
         creat_account_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         creat_account_button.setForeground(new java.awt.Color(255, 255, 255));
         creat_account_button.setText("Create Account");
-        jPanel1.add(creat_account_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 510, 160, 50));
+        create_account_base_panel.add(creat_account_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 510, 160, 50));
 
         firstName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         firstName_label.setForeground(new java.awt.Color(255, 255, 255));
         firstName_label.setText("First Name");
-        jPanel1.add(firstName_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 210, 40));
+        create_account_base_panel.add(firstName_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 210, 40));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Traffic Police", "Driver" }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 140, 40));
+        create_account_base_panel.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 140, 40));
 
         exitpage_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         exitpage_button.setForeground(new java.awt.Color(255, 255, 255));
         exitpage_button.setText("Exit");
-        jPanel1.add(exitpage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 110, 40));
+        create_account_base_panel.add(exitpage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 110, 40));
 
         homepage_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         homepage_button.setForeground(new java.awt.Color(255, 255, 255));
         homepage_button.setText("Home");
-        jPanel1.add(homepage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 40));
+        create_account_base_panel.add(homepage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 40));
 
         creatAccount_page_bacground_image.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_backgrounds\\CreatAccount_page_background.jpg")); // NOI18N
         creatAccount_page_bacground_image.setPreferredSize(new java.awt.Dimension(980, 610));
-        jPanel1.add(creatAccount_page_bacground_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        create_account_base_panel.add(creatAccount_page_bacground_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(create_account_base_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(create_account_base_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -317,6 +316,7 @@ public class CreatAccountPage extends javax.swing.JFrame {
     private javax.swing.JTextField confirm_password_textfield;
     private javax.swing.JLabel creatAccount_page_bacground_image;
     private javax.swing.JButton creat_account_button;
+    private javax.swing.JPanel create_account_base_panel;
     private javax.swing.JLabel email_label;
     private javax.swing.JTextField email_textfield;
     private javax.swing.JButton exitpage_button;
@@ -324,7 +324,6 @@ public class CreatAccountPage extends javax.swing.JFrame {
     private javax.swing.JTextField firstName_textfield;
     private javax.swing.JButton homepage_button;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
