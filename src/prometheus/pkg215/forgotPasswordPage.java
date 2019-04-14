@@ -250,7 +250,7 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         });
         forgot_password_base_panel.add(home_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 30));
 
-        forgot_password_page_background_image_label.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_backgrounds\\forgot_password_page_background.jpg")); // NOI18N
+        forgot_password_page_background_image_label.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_backgrounds\\forgot_password_background_image.jpg")); // NOI18N
         forgot_password_base_panel.add(forgot_password_page_background_image_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
