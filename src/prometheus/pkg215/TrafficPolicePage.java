@@ -5,17 +5,29 @@
  */
 package prometheus.pkg215;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Acer
  */
 public class TrafficPolicePage extends javax.swing.JFrame {
 
+    //creating connection to database
+    Connection connection;
+    ResultSet rs;
+    PreparedStatement pst;
+
     /**
      * Creates new form TrafficPolicePage
      */
     public TrafficPolicePage() {
         initComponents();
+
+        connection = JavaDbConnect.databaseConnect();
     }
 
     /**
@@ -27,21 +39,164 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        toolber = new javax.swing.JToolBar();
+        home_toolber_button = new javax.swing.JButton();
+        signout_toobar_button = new javax.swing.JButton();
+        Date = new javax.swing.JMenuBar();
+        file_menu = new javax.swing.JMenu();
+        close_menuitem = new javax.swing.JMenuItem();
+        exit_menuitem = new javax.swing.JMenuItem();
+        help_menu = new javax.swing.JMenu();
+        about_menu = new javax.swing.JMenu();
+        Time_menu = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1365, 730));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1365, 730));
+
+        toolber.setRollover(true);
+
+        home_toolber_button.setText("Home");
+        home_toolber_button.setFocusable(false);
+        home_toolber_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        home_toolber_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        home_toolber_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                home_toolber_buttonActionPerformed(evt);
+            }
+        });
+        toolber.add(home_toolber_button);
+
+        signout_toobar_button.setText("Sign Out");
+        signout_toobar_button.setFocusable(false);
+        signout_toobar_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        signout_toobar_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        signout_toobar_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signout_toobar_buttonActionPerformed(evt);
+            }
+        });
+        toolber.add(signout_toobar_button);
+
+        file_menu.setText("File");
+
+        close_menuitem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        close_menuitem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_buttons\\close_icon.png")); // NOI18N
+        close_menuitem.setText("Close");
+        close_menuitem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                close_menuitemActionPerformed(evt);
+            }
+        });
+        file_menu.add(close_menuitem);
+
+        exit_menuitem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        exit_menuitem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_buttons\\exit_icon.png")); // NOI18N
+        exit_menuitem.setText("Exit");
+        exit_menuitem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exit_menuitemActionPerformed(evt);
+            }
+        });
+        file_menu.add(exit_menuitem);
+
+        Date.add(file_menu);
+
+        help_menu.setText("Help");
+        Date.add(help_menu);
+
+        about_menu.setText("About");
+        Date.add(about_menu);
+
+        Time_menu.setText("Time");
+        Date.add(Time_menu);
+
+        setJMenuBar(Date);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(toolber, javax.swing.GroupLayout.PREFERRED_SIZE, 1022, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(toolber, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 709, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void close_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_menuitemActionPerformed
+        // TODO add your handling code here:
+        try {
+            setVisible(false);
+            LoginPage lp = new LoginPage();
+            lp.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                //rs.close();
+                //pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+
+    }//GEN-LAST:event_close_menuitemActionPerformed
+
+    private void exit_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_menuitemActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_exit_menuitemActionPerformed
+
+    private void home_toolber_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_toolber_buttonActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            setVisible(false);
+            HomePage hp = new HomePage();
+            hp.setVisible(true);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                //rs.close();
+                //pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+
+    }//GEN-LAST:event_home_toolber_buttonActionPerformed
+
+    private void signout_toobar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signout_toobar_buttonActionPerformed
+        // TODO add your handling code here:
+         try {
+            setVisible(false);
+            LoginPage lp = new LoginPage();
+            lp.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                //rs.close();
+                //pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_signout_toobar_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -54,7 +209,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -79,5 +234,15 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar Date;
+    private javax.swing.JMenu Time_menu;
+    private javax.swing.JMenu about_menu;
+    private javax.swing.JMenuItem close_menuitem;
+    private javax.swing.JMenuItem exit_menuitem;
+    private javax.swing.JMenu file_menu;
+    private javax.swing.JMenu help_menu;
+    private javax.swing.JButton home_toolber_button;
+    private javax.swing.JButton signout_toobar_button;
+    private javax.swing.JToolBar toolber;
     // End of variables declaration//GEN-END:variables
 }
