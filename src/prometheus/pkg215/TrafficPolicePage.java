@@ -42,6 +42,13 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         toolber = new javax.swing.JToolBar();
         home_toolber_button = new javax.swing.JButton();
         signout_toobar_button = new javax.swing.JButton();
+        panel_for_tabpane = new javax.swing.JPanel();
+        tabpane = new javax.swing.JTabbedPane();
+        datatable_tabpane = new javax.swing.JPanel();
+        report_tabpane = new javax.swing.JPanel();
+        statistics_tabpane = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         Date = new javax.swing.JMenuBar();
         file_menu = new javax.swing.JMenu();
         close_menuitem = new javax.swing.JMenuItem();
@@ -72,12 +79,90 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         signout_toobar_button.setFocusable(false);
         signout_toobar_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         signout_toobar_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        signout_toobar_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signout_toobar_buttonActionPerformed(evt);
-            }
-        });
         toolber.add(signout_toobar_button);
+
+        panel_for_tabpane.setBackground(new java.awt.Color(0, 153, 153));
+
+        tabpane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Action Panel", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB Demi", 1, 10))); // NOI18N
+        tabpane.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+
+        javax.swing.GroupLayout datatable_tabpaneLayout = new javax.swing.GroupLayout(datatable_tabpane);
+        datatable_tabpane.setLayout(datatable_tabpaneLayout);
+        datatable_tabpaneLayout.setHorizontalGroup(
+            datatable_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2350, Short.MAX_VALUE)
+        );
+        datatable_tabpaneLayout.setVerticalGroup(
+            datatable_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 238, Short.MAX_VALUE)
+        );
+
+        tabpane.addTab("Data Table", datatable_tabpane);
+
+        javax.swing.GroupLayout report_tabpaneLayout = new javax.swing.GroupLayout(report_tabpane);
+        report_tabpane.setLayout(report_tabpaneLayout);
+        report_tabpaneLayout.setHorizontalGroup(
+            report_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2350, Short.MAX_VALUE)
+        );
+        report_tabpaneLayout.setVerticalGroup(
+            report_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 238, Short.MAX_VALUE)
+        );
+
+        tabpane.addTab("Report", report_tabpane);
+
+        javax.swing.GroupLayout statistics_tabpaneLayout = new javax.swing.GroupLayout(statistics_tabpane);
+        statistics_tabpane.setLayout(statistics_tabpaneLayout);
+        statistics_tabpaneLayout.setHorizontalGroup(
+            statistics_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2350, Short.MAX_VALUE)
+        );
+        statistics_tabpaneLayout.setVerticalGroup(
+            statistics_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 238, Short.MAX_VALUE)
+        );
+
+        tabpane.addTab("Statistics", statistics_tabpane);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2350, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 238, Short.MAX_VALUE)
+        );
+
+        tabpane.addTab("Documents", jPanel5);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2350, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 238, Short.MAX_VALUE)
+        );
+
+        tabpane.addTab("Email", jPanel6);
+
+        javax.swing.GroupLayout panel_for_tabpaneLayout = new javax.swing.GroupLayout(panel_for_tabpane);
+        panel_for_tabpane.setLayout(panel_for_tabpaneLayout);
+        panel_for_tabpaneLayout.setHorizontalGroup(
+            panel_for_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tabpane, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+        panel_for_tabpaneLayout.setVerticalGroup(
+            panel_for_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_tabpaneLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(tabpane, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         file_menu.setText("File");
 
@@ -121,12 +206,18 @@ public class TrafficPolicePage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(toolber, javax.swing.GroupLayout.PREFERRED_SIZE, 1022, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panel_for_tabpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(toolber, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 709, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
+                .addComponent(panel_for_tabpane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -179,25 +270,6 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_home_toolber_buttonActionPerformed
 
-    private void signout_toobar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signout_toobar_buttonActionPerformed
-        // TODO add your handling code here:
-         try {
-            setVisible(false);
-            LoginPage lp = new LoginPage();
-            lp.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } finally {
-            try {
-                //rs.close();
-                //pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
-    }//GEN-LAST:event_signout_toobar_buttonActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -238,11 +310,18 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JMenu Time_menu;
     private javax.swing.JMenu about_menu;
     private javax.swing.JMenuItem close_menuitem;
+    private javax.swing.JPanel datatable_tabpane;
     private javax.swing.JMenuItem exit_menuitem;
     private javax.swing.JMenu file_menu;
     private javax.swing.JMenu help_menu;
     private javax.swing.JButton home_toolber_button;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel panel_for_tabpane;
+    private javax.swing.JPanel report_tabpane;
     private javax.swing.JButton signout_toobar_button;
+    private javax.swing.JPanel statistics_tabpane;
+    private javax.swing.JTabbedPane tabpane;
     private javax.swing.JToolBar toolber;
     // End of variables declaration//GEN-END:variables
 }
