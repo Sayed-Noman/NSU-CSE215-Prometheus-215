@@ -257,6 +257,11 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         clear_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         clear_button.setText("Clear");
+        clear_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clear_buttonActionPerformed(evt);
+            }
+        });
 
         delete_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         delete_button.setText("Delete");
@@ -296,6 +301,11 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         search_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
         search_textfield.setText("Search");
+        search_textfield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                search_textfieldKeyReleased(evt);
+            }
+        });
 
         search_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\search_icon.png")); // NOI18N
 
@@ -650,52 +660,47 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DriverInfoUpdateTable(){
+    private void DriverInfoUpdateTable() {
         try {
-            String sql= "select id,Full_name,Gender,Blood_Group,Email,City,Issued,Expired,License_Type from DriverInfo";
-            pst=connection.prepareStatement(sql);
-            rs=pst.executeQuery();
+            String sql = "select id,Full_name,Gender,Blood_Group,Email,City,Issued,Expired,License_Type from DriverInfo";
+            pst = connection.prepareStatement(sql);
+            rs = pst.executeQuery();
             driverinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(rootPane, ex);
         }
-        
+
     }
-    
-    private void DriverShortInfoTable(){
+
+    private void DriverShortInfoTable() {
         try {
-            String sql= "select id,License_Type,Points from DriverInfo";
-            pst=connection.prepareStatement(sql);
-            rs=pst.executeQuery();
+            String sql = "select id,License_Type,Points from DriverInfo";
+            pst = connection.prepareStatement(sql);
+            rs = pst.executeQuery();
             drivershortinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(rootPane, ex);
         }
-        
+
     }
-    private void dateAndTime(){
+
+    private void dateAndTime() {
         //static date and time
-        Calendar cal=new GregorianCalendar();
-        int day=cal.get(Calendar.DAY_OF_MONTH);
-        int month=cal.get(Calendar.MONTH);
-        int year=cal.get(Calendar.YEAR);
-        date_menu.setText("Date: "+day+"/"+(month+1)+"/"+year);
+        Calendar cal = new GregorianCalendar();
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int month = cal.get(Calendar.MONTH);
+        int year = cal.get(Calendar.YEAR);
+        date_menu.setText("Date: " + day + "/" + (month + 1) + "/" + year);
         date_menu.setForeground(Color.BLUE);
-        
-        int second=cal.get(Calendar.SECOND);
-        int minute=cal.get(Calendar.MINUTE);
-        int hour=cal.get(Calendar.HOUR);
-        time_menu.setText("Login Time: "+hour+":"+minute+":"+second);
+
+        int second = cal.get(Calendar.SECOND);
+        int minute = cal.get(Calendar.MINUTE);
+        int hour = cal.get(Calendar.HOUR);
+        time_menu.setText("Login Time: " + hour + ":" + minute + ":" + second);
         time_menu.setForeground(Color.RED);
-        
-        
-        
-        
-        
-        
-        
+
     }
-    
+
     private void close_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_menuitemActionPerformed
         // TODO add your handling code here:
         try {
@@ -743,123 +748,171 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_home_toolber_buttonActionPerformed
 
-    private void getValues(){
+    private void getValues() {
         try {
-           
-                drivers_id_textfield.setText(rs.getString("Id"));
-                firstName_textfield.setText(rs.getString("First_Name"));
-                lastName_textfield.setText(rs.getString("Last_Name"));
-                fullName_textfield.setText(rs.getString("Full_Name"));
-                dob_textfield.setText(rs.getString("Dob"));
-                gender_combobox.setSelectedItem(rs.getString("Gender"));
-                bloodGroup_textfield.setText(rs.getString("Blood_Group"));
-                religion_textfield.setText(rs.getString("Religion"));
-                emailAddress_textfield.setText(rs.getString("Email"));
-                city_textfield.setText(rs.getString("City"));
-                address_textfield.setText(rs.getString("Address"));
-                drivingLicenseNo_textfield.setText(rs.getString("Driving_License_No"));
-                licenseType_combobox.setSelectedItem(rs.getString("License_Type"));
-                issuedDate_textfield.setText(rs.getString("Issued"));
-                expiredDate_textfield.setText(rs.getString("Expired"));
-                points_textfield.setText(rs.getString("Points"));
-                
-            }
-            
-         catch (Exception e){
-           JOptionPane.showMessageDialog(null, e);
+
+            drivers_id_textfield.setText(rs.getString("Id"));
+            firstName_textfield.setText(rs.getString("First_Name"));
+            lastName_textfield.setText(rs.getString("Last_Name"));
+            fullName_textfield.setText(rs.getString("Full_Name"));
+            dob_textfield.setText(rs.getString("Dob"));
+            gender_combobox.setSelectedItem(rs.getString("Gender"));
+            bloodGroup_textfield.setText(rs.getString("Blood_Group"));
+            religion_textfield.setText(rs.getString("Religion"));
+            emailAddress_textfield.setText(rs.getString("Email"));
+            city_textfield.setText(rs.getString("City"));
+            address_textfield.setText(rs.getString("Address"));
+            drivingLicenseNo_textfield.setText(rs.getString("Driving_License_No"));
+            licenseType_combobox.setSelectedItem(rs.getString("License_Type"));
+            issuedDate_textfield.setText(rs.getString("Issued"));
+            expiredDate_textfield.setText(rs.getString("Expired"));
+            points_textfield.setText(rs.getString("Points"));
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
     }
     private void drivershortinfo_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_drivershortinfo_tableMouseClicked
         // TODO add your handling code here:
-         try {
+        try {
             // TODO add your handling code here:
-            int row= drivershortinfo_table.getSelectedRow();
-            String tableClick=(drivershortinfo_table.getModel().getValueAt(row,0).toString());
-            String sql="select * from DriverInfo where Id='"+tableClick+"' ";
-            pst=connection.prepareStatement(sql);
-            rs=pst.executeQuery();
-            
-            if(rs.next()){
+            int row = drivershortinfo_table.getSelectedRow();
+            String tableClick = (drivershortinfo_table.getModel().getValueAt(row, 0).toString());
+            String sql = "select * from DriverInfo where Id='" + tableClick + "' ";
+            pst = connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
                 getValues();
-                
+
             }
-            
+
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
-            
+
     }//GEN-LAST:event_drivershortinfo_tableMouseClicked
 
     private void drivershortinfo_tableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_drivershortinfo_tableKeyReleased
         // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_UP|| evt.getKeyCode()==KeyEvent.VK_DOWN){
-        try {
-            // TODO add your handling code here:
-            int row= drivershortinfo_table.getSelectedRow();
-            String tableClick=(drivershortinfo_table.getModel().getValueAt(row,0).toString());
-            String sql="select * from DriverInfo where Id='"+tableClick+"' ";
-            pst=connection.prepareStatement(sql);
-            rs=pst.executeQuery();
-            
-            if(rs.next()){
-               getValues();
+        if (evt.getKeyCode() == KeyEvent.VK_UP || evt.getKeyCode() == KeyEvent.VK_DOWN) {
+            try {
+                // TODO add your handling code here:
+                int row = drivershortinfo_table.getSelectedRow();
+                String tableClick = (drivershortinfo_table.getModel().getValueAt(row, 0).toString());
+                String sql = "select * from DriverInfo where Id='" + tableClick + "' ";
+                pst = connection.prepareStatement(sql);
+                rs = pst.executeQuery();
+
+                if (rs.next()) {
+                    getValues();
+                }
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
             }
-            
-        } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, ex);
-        }
         }
     }//GEN-LAST:event_drivershortinfo_tableKeyReleased
 
     private void driverinfo_tableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_driverinfo_tableKeyReleased
         // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_UP|| evt.getKeyCode()==KeyEvent.VK_DOWN){
-        try {
-            // TODO add your handling code here:
-            int row= driverinfo_table.getSelectedRow();
-            String tableClick=(driverinfo_table.getModel().getValueAt(row,0).toString());
-            String sql="select * from DriverInfo where Id='"+tableClick+"' ";
-            pst=connection.prepareStatement(sql);
-            rs=pst.executeQuery();
-            
-            if(rs.next()){
-               getValues();
+        if (evt.getKeyCode() == KeyEvent.VK_UP || evt.getKeyCode() == KeyEvent.VK_DOWN) {
+            try {
+                // TODO add your handling code here:
+                int row = driverinfo_table.getSelectedRow();
+                String tableClick = (driverinfo_table.getModel().getValueAt(row, 0).toString());
+                String sql = "select * from DriverInfo where Id='" + tableClick + "' ";
+                pst = connection.prepareStatement(sql);
+                rs = pst.executeQuery();
+
+                if (rs.next()) {
+                    getValues();
+                }
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
             }
-            
-        } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, ex);
         }
-       }
     }//GEN-LAST:event_driverinfo_tableKeyReleased
 
     private void driverinfo_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driverinfo_tableMouseClicked
         // TODO add your handling code here:
-         try {
+        try {
             // TODO add your handling code here:
-            int row= driverinfo_table.getSelectedRow();
-            String tableClick=(driverinfo_table.getModel().getValueAt(row,0).toString());
-            String sql="select * from DriverInfo where Id='"+tableClick+"' ";
-            pst=connection.prepareStatement(sql);
-            rs=pst.executeQuery();
-            
-            if(rs.next()){
-               getValues();
+            int row = driverinfo_table.getSelectedRow();
+            String tableClick = (driverinfo_table.getModel().getValueAt(row, 0).toString());
+            String sql = "select * from DriverInfo where Id='" + tableClick + "' ";
+            pst = connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                getValues();
             }
-            
+
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_driverinfo_tableMouseClicked
 
     private void offline_help_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_offline_help_menu_itemActionPerformed
         // TODO add your handling code here:
-        try{
-            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+"Files\\HELP.pdf");
-            
-        }catch(Exception e){
+        try {
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + "Files\\HELP.pdf");
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_offline_help_menu_itemActionPerformed
+
+    private void search_textfieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_textfieldKeyReleased
+        // TODO add your handling code here:
+        String sql = "select * from DriverInfo where Full_Name=?";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, search_textfield.getText());
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                getValues();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        String sql1 = "select * from DriverInfo where Id=?";
+        try {
+            pst = connection.prepareStatement(sql1);
+            pst.setString(1, search_textfield.getText());
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                getValues();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_search_textfieldKeyReleased
+
+    private void clear_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_buttonActionPerformed
+        // TODO add your handling code here:
+        drivers_id_textfield.setText(null);
+        firstName_textfield.setText(null);
+        lastName_textfield.setText(null);
+        fullName_textfield.setText(null);
+        dob_textfield.setText(null);
+        gender_combobox.setSelectedItem("Male");
+        bloodGroup_textfield.setText(null);
+        religion_textfield.setText(null);
+        emailAddress_textfield.setText(null);
+        city_textfield.setText(null);
+        address_textfield.setText(null);
+        drivingLicenseNo_textfield.setText(null);
+        licenseType_combobox.setSelectedItem("Professional");
+        issuedDate_textfield.setText(null);
+        expiredDate_textfield.setText(null);
+        points_textfield.setText(null);
+
+    }//GEN-LAST:event_clear_buttonActionPerformed
 
     /**
      * @param args the command line arguments
