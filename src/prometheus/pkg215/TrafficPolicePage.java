@@ -5,6 +5,7 @@
  */
 package prometheus.pkg215;
 
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,6 +34,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         connection = JavaDbConnect.databaseConnect();
         DriverInfoUpdateTable();
+        DriverShortInfoTable();
     }
 
     /**
@@ -58,8 +60,42 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         email_tabpane = new javax.swing.JPanel();
         action_panel = new javax.swing.JPanel();
         drivers_info_panel = new javax.swing.JPanel();
+        drivers_id_label = new javax.swing.JLabel();
+        drivers_id_textfield = new javax.swing.JTextField();
+        firstName_label = new javax.swing.JLabel();
+        firstName_textfield = new javax.swing.JTextField();
+        lastName_label = new javax.swing.JLabel();
+        lastName_textfield = new javax.swing.JTextField();
+        fullName_label = new javax.swing.JLabel();
+        fullName_textfield = new javax.swing.JTextField();
+        dob_label = new javax.swing.JLabel();
+        dob_textfield = new javax.swing.JTextField();
+        gender_label = new javax.swing.JLabel();
+        gender_combobox = new javax.swing.JComboBox<>();
+        bloodGroup_label = new javax.swing.JLabel();
+        religion_label = new javax.swing.JLabel();
+        religion_textfield = new javax.swing.JTextField();
+        emailAddress_label = new javax.swing.JLabel();
+        emailAddress_textfield = new javax.swing.JTextField();
+        city_label = new javax.swing.JLabel();
+        city_textfield = new javax.swing.JTextField();
+        address_label = new javax.swing.JLabel();
+        address_textfield = new javax.swing.JTextField();
+        drivingLicenseNo_label = new javax.swing.JLabel();
+        drivingLicenseNo_textfield = new javax.swing.JTextField();
+        licenseType_label = new javax.swing.JLabel();
+        licenseType_combobox = new javax.swing.JComboBox<>();
+        issuedDate_label = new javax.swing.JLabel();
+        issuedDate_textfield = new javax.swing.JTextField();
+        expiredDate_textfield = new javax.swing.JTextField();
+        expiredDate_label = new javax.swing.JLabel();
+        points_label = new javax.swing.JLabel();
+        points_textfield = new javax.swing.JTextField();
+        bloodGroup_textfield = new javax.swing.JTextField();
         image_panel = new javax.swing.JPanel();
         data_panel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        drivershortinfo_table = new javax.swing.JTable();
         menubar = new javax.swing.JMenuBar();
         file_menu = new javax.swing.JMenu();
         close_menuitem = new javax.swing.JMenuItem();
@@ -109,6 +145,16 @@ public class TrafficPolicePage extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        driverinfo_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                driverinfo_tableMouseClicked(evt);
+            }
+        });
+        driverinfo_table.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                driverinfo_tableKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(driverinfo_table);
 
         javax.swing.GroupLayout datatable_tabpaneLayout = new javax.swing.GroupLayout(datatable_tabpane);
@@ -117,7 +163,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
             datatable_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datatable_tabpaneLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 413, Short.MAX_VALUE))
+                .addGap(0, 773, Short.MAX_VALUE))
         );
         datatable_tabpaneLayout.setVerticalGroup(
             datatable_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +178,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         report_tabpane.setLayout(report_tabpaneLayout);
         report_tabpaneLayout.setHorizontalGroup(
             report_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1328, Short.MAX_VALUE)
+            .addGap(0, 1688, Short.MAX_VALUE)
         );
         report_tabpaneLayout.setVerticalGroup(
             report_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +191,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         statistics_tabpane.setLayout(statistics_tabpaneLayout);
         statistics_tabpaneLayout.setHorizontalGroup(
             statistics_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1328, Short.MAX_VALUE)
+            .addGap(0, 1688, Short.MAX_VALUE)
         );
         statistics_tabpaneLayout.setVerticalGroup(
             statistics_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +204,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         docuuments_tabpane.setLayout(docuuments_tabpaneLayout);
         docuuments_tabpaneLayout.setHorizontalGroup(
             docuuments_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1328, Short.MAX_VALUE)
+            .addGap(0, 1688, Short.MAX_VALUE)
         );
         docuuments_tabpaneLayout.setVerticalGroup(
             docuuments_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +217,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         email_tabpane.setLayout(email_tabpaneLayout);
         email_tabpaneLayout.setHorizontalGroup(
             email_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1328, Short.MAX_VALUE)
+            .addGap(0, 1688, Short.MAX_VALUE)
         );
         email_tabpaneLayout.setVerticalGroup(
             email_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,15 +254,187 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         drivers_info_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Driver's Info", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB Demi", 1, 11))); // NOI18N
 
+        drivers_id_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        drivers_id_label.setText("Driver's Id");
+
+        firstName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        firstName_label.setText("First Name");
+
+        lastName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        lastName_label.setText("Last Name");
+
+        fullName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        fullName_label.setText("Full Name");
+
+        dob_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        dob_label.setText("Dathe of Birth");
+
+        gender_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        gender_label.setText("Gender");
+
+        gender_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+
+        bloodGroup_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        bloodGroup_label.setText("Blood Group");
+
+        religion_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        religion_label.setText("Religion");
+
+        emailAddress_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        emailAddress_label.setText("Email Address");
+
+        city_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        city_label.setText("City");
+
+        address_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        address_label.setText("Address");
+
+        drivingLicenseNo_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        drivingLicenseNo_label.setText("Driving License No");
+
+        licenseType_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        licenseType_label.setText("License Type");
+
+        licenseType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professional", "Non-Professional" }));
+
+        issuedDate_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        issuedDate_label.setText("Issued Date");
+
+        expiredDate_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        expiredDate_label.setText("Expired Date");
+
+        points_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        points_label.setText("Points");
+
         javax.swing.GroupLayout drivers_info_panelLayout = new javax.swing.GroupLayout(drivers_info_panel);
         drivers_info_panel.setLayout(drivers_info_panelLayout);
         drivers_info_panelLayout.setHorizontalGroup(
             drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 599, Short.MAX_VALUE)
+            .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                        .addComponent(bloodGroup_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bloodGroup_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                        .addComponent(drivers_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(drivers_id_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                        .addComponent(firstName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(firstName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                        .addComponent(lastName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lastName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                        .addComponent(fullName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fullName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                        .addComponent(dob_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dob_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                        .addComponent(gender_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gender_combobox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                        .addComponent(religion_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(religion_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drivers_info_panelLayout.createSequentialGroup()
+                            .addComponent(licenseType_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(licenseType_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                            .addComponent(emailAddress_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(emailAddress_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                            .addComponent(city_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(city_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                            .addComponent(address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(address_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                            .addComponent(drivingLicenseNo_label)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(drivingLicenseNo_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                        .addComponent(issuedDate_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(issuedDate_textfield))
+                    .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                        .addComponent(expiredDate_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(expiredDate_textfield))
+                    .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                        .addComponent(points_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(points_textfield)))
+                .addGap(28, 28, 28))
         );
         drivers_info_panelLayout.setVerticalGroup(
             drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 331, Short.MAX_VALUE)
+            .addGroup(drivers_info_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(drivers_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(drivers_id_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailAddress_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailAddress_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(city_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(city_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lastName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(address_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fullName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fullName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(drivingLicenseNo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(drivingLicenseNo_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dob_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dob_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(licenseType_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(licenseType_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gender_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gender_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(issuedDate_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(issuedDate_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(bloodGroup_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(expiredDate_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(expiredDate_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bloodGroup_textfield, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(drivers_info_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(religion_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(religion_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(points_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(points_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         image_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -234,15 +452,45 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         data_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        drivershortinfo_table.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        drivershortinfo_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        drivershortinfo_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                drivershortinfo_tableMouseClicked(evt);
+            }
+        });
+        drivershortinfo_table.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                drivershortinfo_tableKeyReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(drivershortinfo_table);
+
         javax.swing.GroupLayout data_panelLayout = new javax.swing.GroupLayout(data_panel);
         data_panel.setLayout(data_panelLayout);
         data_panelLayout.setHorizontalGroup(
             data_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, data_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         data_panelLayout.setVerticalGroup(
             data_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, data_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         file_menu.setText("File");
@@ -328,6 +576,19 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         }
         
     }
+    
+    private void DriverShortInfoTable(){
+        try {
+            String sql= "select id,License_Type,Points from DriverInfo";
+            pst=connection.prepareStatement(sql);
+            rs=pst.executeQuery();
+            drivershortinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex);
+        }
+        
+    }
+    
     private void close_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_menuitemActionPerformed
         // TODO add your handling code here:
         try {
@@ -375,6 +636,114 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_home_toolber_buttonActionPerformed
 
+    private void getValues(){
+        try {
+           
+                drivers_id_textfield.setText(rs.getString("Id"));
+                firstName_textfield.setText(rs.getString("First_Name"));
+                lastName_textfield.setText(rs.getString("Last_Name"));
+                fullName_textfield.setText(rs.getString("Full_Name"));
+                dob_textfield.setText(rs.getString("Dob"));
+                gender_combobox.setSelectedItem(rs.getString("Gender"));
+                bloodGroup_textfield.setText(rs.getString("Blood_Group"));
+                religion_textfield.setText(rs.getString("Religion"));
+                emailAddress_textfield.setText(rs.getString("Email"));
+                city_textfield.setText(rs.getString("City"));
+                address_textfield.setText(rs.getString("Address"));
+                drivingLicenseNo_textfield.setText(rs.getString("Driving_License_No"));
+                licenseType_combobox.setSelectedItem(rs.getString("License_Type"));
+                issuedDate_textfield.setText(rs.getString("Issued"));
+                expiredDate_textfield.setText(rs.getString("Expired"));
+                points_textfield.setText(rs.getString("Points"));
+                
+            }
+            
+         catch (Exception e){
+           JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void drivershortinfo_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_drivershortinfo_tableMouseClicked
+        // TODO add your handling code here:
+         try {
+            // TODO add your handling code here:
+            int row= drivershortinfo_table.getSelectedRow();
+            String tableClick=(drivershortinfo_table.getModel().getValueAt(row,0).toString());
+            String sql="select * from DriverInfo where Id='"+tableClick+"' ";
+            pst=connection.prepareStatement(sql);
+            rs=pst.executeQuery();
+            
+            if(rs.next()){
+                getValues();
+                
+            }
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex);
+        }
+            
+    }//GEN-LAST:event_drivershortinfo_tableMouseClicked
+
+    private void drivershortinfo_tableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_drivershortinfo_tableKeyReleased
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_UP|| evt.getKeyCode()==KeyEvent.VK_DOWN){
+        try {
+            // TODO add your handling code here:
+            int row= drivershortinfo_table.getSelectedRow();
+            String tableClick=(drivershortinfo_table.getModel().getValueAt(row,0).toString());
+            String sql="select * from DriverInfo where Id='"+tableClick+"' ";
+            pst=connection.prepareStatement(sql);
+            rs=pst.executeQuery();
+            
+            if(rs.next()){
+               getValues();
+            }
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+    }//GEN-LAST:event_drivershortinfo_tableKeyReleased
+
+    private void driverinfo_tableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_driverinfo_tableKeyReleased
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_UP|| evt.getKeyCode()==KeyEvent.VK_DOWN){
+        try {
+            // TODO add your handling code here:
+            int row= driverinfo_table.getSelectedRow();
+            String tableClick=(driverinfo_table.getModel().getValueAt(row,0).toString());
+            String sql="select * from DriverInfo where Id='"+tableClick+"' ";
+            pst=connection.prepareStatement(sql);
+            rs=pst.executeQuery();
+            
+            if(rs.next()){
+               getValues();
+            }
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex);
+        }
+       }
+    }//GEN-LAST:event_driverinfo_tableKeyReleased
+
+    private void driverinfo_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driverinfo_tableMouseClicked
+        // TODO add your handling code here:
+         try {
+            // TODO add your handling code here:
+            int row= driverinfo_table.getSelectedRow();
+            String tableClick=(driverinfo_table.getModel().getValueAt(row,0).toString());
+            String sql="select * from DriverInfo where Id='"+tableClick+"' ";
+            pst=connection.prepareStatement(sql);
+            rs=pst.executeQuery();
+            
+            if(rs.next()){
+               getValues();
+            }
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_driverinfo_tableMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -413,21 +782,55 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu about_menu;
     private javax.swing.JPanel action_panel;
+    private javax.swing.JLabel address_label;
+    private javax.swing.JTextField address_textfield;
+    private javax.swing.JLabel bloodGroup_label;
+    private javax.swing.JTextField bloodGroup_textfield;
+    private javax.swing.JLabel city_label;
+    private javax.swing.JTextField city_textfield;
     private javax.swing.JMenuItem close_menuitem;
     private javax.swing.JPanel data_panel;
     private javax.swing.JPanel datatable_tabpane;
+    private javax.swing.JLabel dob_label;
+    private javax.swing.JTextField dob_textfield;
     private javax.swing.JPanel docuuments_tabpane;
     private javax.swing.JTable driverinfo_table;
+    private javax.swing.JLabel drivers_id_label;
+    private javax.swing.JTextField drivers_id_textfield;
     private javax.swing.JPanel drivers_info_panel;
+    private javax.swing.JTable drivershortinfo_table;
+    private javax.swing.JLabel drivingLicenseNo_label;
+    private javax.swing.JTextField drivingLicenseNo_textfield;
+    private javax.swing.JLabel emailAddress_label;
+    private javax.swing.JTextField emailAddress_textfield;
     private javax.swing.JPanel email_tabpane;
     private javax.swing.JMenuItem exit_menuitem;
+    private javax.swing.JLabel expiredDate_label;
+    private javax.swing.JTextField expiredDate_textfield;
     private javax.swing.JMenu file_menu;
+    private javax.swing.JLabel firstName_label;
+    private javax.swing.JTextField firstName_textfield;
+    private javax.swing.JLabel fullName_label;
+    private javax.swing.JTextField fullName_textfield;
+    private javax.swing.JComboBox<String> gender_combobox;
+    private javax.swing.JLabel gender_label;
     private javax.swing.JMenu help_menu;
     private javax.swing.JButton home_toolber_button;
     private javax.swing.JPanel image_panel;
+    private javax.swing.JLabel issuedDate_label;
+    private javax.swing.JTextField issuedDate_textfield;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lastName_label;
+    private javax.swing.JTextField lastName_textfield;
+    private javax.swing.JComboBox<String> licenseType_combobox;
+    private javax.swing.JLabel licenseType_label;
     private javax.swing.JMenuBar menubar;
     private javax.swing.JPanel panel_for_tabpane;
+    private javax.swing.JLabel points_label;
+    private javax.swing.JTextField points_textfield;
+    private javax.swing.JLabel religion_label;
+    private javax.swing.JTextField religion_textfield;
     private javax.swing.JPanel report_tabpane;
     private javax.swing.JButton signout_toobar_button;
     private javax.swing.JPanel statistics_tabpane;
