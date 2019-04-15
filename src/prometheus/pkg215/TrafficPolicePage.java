@@ -5,11 +5,14 @@
  */
 package prometheus.pkg215;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -35,6 +38,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         connection = JavaDbConnect.databaseConnect();
         DriverInfoUpdateTable();
         DriverShortInfoTable();
+        dateAndTime();
     }
 
     /**
@@ -59,6 +63,13 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         docuuments_tabpane = new javax.swing.JPanel();
         email_tabpane = new javax.swing.JPanel();
         action_panel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        clear_button = new javax.swing.JButton();
+        delete_button = new javax.swing.JButton();
+        add_button = new javax.swing.JButton();
+        edit_button = new javax.swing.JButton();
+        search_textfield = new javax.swing.JTextField();
+        search_button = new javax.swing.JButton();
         drivers_info_panel = new javax.swing.JPanel();
         drivers_id_label = new javax.swing.JLabel();
         drivers_id_textfield = new javax.swing.JTextField();
@@ -101,7 +112,8 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         close_menuitem = new javax.swing.JMenuItem();
         exit_menuitem = new javax.swing.JMenuItem();
         help_menu = new javax.swing.JMenu();
-        about_menu = new javax.swing.JMenu();
+        offline_help_menu_item = new javax.swing.JMenuItem();
+        date_menu = new javax.swing.JMenu();
         time_menu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -241,15 +253,77 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         action_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Commands", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 12), new java.awt.Color(0, 102, 153))); // NOI18N
+
+        clear_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        clear_button.setText("Clear");
+
+        delete_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        delete_button.setText("Delete");
+
+        add_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        add_button.setText("Add");
+
+        edit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        edit_button.setText("Edit");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(clear_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(delete_button, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(add_button, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(edit_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(edit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        search_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
+        search_textfield.setText("Search");
+
+        search_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\search_icon.png")); // NOI18N
+
         javax.swing.GroupLayout action_panelLayout = new javax.swing.GroupLayout(action_panel);
         action_panel.setLayout(action_panelLayout);
         action_panelLayout.setHorizontalGroup(
             action_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
+            .addGroup(action_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(action_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(search_textfield))
+                .addContainerGap())
+            .addGroup(action_panelLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         action_panelLayout.setVerticalGroup(
             action_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, action_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(search_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
 
         drivers_info_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Driver's Info", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB Demi", 1, 11))); // NOI18N
@@ -434,7 +508,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
                     .addComponent(religion_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(points_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(points_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         image_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -496,7 +570,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         file_menu.setText("File");
 
         close_menuitem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        close_menuitem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_buttons\\close_icon.png")); // NOI18N
+        close_menuitem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\close_icon.png")); // NOI18N
         close_menuitem.setText("Close");
         close_menuitem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -506,7 +580,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         file_menu.add(close_menuitem);
 
         exit_menuitem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        exit_menuitem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_buttons\\exit_icon.png")); // NOI18N
+        exit_menuitem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\exit_icon.png")); // NOI18N
         exit_menuitem.setText("Exit");
         exit_menuitem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -518,10 +592,21 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         menubar.add(file_menu);
 
         help_menu.setText("Help");
+
+        offline_help_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, 0));
+        offline_help_menu_item.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\help_icon.png")); // NOI18N
+        offline_help_menu_item.setText("Offline Help");
+        offline_help_menu_item.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                offline_help_menu_itemActionPerformed(evt);
+            }
+        });
+        help_menu.add(offline_help_menu_item);
+
         menubar.add(help_menu);
 
-        about_menu.setText("About");
-        menubar.add(about_menu);
+        date_menu.setText("Date");
+        menubar.add(date_menu);
 
         time_menu.setText("Time");
         menubar.add(time_menu);
@@ -553,10 +638,10 @@ public class TrafficPolicePage extends javax.swing.JFrame {
                 .addComponent(toolber, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(action_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(drivers_info_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(image_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(data_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(data_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(action_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panel_for_tabpane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -586,6 +671,28 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(rootPane, ex);
         }
+        
+    }
+    private void dateAndTime(){
+        //static date and time
+        Calendar cal=new GregorianCalendar();
+        int day=cal.get(Calendar.DAY_OF_MONTH);
+        int month=cal.get(Calendar.MONTH);
+        int year=cal.get(Calendar.YEAR);
+        date_menu.setText("Date: "+day+"/"+(month+1)+"/"+year);
+        date_menu.setForeground(Color.BLUE);
+        
+        int second=cal.get(Calendar.SECOND);
+        int minute=cal.get(Calendar.MINUTE);
+        int hour=cal.get(Calendar.HOUR);
+        time_menu.setText("Login Time: "+hour+":"+minute+":"+second);
+        time_menu.setForeground(Color.RED);
+        
+        
+        
+        
+        
+        
         
     }
     
@@ -744,6 +851,16 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_driverinfo_tableMouseClicked
 
+    private void offline_help_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_offline_help_menu_itemActionPerformed
+        // TODO add your handling code here:
+        try{
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+"Files\\HELP.pdf");
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_offline_help_menu_itemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -780,17 +897,20 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu about_menu;
     private javax.swing.JPanel action_panel;
+    private javax.swing.JButton add_button;
     private javax.swing.JLabel address_label;
     private javax.swing.JTextField address_textfield;
     private javax.swing.JLabel bloodGroup_label;
     private javax.swing.JTextField bloodGroup_textfield;
     private javax.swing.JLabel city_label;
     private javax.swing.JTextField city_textfield;
+    private javax.swing.JButton clear_button;
     private javax.swing.JMenuItem close_menuitem;
     private javax.swing.JPanel data_panel;
     private javax.swing.JPanel datatable_tabpane;
+    private javax.swing.JMenu date_menu;
+    private javax.swing.JButton delete_button;
     private javax.swing.JLabel dob_label;
     private javax.swing.JTextField dob_textfield;
     private javax.swing.JPanel docuuments_tabpane;
@@ -801,6 +921,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JTable drivershortinfo_table;
     private javax.swing.JLabel drivingLicenseNo_label;
     private javax.swing.JTextField drivingLicenseNo_textfield;
+    private javax.swing.JButton edit_button;
     private javax.swing.JLabel emailAddress_label;
     private javax.swing.JTextField emailAddress_textfield;
     private javax.swing.JPanel email_tabpane;
@@ -819,6 +940,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JPanel image_panel;
     private javax.swing.JLabel issuedDate_label;
     private javax.swing.JTextField issuedDate_textfield;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lastName_label;
@@ -826,12 +948,15 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> licenseType_combobox;
     private javax.swing.JLabel licenseType_label;
     private javax.swing.JMenuBar menubar;
+    private javax.swing.JMenuItem offline_help_menu_item;
     private javax.swing.JPanel panel_for_tabpane;
     private javax.swing.JLabel points_label;
     private javax.swing.JTextField points_textfield;
     private javax.swing.JLabel religion_label;
     private javax.swing.JTextField religion_textfield;
     private javax.swing.JPanel report_tabpane;
+    private javax.swing.JButton search_button;
+    private javax.swing.JTextField search_textfield;
     private javax.swing.JButton signout_toobar_button;
     private javax.swing.JPanel statistics_tabpane;
     private javax.swing.JTabbedPane tabpane;
