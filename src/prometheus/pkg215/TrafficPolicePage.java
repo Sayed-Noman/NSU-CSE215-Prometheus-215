@@ -6,7 +6,15 @@
 package prometheus.pkg215;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +23,9 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -28,6 +39,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     Connection connection;
     ResultSet rs;
     PreparedStatement pst;
+    private byte[] personImage;
 
     /**
      * Creates new form TrafficPolicePage
@@ -104,6 +116,11 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         points_textfield = new javax.swing.JTextField();
         bloodGroup_textfield = new javax.swing.JTextField();
         image_panel = new javax.swing.JPanel();
+        driver_image_show_panel = new javax.swing.JPanel();
+        show_image_label = new javax.swing.JLabel();
+        upload_iamge_textfield = new javax.swing.JTextField();
+        upload_image_button = new javax.swing.JButton();
+        save_image_button = new javax.swing.JButton();
         data_panel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         drivershortinfo_table = new javax.swing.JTable();
@@ -265,6 +282,11 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         delete_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         delete_button.setText("Delete");
+        delete_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_buttonActionPerformed(evt);
+            }
+        });
 
         add_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         add_button.setText("Add");
@@ -533,15 +555,75 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         image_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        driver_image_show_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        show_image_label.setBackground(new java.awt.Color(204, 0, 204));
+
+        javax.swing.GroupLayout driver_image_show_panelLayout = new javax.swing.GroupLayout(driver_image_show_panel);
+        driver_image_show_panel.setLayout(driver_image_show_panelLayout);
+        driver_image_show_panelLayout.setHorizontalGroup(
+            driver_image_show_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, driver_image_show_panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(show_image_label, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+        );
+        driver_image_show_panelLayout.setVerticalGroup(
+            driver_image_show_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(driver_image_show_panelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(show_image_label, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        upload_iamge_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+
+        upload_image_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 11)); // NOI18N
+        upload_image_button.setText("Upload");
+        upload_image_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upload_image_buttonActionPerformed(evt);
+            }
+        });
+
+        save_image_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        save_image_button.setText("Save");
+        save_image_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save_image_buttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout image_panelLayout = new javax.swing.GroupLayout(image_panel);
         image_panel.setLayout(image_panelLayout);
         image_panelLayout.setHorizontalGroup(
             image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 276, Short.MAX_VALUE)
+            .addGroup(image_panelLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(save_image_button, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, image_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(driver_image_show_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(image_panelLayout.createSequentialGroup()
+                        .addComponent(upload_iamge_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(upload_image_button, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         image_panelLayout.setVerticalGroup(
             image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(image_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(driver_image_show_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(upload_iamge_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(upload_image_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(save_image_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         data_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -778,9 +860,33 @@ public class TrafficPolicePage extends javax.swing.JFrame {
             expiredDate_textfield.setText(rs.getString("Expired"));
             points_textfield.setText(rs.getString("Points"));
 
+            byte[] imagedata = rs.getBytes("Photo");
+            ImageIcon img = new ImageIcon(imageResize(imagedata, show_image_label.getWidth(), show_image_label.getHeight()));
+            show_image_label.setIcon(img);
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+
+    private Image imageResize(byte[] img, int width, int height) {
+        BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        try {
+            Graphics2D ghrapicImg = resizedImage.createGraphics();
+            ghrapicImg.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+
+            //converting byte array back to buffered image
+            ByteArrayInputStream in = new ByteArrayInputStream(img);
+            BufferedImage BImageFromConvert = ImageIO.read(in);
+
+            ghrapicImg.drawImage(BImageFromConvert, 0, 0, width, height, null);
+            ghrapicImg.dispose();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+
+        return resizedImage;
     }
     private void drivershortinfo_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_drivershortinfo_tableMouseClicked
         // TODO add your handling code here:
@@ -926,76 +1032,138 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         // TODO add your handling code here:
-        String sql="insert into DriverInfo(Id,First_Name,Last_Name,Full_Name,Dob,Gender,Blood_Group,"
+        String sql = "insert into DriverInfo(Id,First_Name,Last_Name,Full_Name,Dob,Gender,Blood_Group,"
                 + "Religion,Email,City,Address,Driving_License_No,License_Type,Issued,Expired,Points)"
                 + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        try{
-            pst=connection.prepareStatement(sql);
-            pst.setString(1,drivers_id_textfield.getText());
-            pst.setString(2,firstName_textfield.getText());
-            pst.setString(3,lastName_textfield.getText());
-            pst.setString(4,fullName_textfield.getText());
-            pst.setString(5,dob_textfield.getText());
-            pst.setString(6,(String)gender_combobox.getSelectedItem());
-            pst.setString(7,bloodGroup_textfield.getText());
-            pst.setString(8,religion_textfield.getText());
-            pst.setString(9,emailAddress_textfield.getText());
-            pst.setString(10,city_textfield.getText());
-            pst.setString(11,address_textfield.getText());
-            pst.setString(12,drivingLicenseNo_textfield.getText());
-            pst.setString(13,(String)licenseType_combobox.getSelectedItem());
-            pst.setString(14,issuedDate_textfield.getText());
-            pst.setString(15,expiredDate_textfield.getText());
-            pst.setString(16,points_textfield.getText());
-            
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, drivers_id_textfield.getText());
+            pst.setString(2, firstName_textfield.getText());
+            pst.setString(3, lastName_textfield.getText());
+            pst.setString(4, fullName_textfield.getText());
+            pst.setString(5, dob_textfield.getText());
+            pst.setString(6, (String) gender_combobox.getSelectedItem());
+            pst.setString(7, bloodGroup_textfield.getText());
+            pst.setString(8, religion_textfield.getText());
+            pst.setString(9, emailAddress_textfield.getText());
+            pst.setString(10, city_textfield.getText());
+            pst.setString(11, address_textfield.getText());
+            pst.setString(12, drivingLicenseNo_textfield.getText());
+            pst.setString(13, (String) licenseType_combobox.getSelectedItem());
+            pst.setString(14, issuedDate_textfield.getText());
+            pst.setString(15, expiredDate_textfield.getText());
+            pst.setString(16, points_textfield.getText());
+
             pst.execute();
-            
-            JOptionPane.showMessageDialog(rootPane,"Info Saved");
-            
-        }catch(Exception e){
+
+            JOptionPane.showMessageDialog(rootPane, "Info Saved");
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
         //calling two Tables manually after insertion to emidiate show
         DriverInfoUpdateTable();
         DriverShortInfoTable();
-        
+
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void edit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_buttonActionPerformed
         // TODO add your handling code here:
-        String sql="update DriverInfo set First_Name=?,Last_Name=?,Full_Name=?,Dob=?,Gender=?,Blood_Group=?,Religion=?,Email=?,City=?,Address=?,Driving_License_No=?,License_Type=?,Issued=?,Expired=?,Points=? where Id=?";
-        try{
-            pst=connection.prepareStatement(sql);
-            
-            pst.setString(1,firstName_textfield.getText());
-            pst.setString(2,lastName_textfield.getText());
-            pst.setString(3,fullName_textfield.getText());
-            pst.setString(4,dob_textfield.getText());
-            pst.setString(5,(String)gender_combobox.getSelectedItem());
-            pst.setString(6,bloodGroup_textfield.getText());
-            pst.setString(7,religion_textfield.getText());
-            pst.setString(8,emailAddress_textfield.getText());
-            pst.setString(9,city_textfield.getText());
-            pst.setString(10,address_textfield.getText());
-            pst.setString(11,drivingLicenseNo_textfield.getText());
-            pst.setString(12,(String)licenseType_combobox.getSelectedItem());
-            pst.setString(13,issuedDate_textfield.getText());
-            pst.setString(14,expiredDate_textfield.getText());
-            pst.setString(15,points_textfield.getText());
-            
-             pst.setString(16,drivers_id_textfield.getText());
-            
+        String sql = "update DriverInfo set First_Name=?,Last_Name=?,Full_Name=?,Dob=?,Gender=?,Blood_Group=?,Religion=?,Email=?,City=?,Address=?,Driving_License_No=?,License_Type=?,Issued=?,Expired=?,Points=? where Id=?";
+        try {
+            pst = connection.prepareStatement(sql);
+
+            pst.setString(1, firstName_textfield.getText());
+            pst.setString(2, lastName_textfield.getText());
+            pst.setString(3, fullName_textfield.getText());
+            pst.setString(4, dob_textfield.getText());
+            pst.setString(5, (String) gender_combobox.getSelectedItem());
+            pst.setString(6, bloodGroup_textfield.getText());
+            pst.setString(7, religion_textfield.getText());
+            pst.setString(8, emailAddress_textfield.getText());
+            pst.setString(9, city_textfield.getText());
+            pst.setString(10, address_textfield.getText());
+            pst.setString(11, drivingLicenseNo_textfield.getText());
+            pst.setString(12, (String) licenseType_combobox.getSelectedItem());
+            pst.setString(13, issuedDate_textfield.getText());
+            pst.setString(14, expiredDate_textfield.getText());
+            pst.setString(15, points_textfield.getText());
+
+            pst.setString(16, drivers_id_textfield.getText());
+
             pst.execute();
-            
-            JOptionPane.showMessageDialog(rootPane,"Info Updated");
-            
-        }catch(Exception e){
+
+            JOptionPane.showMessageDialog(rootPane, "Info Updated");
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
         //calling two Tables manually after insertion to emidiate show
         DriverInfoUpdateTable();
         DriverShortInfoTable();
     }//GEN-LAST:event_edit_buttonActionPerformed
+
+    private void delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_buttonActionPerformed
+        // TODO add your handling code here:
+        int del = JOptionPane.showConfirmDialog(rootPane, "Do you really want to delete this Entry ?", "Delete", JOptionPane.YES_NO_OPTION);
+        if (del == 0) {
+            String sql = "delete from DriverInfo where Id=?";
+            try {
+                pst = connection.prepareStatement(sql);
+                pst.setString(1, drivers_id_textfield.getText());
+                pst.execute();
+
+                JOptionPane.showMessageDialog(rootPane, "Entry Deleted");
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e);
+            }
+        }
+        //calling two Tables manually after insertion to emidiate show
+        DriverInfoUpdateTable();
+        DriverShortInfoTable();
+    }//GEN-LAST:event_delete_buttonActionPerformed
+
+    private void upload_image_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upload_image_buttonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+
+        File f = chooser.getSelectedFile();
+        String fileName = f.getAbsolutePath();
+        upload_iamge_textfield.setText(fileName);
+
+        try {
+            FileInputStream fIS = new FileInputStream(f);
+            ByteArrayOutputStream bAOS = new ByteArrayOutputStream();
+            byte[] bufferimage = new byte[1024];
+            for (int readNum; (readNum = fIS.read(bufferimage)) != -1;) {
+                bAOS.write(bufferimage, 0, readNum);
+            }
+            personImage = bAOS.toByteArray();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+
+    }//GEN-LAST:event_upload_image_buttonActionPerformed
+
+    private void save_image_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_image_buttonActionPerformed
+        // TODO add your handling code here:
+        String sql="update DriverInfo set Photo=? where Id=?";
+        try{
+            pst=connection.prepareStatement(sql);
+            pst.setBytes(1, personImage);
+            pst.setString(2,drivers_id_textfield.getText());
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(rootPane,"Image Saved Successfully");
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+        
+    }//GEN-LAST:event_save_image_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1050,6 +1218,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JLabel dob_label;
     private javax.swing.JTextField dob_textfield;
     private javax.swing.JPanel docuuments_tabpane;
+    private javax.swing.JPanel driver_image_show_panel;
     private javax.swing.JTable driverinfo_table;
     private javax.swing.JLabel drivers_id_label;
     private javax.swing.JTextField drivers_id_textfield;
@@ -1091,12 +1260,16 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JLabel religion_label;
     private javax.swing.JTextField religion_textfield;
     private javax.swing.JPanel report_tabpane;
+    private javax.swing.JButton save_image_button;
     private javax.swing.JButton search_button;
     private javax.swing.JTextField search_textfield;
+    private javax.swing.JLabel show_image_label;
     private javax.swing.JButton signout_toobar_button;
     private javax.swing.JPanel statistics_tabpane;
     private javax.swing.JTabbedPane tabpane;
     private javax.swing.JMenu time_menu;
     private javax.swing.JToolBar toolber;
+    private javax.swing.JTextField upload_iamge_textfield;
+    private javax.swing.JButton upload_image_button;
     // End of variables declaration//GEN-END:variables
 }
