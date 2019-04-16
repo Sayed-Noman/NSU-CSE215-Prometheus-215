@@ -74,6 +74,22 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         statistics_tabpane = new javax.swing.JPanel();
         docuuments_tabpane = new javax.swing.JPanel();
         email_tabpane = new javax.swing.JPanel();
+        email_components_panel = new javax.swing.JPanel();
+        form_label = new javax.swing.JLabel();
+        from_textfield = new javax.swing.JTextField();
+        password_label = new javax.swing.JLabel();
+        password_textfield = new javax.swing.JTextField();
+        to_textfield = new javax.swing.JTextField();
+        to_label = new javax.swing.JLabel();
+        subject_label = new javax.swing.JLabel();
+        subject_textfield = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        mail_textarea = new javax.swing.JTextArea();
+        attachment_mail_document_textfield = new javax.swing.JTextField();
+        attach_document_mail_button = new javax.swing.JButton();
+        attachmentName_textfield = new javax.swing.JTextField();
+        attachmentName_label = new javax.swing.JLabel();
+        send_mail_button = new javax.swing.JButton();
         action_panel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         clear_button = new javax.swing.JButton();
@@ -242,15 +258,133 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         tabpane.addTab("Documents", docuuments_tabpane);
 
+        email_tabpane.setBackground(new java.awt.Color(204, 204, 255));
+
+        form_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 16)); // NOI18N
+        form_label.setForeground(new java.awt.Color(153, 0, 0));
+        form_label.setText("From");
+
+        password_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 16)); // NOI18N
+        password_label.setForeground(new java.awt.Color(153, 0, 0));
+        password_label.setText("Password");
+
+        to_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 16)); // NOI18N
+        to_label.setForeground(new java.awt.Color(153, 0, 0));
+        to_label.setText("To");
+
+        subject_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 16)); // NOI18N
+        subject_label.setForeground(new java.awt.Color(153, 0, 0));
+        subject_label.setText("Subject");
+
+        mail_textarea.setColumns(20);
+        mail_textarea.setRows(5);
+        jScrollPane3.setViewportView(mail_textarea);
+
+        attachment_mail_document_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 11)); // NOI18N
+
+        attach_document_mail_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        attach_document_mail_button.setText("Attach");
+
+        attachmentName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+
+        attachmentName_label.setFont(new java.awt.Font("Berlin Sans FB", 0, 10)); // NOI18N
+        attachmentName_label.setForeground(new java.awt.Color(153, 0, 0));
+        attachmentName_label.setText("Attachment Name");
+
+        send_mail_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        send_mail_button.setText("Send Mail");
+
+        javax.swing.GroupLayout email_components_panelLayout = new javax.swing.GroupLayout(email_components_panel);
+        email_components_panel.setLayout(email_components_panelLayout);
+        email_components_panelLayout.setHorizontalGroup(
+            email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(email_components_panelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(form_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(from_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, email_components_panelLayout.createSequentialGroup()
+                        .addComponent(password_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(password_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(to_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(to_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(subject_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(subject_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(attachment_mail_document_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(attach_document_mail_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(attachmentName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(attachmentName_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(37, 37, 37))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, email_components_panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(send_mail_button, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
+        );
+        email_components_panelLayout.setVerticalGroup(
+            email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(email_components_panelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(from_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(form_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(password_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(password_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(to_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(to_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(subject_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(subject_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(attach_document_mail_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(attachment_mail_document_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(attachmentName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(attachmentName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(send_mail_button, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout email_tabpaneLayout = new javax.swing.GroupLayout(email_tabpane);
         email_tabpane.setLayout(email_tabpaneLayout);
         email_tabpaneLayout.setHorizontalGroup(
             email_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1688, Short.MAX_VALUE)
+            .addGroup(email_tabpaneLayout.createSequentialGroup()
+                .addGap(246, 246, 246)
+                .addComponent(email_components_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(510, Short.MAX_VALUE))
         );
         email_tabpaneLayout.setVerticalGroup(
             email_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 238, Short.MAX_VALUE)
+            .addGroup(email_tabpaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(email_components_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         tabpane.addTab("Email", email_tabpane);
@@ -1205,6 +1339,10 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JButton add_button;
     private javax.swing.JLabel address_label;
     private javax.swing.JTextField address_textfield;
+    private javax.swing.JButton attach_document_mail_button;
+    private javax.swing.JLabel attachmentName_label;
+    private javax.swing.JTextField attachmentName_textfield;
+    private javax.swing.JTextField attachment_mail_document_textfield;
     private javax.swing.JLabel bloodGroup_label;
     private javax.swing.JTextField bloodGroup_textfield;
     private javax.swing.JLabel city_label;
@@ -1229,6 +1367,8 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JButton edit_button;
     private javax.swing.JLabel emailAddress_label;
     private javax.swing.JTextField emailAddress_textfield;
+    private javax.swing.JPanel email_components_panel;
+    private javax.swing.JPanel email_components_panel1;
     private javax.swing.JPanel email_tabpane;
     private javax.swing.JMenuItem exit_menuitem;
     private javax.swing.JLabel expiredDate_label;
@@ -1236,6 +1376,8 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JMenu file_menu;
     private javax.swing.JLabel firstName_label;
     private javax.swing.JTextField firstName_textfield;
+    private javax.swing.JLabel form_label;
+    private javax.swing.JTextField from_textfield;
     private javax.swing.JLabel fullName_label;
     private javax.swing.JTextField fullName_textfield;
     private javax.swing.JComboBox<String> gender_combobox;
@@ -1245,16 +1387,22 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JPanel image_panel;
     private javax.swing.JLabel issuedDate_label;
     private javax.swing.JTextField issuedDate_textfield;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lastName_label;
     private javax.swing.JTextField lastName_textfield;
     private javax.swing.JComboBox<String> licenseType_combobox;
     private javax.swing.JLabel licenseType_label;
+    private javax.swing.JTextArea mail_textarea;
     private javax.swing.JMenuBar menubar;
     private javax.swing.JMenuItem offline_help_menu_item;
     private javax.swing.JPanel panel_for_tabpane;
+    private javax.swing.JLabel password_label;
+    private javax.swing.JTextField password_textfield;
     private javax.swing.JLabel points_label;
     private javax.swing.JTextField points_textfield;
     private javax.swing.JLabel religion_label;
@@ -1263,11 +1411,16 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JButton save_image_button;
     private javax.swing.JButton search_button;
     private javax.swing.JTextField search_textfield;
+    private javax.swing.JButton send_mail_button;
     private javax.swing.JLabel show_image_label;
     private javax.swing.JButton signout_toobar_button;
     private javax.swing.JPanel statistics_tabpane;
+    private javax.swing.JLabel subject_label;
+    private javax.swing.JTextField subject_textfield;
     private javax.swing.JTabbedPane tabpane;
     private javax.swing.JMenu time_menu;
+    private javax.swing.JLabel to_label;
+    private javax.swing.JTextField to_textfield;
     private javax.swing.JToolBar toolber;
     private javax.swing.JTextField upload_iamge_textfield;
     private javax.swing.JButton upload_image_button;
