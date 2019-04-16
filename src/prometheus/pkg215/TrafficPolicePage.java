@@ -268,6 +268,11 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         add_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         add_button.setText("Add");
+        add_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_buttonActionPerformed(evt);
+            }
+        });
 
         edit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         edit_button.setText("Edit");
@@ -603,7 +608,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         help_menu.setText("Help");
 
-        offline_help_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, 0));
+        offline_help_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         offline_help_menu_item.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\help_icon.png")); // NOI18N
         offline_help_menu_item.setText("Offline Help");
         offline_help_menu_item.addActionListener(new java.awt.event.ActionListener() {
@@ -913,6 +918,43 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         points_textfield.setText(null);
 
     }//GEN-LAST:event_clear_buttonActionPerformed
+
+    private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
+        // TODO add your handling code here:
+        String sql="insert into DriverInfo(Id,First_Name,Last_Name,Full_Name,Dob,Gender,Blood_Group,"
+                + "Religion,Email,City,Address,Driving_License_No,License_Type,Issued,Expired,Points)"
+                + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try{
+            pst=connection.prepareStatement(sql);
+            pst.setString(1,drivers_id_textfield.getText());
+            pst.setString(2,firstName_textfield.getText());
+            pst.setString(3,lastName_textfield.getText());
+            pst.setString(4,fullName_textfield.getText());
+            pst.setString(5,dob_textfield.getText());
+            pst.setString(6,(String)gender_combobox.getSelectedItem());
+            pst.setString(7,bloodGroup_textfield.getText());
+            pst.setString(8,religion_textfield.getText());
+            pst.setString(9,emailAddress_textfield.getText());
+            pst.setString(10,city_textfield.getText());
+            pst.setString(11,address_textfield.getText());
+            pst.setString(12,drivingLicenseNo_textfield.getText());
+            pst.setString(13,(String)licenseType_combobox.getSelectedItem());
+            pst.setString(14,issuedDate_textfield.getText());
+            pst.setString(15,expiredDate_textfield.getText());
+            pst.setString(16,points_textfield.getText());
+            
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(rootPane,"Info Saved");
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        //calling two Tables manually after insertion to emidiate show
+        DriverInfoUpdateTable();
+        DriverShortInfoTable();
+        
+    }//GEN-LAST:event_add_buttonActionPerformed
 
     /**
      * @param args the command line arguments
