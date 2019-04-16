@@ -276,6 +276,11 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         edit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         edit_button.setText("Edit");
+        edit_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -955,6 +960,42 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         DriverShortInfoTable();
         
     }//GEN-LAST:event_add_buttonActionPerformed
+
+    private void edit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_buttonActionPerformed
+        // TODO add your handling code here:
+        String sql="update DriverInfo set First_Name=?,Last_Name=?,Full_Name=?,Dob=?,Gender=?,Blood_Group=?,Religion=?,Email=?,City=?,Address=?,Driving_License_No=?,License_Type=?,Issued=?,Expired=?,Points=? where Id=?";
+        try{
+            pst=connection.prepareStatement(sql);
+            
+            pst.setString(1,firstName_textfield.getText());
+            pst.setString(2,lastName_textfield.getText());
+            pst.setString(3,fullName_textfield.getText());
+            pst.setString(4,dob_textfield.getText());
+            pst.setString(5,(String)gender_combobox.getSelectedItem());
+            pst.setString(6,bloodGroup_textfield.getText());
+            pst.setString(7,religion_textfield.getText());
+            pst.setString(8,emailAddress_textfield.getText());
+            pst.setString(9,city_textfield.getText());
+            pst.setString(10,address_textfield.getText());
+            pst.setString(11,drivingLicenseNo_textfield.getText());
+            pst.setString(12,(String)licenseType_combobox.getSelectedItem());
+            pst.setString(13,issuedDate_textfield.getText());
+            pst.setString(14,expiredDate_textfield.getText());
+            pst.setString(15,points_textfield.getText());
+            
+             pst.setString(16,drivers_id_textfield.getText());
+            
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(rootPane,"Info Updated");
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        //calling two Tables manually after insertion to emidiate show
+        DriverInfoUpdateTable();
+        DriverShortInfoTable();
+    }//GEN-LAST:event_edit_buttonActionPerformed
 
     /**
      * @param args the command line arguments
