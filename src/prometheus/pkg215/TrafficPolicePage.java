@@ -5,6 +5,7 @@
  */
 package prometheus.pkg215;
 
+import static com.oracle.jrockit.jfr.Transition.To;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -21,13 +22,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Properties;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 /**
  *
@@ -40,6 +48,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     ResultSet rs;
     PreparedStatement pst;
     private byte[] personImage;
+    private String filePath = null;
 
     /**
      * Creates new form TrafficPolicePage
@@ -78,7 +87,6 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         form_label = new javax.swing.JLabel();
         from_textfield = new javax.swing.JTextField();
         password_label = new javax.swing.JLabel();
-        password_textfield = new javax.swing.JTextField();
         to_textfield = new javax.swing.JTextField();
         to_label = new javax.swing.JLabel();
         subject_label = new javax.swing.JLabel();
@@ -90,6 +98,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         attachmentName_textfield = new javax.swing.JTextField();
         attachmentName_label = new javax.swing.JLabel();
         send_mail_button = new javax.swing.JButton();
+        password_textfield = new javax.swing.JPasswordField();
         action_panel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         clear_button = new javax.swing.JButton();
@@ -284,6 +293,11 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         attach_document_mail_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         attach_document_mail_button.setText("Attach");
+        attach_document_mail_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                attach_document_mail_buttonActionPerformed(evt);
+            }
+        });
 
         attachmentName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
 
@@ -293,6 +307,11 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         send_mail_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         send_mail_button.setText("Send Mail");
+        send_mail_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                send_mail_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout email_components_panelLayout = new javax.swing.GroupLayout(email_components_panel);
         email_components_panel.setLayout(email_components_panelLayout);
@@ -300,15 +319,15 @@ public class TrafficPolicePage extends javax.swing.JFrame {
             email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(email_components_panelLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(password_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(password_textfield))
                     .addGroup(email_components_panelLayout.createSequentialGroup()
                         .addComponent(form_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(from_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, email_components_panelLayout.createSequentialGroup()
-                        .addComponent(password_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(password_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(email_components_panelLayout.createSequentialGroup()
                         .addComponent(to_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -344,9 +363,9 @@ public class TrafficPolicePage extends javax.swing.JFrame {
                             .addComponent(from_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(form_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(password_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(password_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(password_label, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                            .addComponent(password_textfield))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(to_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1284,20 +1303,95 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
     private void save_image_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_image_buttonActionPerformed
         // TODO add your handling code here:
-        String sql="update DriverInfo set Photo=? where Id=?";
-        try{
-            pst=connection.prepareStatement(sql);
+        String sql = "update DriverInfo set Photo=? where Id=?";
+        try {
+            pst = connection.prepareStatement(sql);
             pst.setBytes(1, personImage);
-            pst.setString(2,drivers_id_textfield.getText());
-            
+            pst.setString(2, drivers_id_textfield.getText());
+
             pst.execute();
-            JOptionPane.showMessageDialog(rootPane,"Image Saved Successfully");
-            
-        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Image Saved Successfully");
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e);
         }
-        
+
     }//GEN-LAST:event_save_image_buttonActionPerformed
+
+    private void send_mail_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_send_mail_buttonActionPerformed
+        // TODO add your handling code here:
+        final String from = from_textfield.getText();
+        final String password = password_textfield.getText();
+
+        String to = to_textfield.getText();
+        String subject = subject_textfield.getText();
+        String textMessage = mail_textarea.getText();
+
+        Properties property = new Properties();
+        property.put("mail.smtp.host", "smtp.gmail.com");
+        property.put("mail.smtp.socketFactory.port", "465");//SSL Protocol port no 465
+        property.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        property.put("mail.smtp.auth", "true");
+        property.put("mail.smtp.port", "465");
+        /* property.put("mail.smtp.auth", "true");
+        property.put("mail.smtp.starttls.enable", "true");
+        property.put("mail.smtp.host", "smtp.gmail.com");
+        property.put("mail.smtp.port", "587");*/
+
+        Session session;
+        session = Session.getDefaultInstance(property,
+                new javax.mail.Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(from, password);
+            }
+        }
+        );
+
+        try {
+            //Message Header
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+            message.setSubject(subject);
+
+            //code for set the text message
+            MimeBodyPart messageBodyPart = new MimeBodyPart();
+            messageBodyPart.setText(textMessage);
+
+            Multipart multiPart = new MimeMultipart();
+            multiPart.addBodyPart(messageBodyPart);
+
+            //code for attach file
+            messageBodyPart = new MimeBodyPart();
+            DataSource source = new FileDataSource(filePath);
+            messageBodyPart.setDataHandler(new DataHandler(source));
+            messageBodyPart.setFileName(attachmentName_textfield.getText());
+            multiPart.addBodyPart(messageBodyPart);
+
+            message.setContent(multiPart);
+            Transport.send(message);
+            JOptionPane.showMessageDialog(rootPane, "Mail sent");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+
+        }
+
+    }//GEN-LAST:event_send_mail_buttonActionPerformed
+
+    private void attach_document_mail_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attach_document_mail_buttonActionPerformed
+        // TODO add your handling code here:
+
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(rootPane);
+
+        File f = chooser.getSelectedFile();
+        filePath = f.getAbsolutePath();
+        attachment_mail_document_textfield.setText(filePath);
+        attachmentName_textfield.setText(filePath);
+
+    }//GEN-LAST:event_attach_document_mail_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1402,7 +1496,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JMenuItem offline_help_menu_item;
     private javax.swing.JPanel panel_for_tabpane;
     private javax.swing.JLabel password_label;
-    private javax.swing.JTextField password_textfield;
+    private javax.swing.JPasswordField password_textfield;
     private javax.swing.JLabel points_label;
     private javax.swing.JTextField points_textfield;
     private javax.swing.JLabel religion_label;
