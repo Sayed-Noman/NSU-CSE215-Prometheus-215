@@ -59,6 +59,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         connection = JavaDbConnect.databaseConnect();
         DriverInfoUpdateTable();
         DriverShortInfoTable();
+        DriverDocumentTable();
         dateAndTime();
     }
 
@@ -82,6 +83,20 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         report_tabpane = new javax.swing.JPanel();
         statistics_tabpane = new javax.swing.JPanel();
         docuuments_tabpane = new javax.swing.JPanel();
+        panel_for_documents = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        document_data_table = new javax.swing.JTable();
+        document_attach_textfield = new javax.swing.JTextField();
+        document_attach_button = new javax.swing.JButton();
+        document_doc_id_textfield = new javax.swing.JTextField();
+        document_add_button = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        document_drivers_id_label = new javax.swing.JLabel();
+        document_drivers_id_textfield = new javax.swing.JTextField();
+        document_delete_button = new javax.swing.JButton();
+        document_clear_button = new javax.swing.JButton();
+        document_doc_name_textfield = new javax.swing.JTextField();
+        documents_doc_name_label = new javax.swing.JLabel();
         email_tabpane = new javax.swing.JPanel();
         email_components_panel = new javax.swing.JPanel();
         form_label = new javax.swing.JLabel();
@@ -254,15 +269,158 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         tabpane.addTab("Statistics", statistics_tabpane);
 
+        docuuments_tabpane.setBackground(new java.awt.Color(0, 153, 102));
+
+        document_data_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        document_data_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                document_data_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(document_data_table);
+
+        document_attach_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        document_attach_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        document_attach_button.setText("Attach");
+        document_attach_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                document_attach_buttonActionPerformed(evt);
+            }
+        });
+
+        document_doc_id_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        document_add_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        document_add_button.setText("Add");
+        document_add_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                document_add_buttonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        jLabel1.setText("Doc ID");
+
+        document_drivers_id_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        document_drivers_id_label.setText("Driver's Id");
+
+        document_drivers_id_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        document_delete_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        document_delete_button.setText("Delete");
+        document_delete_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                document_delete_buttonActionPerformed(evt);
+            }
+        });
+
+        document_clear_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        document_clear_button.setText("Clear");
+        document_clear_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                document_clear_buttonActionPerformed(evt);
+            }
+        });
+
+        document_doc_name_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        documents_doc_name_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        documents_doc_name_label.setText("Doc Name");
+
+        javax.swing.GroupLayout panel_for_documentsLayout = new javax.swing.GroupLayout(panel_for_documents);
+        panel_for_documents.setLayout(panel_for_documentsLayout);
+        panel_for_documentsLayout.setHorizontalGroup(
+            panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_documentsLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(document_drivers_id_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(documents_doc_name_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                                .addComponent(document_doc_name_textfield)
+                                .addGap(18, 18, 18)
+                                .addComponent(document_clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                                .addComponent(document_drivers_id_textfield)
+                                .addGap(18, 18, 18)
+                                .addComponent(document_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                                .addComponent(document_doc_id_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(document_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_documentsLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(document_attach_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(document_attach_button, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(88, 88, 88)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+        );
+        panel_for_documentsLayout.setVerticalGroup(
+            panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(document_attach_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(document_attach_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(document_doc_id_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(document_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(document_drivers_id_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(document_drivers_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(document_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(document_doc_name_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(documents_doc_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(document_clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout docuuments_tabpaneLayout = new javax.swing.GroupLayout(docuuments_tabpane);
         docuuments_tabpane.setLayout(docuuments_tabpaneLayout);
         docuuments_tabpaneLayout.setHorizontalGroup(
             docuuments_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1688, Short.MAX_VALUE)
+            .addGroup(docuuments_tabpaneLayout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addComponent(panel_for_documents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(355, Short.MAX_VALUE))
         );
         docuuments_tabpaneLayout.setVerticalGroup(
             docuuments_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 238, Short.MAX_VALUE)
+            .addGroup(docuuments_tabpaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panel_for_documents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         tabpane.addTab("Documents", docuuments_tabpane);
@@ -929,6 +1087,18 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
     }
 
+    private void DriverDocumentTable() {
+        try {
+            String sql = "select * from DriverDocumentTable";
+            pst = connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+            document_data_table.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex);
+        }
+
+    }
+
     private void dateAndTime() {
         //static date and time
         Calendar cal = new GregorianCalendar();
@@ -1393,6 +1563,101 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_attach_document_mail_buttonActionPerformed
 
+    private void document_attach_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_attach_buttonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(rootPane);
+
+        File f = chooser.getSelectedFile();
+        String docFilePath = f.getAbsolutePath();
+        document_attach_textfield.setText(docFilePath);
+
+    }//GEN-LAST:event_document_attach_buttonActionPerformed
+
+    private void document_add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_add_buttonActionPerformed
+        // TODO add your handling code here:
+        String sql = "insert into DriverDocumentTable(Doc_Id,Driver_Id,Doc_Name,Path)"
+                + " values(?,?,?,?)";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, document_doc_id_textfield.getText());
+            pst.setString(2, document_drivers_id_textfield.getText());
+            pst.setString(3, document_doc_name_textfield.getText());
+            pst.setString(4, document_attach_textfield.getText());
+
+            pst.execute();
+
+            JOptionPane.showMessageDialog(rootPane, "Info Saved");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        //calling Document Tables manually after insertion to emidiate show
+        DriverDocumentTable();
+
+    }//GEN-LAST:event_document_add_buttonActionPerformed
+
+    private void document_data_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_document_data_tableMouseClicked
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            int row = document_data_table.getSelectedRow();
+            String tableClick = (document_data_table.getModel().getValueAt(row, 0).toString());
+            String sql = "select * from DriverDocumentTable where Doc_Id='" + tableClick + "' ";
+            pst = connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                document_doc_id_textfield.setText(rs.getString("Doc_Id"));
+                document_drivers_id_textfield.setText(rs.getString("Driver_Id"));
+                document_doc_name_textfield.setText(rs.getString("Doc_Name"));
+                document_attach_textfield.setText(rs.getString("Path"));
+
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        try {
+            int row = document_data_table.getSelectedRow();
+            String tableClick = (document_data_table.getModel().getValueAt(row, 3).toString());
+            Runtime.getRuntime().exec("rundll32.url.dll,FileProtocolHandler " + tableClick);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_document_data_tableMouseClicked
+
+    private void document_delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_delete_buttonActionPerformed
+        // TODO add your handling code here:
+        int del = JOptionPane.showConfirmDialog(rootPane, "Do you really want to delete this Entry ?", "Delete", JOptionPane.YES_NO_OPTION);
+        if (del == 0) {
+            String sql = "delete from DriverDocumentTable where Doc_Id=?";
+            try {
+                pst = connection.prepareStatement(sql);
+                pst.setString(1, document_doc_id_textfield.getText());
+                pst.execute();
+
+                JOptionPane.showMessageDialog(rootPane, "Entry Deleted");
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e);
+            }
+        }
+        //calling two Tables manually after insertion to emidiate show
+        DriverDocumentTable();
+    }//GEN-LAST:event_document_delete_buttonActionPerformed
+
+    private void document_clear_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_clear_buttonActionPerformed
+        // TODO add your handling code here:
+        document_doc_id_textfield.setText(null);
+        document_drivers_id_textfield.setText(null);
+        document_doc_name_textfield.setText(null);
+        document_attach_textfield.setText(null);
+
+    }//GEN-LAST:event_document_clear_buttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1449,6 +1714,17 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JButton delete_button;
     private javax.swing.JLabel dob_label;
     private javax.swing.JTextField dob_textfield;
+    private javax.swing.JButton document_add_button;
+    private javax.swing.JButton document_attach_button;
+    private javax.swing.JTextField document_attach_textfield;
+    private javax.swing.JButton document_clear_button;
+    private javax.swing.JTable document_data_table;
+    private javax.swing.JButton document_delete_button;
+    private javax.swing.JTextField document_doc_id_textfield;
+    private javax.swing.JTextField document_doc_name_textfield;
+    private javax.swing.JLabel document_drivers_id_label;
+    private javax.swing.JTextField document_drivers_id_textfield;
+    private javax.swing.JLabel documents_doc_name_label;
     private javax.swing.JPanel docuuments_tabpane;
     private javax.swing.JPanel driver_image_show_panel;
     private javax.swing.JTable driverinfo_table;
@@ -1462,7 +1738,6 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JLabel emailAddress_label;
     private javax.swing.JTextField emailAddress_textfield;
     private javax.swing.JPanel email_components_panel;
-    private javax.swing.JPanel email_components_panel1;
     private javax.swing.JPanel email_tabpane;
     private javax.swing.JMenuItem exit_menuitem;
     private javax.swing.JLabel expiredDate_label;
@@ -1481,12 +1756,12 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JPanel image_panel;
     private javax.swing.JLabel issuedDate_label;
     private javax.swing.JTextField issuedDate_textfield;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lastName_label;
     private javax.swing.JTextField lastName_textfield;
     private javax.swing.JComboBox<String> licenseType_combobox;
@@ -1494,6 +1769,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JTextArea mail_textarea;
     private javax.swing.JMenuBar menubar;
     private javax.swing.JMenuItem offline_help_menu_item;
+    private javax.swing.JPanel panel_for_documents;
     private javax.swing.JPanel panel_for_tabpane;
     private javax.swing.JLabel password_label;
     private javax.swing.JPasswordField password_textfield;
