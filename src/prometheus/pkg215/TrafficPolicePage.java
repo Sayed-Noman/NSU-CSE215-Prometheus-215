@@ -16,6 +16,9 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -82,8 +85,8 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         driverinfo_table = new javax.swing.JTable();
         report_tabpane = new javax.swing.JPanel();
         panel_for_reports = new javax.swing.JPanel();
-        report_driver_id_text_field = new javax.swing.JTextField();
-        report_Driver_id_label = new javax.swing.JLabel();
+        report_date_textfield = new javax.swing.JTextField();
+        report_date_label = new javax.swing.JLabel();
         report1_label = new javax.swing.JLabel();
         report1_combo_box = new javax.swing.JComboBox<>();
         report2_label = new javax.swing.JLabel();
@@ -92,7 +95,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         report3_label = new javax.swing.JLabel();
         submit_repport_button = new javax.swing.JButton();
         report_Driver_id_label1 = new javax.swing.JLabel();
-        report_driver_id_text_field1 = new javax.swing.JTextField();
+        report_driver_id_text_field = new javax.swing.JTextField();
         docuuments_tabpane = new javax.swing.JPanel();
         panel_for_documents = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -256,26 +259,26 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         panel_for_reports.setBackground(new java.awt.Color(0, 102, 153));
 
-        report_Driver_id_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
-        report_Driver_id_label.setForeground(new java.awt.Color(255, 255, 255));
-        report_Driver_id_label.setText("Date");
+        report_date_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        report_date_label.setForeground(new java.awt.Color(255, 255, 255));
+        report_date_label.setText("Date");
 
         report1_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         report1_label.setForeground(new java.awt.Color(255, 255, 255));
         report1_label.setText("Report 1 :");
 
         report1_combo_box.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        report1_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Don't have Valid driving license ?", "Don't have Vehicle registration certificate ?", "Don't have Permit and vehicle's certificate of fitness ?", "Skipping traffic lights ?", "Increasing population of vehicles ?", "Driving without Seatbelt ?", "Driving under influence of Alcohol ?", "Parking a vehicle in “No Parking” zone ?" }));
+        report1_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No rules broken?", "Don't have Valid driving license ?", "Don't have Vehicle registration certificate ?", "Don't have Permit and vehicle's certificate of fitness ?", "Skipping traffic lights ?", "Driving without Seatbelt ?", "Driving under influence of Alcohol ?", "Parking a vehicle in “No Parking” zone ?" }));
 
         report2_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         report2_label.setForeground(new java.awt.Color(255, 255, 255));
         report2_label.setText("Report 2 :");
 
         report2_combo_box.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        report2_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Don't have Valid driving license ?", "Don't have Vehicle registration certificate ?", "Don't have Permit and vehicle's certificate of fitness ?", "Skipping traffic lights ?", "Increasing population of vehicles ?", "Driving without Seatbelt ?", "Driving under influence of Alcohol ?", "Parking a vehicle in “No Parking” zone ?" }));
+        report2_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No rules broken?", "Don't have Valid driving license ?", "Don't have Vehicle registration certificate ?", "Don't have Permit and vehicle's certificate of fitness ?", "Skipping traffic lights ?", "Driving without Seatbelt ?", "Driving under influence of Alcohol ?", "Parking a vehicle in “No Parking” zone ?" }));
 
         report3_combo_box.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        report3_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Don't have Valid driving license ?", "Don't have Vehicle registration certificate ?", "Don't have Permit and vehicle's certificate of fitness ?", "Skipping traffic lights ?", "Increasing population of vehicles ?", "Driving without Seatbelt ?", "Driving under influence of Alcohol ?", "Parking a vehicle in “No Parking” zone ?" }));
+        report3_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No rules broken?", "Don't have Valid driving license ?", "Don't have Vehicle registration certificate ?", "Don't have Permit and vehicle's certificate of fitness ?", "Skipping traffic lights ?", "Driving without Seatbelt ?", "Driving under influence of Alcohol ?", "Parking a vehicle in “No Parking” zone ?" }));
 
         report3_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         report3_label.setForeground(new java.awt.Color(255, 255, 255));
@@ -284,10 +287,21 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         submit_repport_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         submit_repport_button.setForeground(new java.awt.Color(255, 255, 255));
         submit_repport_button.setText("Submit");
+        submit_repport_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submit_repport_buttonActionPerformed(evt);
+            }
+        });
 
         report_Driver_id_label1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         report_Driver_id_label1.setForeground(new java.awt.Color(255, 255, 255));
         report_Driver_id_label1.setText("Driver's Id");
+
+        report_driver_id_text_field.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                report_driver_id_text_fieldKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_for_reportsLayout = new javax.swing.GroupLayout(panel_for_reports);
         panel_for_reports.setLayout(panel_for_reportsLayout);
@@ -315,14 +329,14 @@ public class TrafficPolicePage extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(report1_combo_box, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panel_for_reportsLayout.createSequentialGroup()
-                                .addComponent(report_driver_id_text_field1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(report_driver_id_text_field, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_for_reportsLayout.createSequentialGroup()
                         .addGap(106, 106, 106)
-                        .addComponent(report_Driver_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(report_date_label, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(report_driver_id_text_field, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(report_date_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_for_reportsLayout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(submit_repport_button, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -336,12 +350,12 @@ public class TrafficPolicePage extends javax.swing.JFrame {
                         .addGap(7, 7, 7)
                         .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(report_Driver_id_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(report_driver_id_text_field1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(report_driver_id_text_field, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panel_for_reportsLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(report_Driver_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(report_driver_id_text_field, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(report_date_label, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(report_date_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(report1_combo_box, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1771,6 +1785,94 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_document_clear_buttonActionPerformed
 
+    private void submit_repport_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_repport_buttonActionPerformed
+        // TODO add your handling code here:
+        String date = report_date_textfield.getText().toString();
+        String fileName = report_driver_id_text_field.getText().toString();
+        String diverId = report_driver_id_text_field.getText().toString();
+        String firstName = firstName_textfield.getText().toString();
+        String lastName = lastName_textfield.getText().toString();
+        String fullName = fullName_textfield.getText().toString();
+        String dob = dob_textfield.getText().toString();
+        String gender = gender_combobox.getSelectedItem().toString();
+        String bloodGroup = bloodGroup_textfield.getText().toString();
+        String religion = religion_textfield.getText().toString();
+        String emailAddress = emailAddress_textfield.getText().toString();
+        String city = city_textfield.getText().toString();
+        String address = address_textfield.getText().toString();
+        String drivingLicense = drivingLicenseNo_textfield.getText().toString();
+        String licenseType = licenseType_combobox.getSelectedItem().toString();
+        String issuedDate = issuedDate_textfield.getText().toString();
+        String expiredDate = expiredDate_textfield.getText().toString();
+        String previousPoint = points_textfield.getText().toString();
+
+        try {
+            File file = new File(report_driver_id_text_field.getText().toString());
+            if (file.exists()) {
+                FileWriter fwrite = new FileWriter(file, true);
+                PrintWriter output = new PrintWriter(fwrite);
+                
+                output.println();
+                output.println("Date: " + date);
+                output.println("--------------------");
+                output.println("Report-1: "+report1_combo_box.getSelectedItem().toString());
+                output.println("Report-2: "+report2_combo_box.getSelectedItem().toString());
+                output.println("Report-3: "+report3_combo_box.getSelectedItem().toString());
+                output.close();
+                JOptionPane.showMessageDialog(null,"Reports have been written Successfully");
+            } else {
+                FileWriter fwrite = new FileWriter(file, true);
+                PrintWriter output = new PrintWriter(fwrite);
+                output.println("*****************************************************************************");
+                output.println("*****************************LOG__REPORT*************************************");
+                output.println("*****************************************************************************");
+                output.println("Id: " + diverId);
+                output.println("First Name: " + firstName + "    " + "LastName: " + lastName);
+                output.println("Full Name: " + fullName);
+                output.println("Death of Birth: " + dob);
+                output.println("Gender: " + gender);
+                output.println("Blood Group: " + bloodGroup);
+                output.println("Religion: " + religion);
+                output.println("Email: " + emailAddress);
+                output.println("City: " + city);
+                output.println("Address: " + address);
+                output.println("Driving License NO: " + drivingLicense);
+                output.println("License Type: " + licenseType);
+                output.println("Issued Date: " + issuedDate);
+                output.println("Expire Date: " + expiredDate);
+                output.println("Initial Point: " + previousPoint);
+                output.println("*****************************************************************************");
+                output.println("*****************************************************************************");
+                output.println();
+
+                output.close();
+                 JOptionPane.showMessageDialog(null,"File Created Successfully");
+
+            }
+
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+
+
+    }//GEN-LAST:event_submit_repport_buttonActionPerformed
+
+    private void report_driver_id_text_fieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_report_driver_id_text_fieldKeyReleased
+        // TODO add your handling code here:
+        String sql = "select * from DriverInfo where Id=?";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, report_driver_id_text_field.getText());
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                getValues();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_report_driver_id_text_fieldKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1897,10 +1999,10 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JLabel report2_label;
     private javax.swing.JComboBox<String> report3_combo_box;
     private javax.swing.JLabel report3_label;
-    private javax.swing.JLabel report_Driver_id_label;
     private javax.swing.JLabel report_Driver_id_label1;
+    private javax.swing.JLabel report_date_label;
+    private javax.swing.JTextField report_date_textfield;
     private javax.swing.JTextField report_driver_id_text_field;
-    private javax.swing.JTextField report_driver_id_text_field1;
     private javax.swing.JPanel report_tabpane;
     private javax.swing.JButton save_image_button;
     private javax.swing.JButton search_button;
