@@ -1242,6 +1242,58 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         time_menu.setForeground(Color.RED);
 
     }
+    private void calculatePoints(){
+        
+        double report1Value=0,report2Value=0,report3Value=0,report4Value=0,report5Value=0,report6Value=0,report7Value=0,report8Value=0,totalPoints=0;
+        if((report1_combo_box.getSelectedIndex()==0)||(report2_combo_box.getSelectedIndex()==0)||(report3_combo_box.getSelectedIndex()==0)){
+           report1Value=0.0;
+        }
+        else if((report1_combo_box.getSelectedIndex()==1)||(report2_combo_box.getSelectedIndex()==1)||(report3_combo_box.getSelectedIndex()==1)){
+            report2Value=2.0;
+        }
+        else if((report1_combo_box.getSelectedIndex()==2)||(report2_combo_box.getSelectedIndex()==2)||(report3_combo_box.getSelectedIndex()==2)){
+            report3Value=1.0;
+        }
+        else if((report1_combo_box.getSelectedIndex()==3)||(report2_combo_box.getSelectedIndex()==3)||(report3_combo_box.getSelectedIndex()==3)){
+            report4Value=0.50;
+        }
+        else if((report1_combo_box.getSelectedIndex()==4)||(report2_combo_box.getSelectedIndex()==4)||(report3_combo_box.getSelectedIndex()==4)){
+            report5Value=0.30;
+        }
+        else if((report1_combo_box.getSelectedIndex()==5)||(report2_combo_box.getSelectedIndex()==5)||(report3_combo_box.getSelectedIndex()==5)){
+            report6Value=0.20;
+        }
+        else if((report1_combo_box.getSelectedIndex()==6)||(report2_combo_box.getSelectedIndex()==6)||(report3_combo_box.getSelectedIndex()==6)){
+            report7Value=1.5;
+        }
+        else if((report1_combo_box.getSelectedIndex()==7)||(report2_combo_box.getSelectedIndex()==7)||(report3_combo_box.getSelectedIndex()==0)){
+            report8Value=0.10;
+        }
+        
+        totalPoints=report1Value+report2Value+report3Value+report4Value+report5Value+report6Value+report7Value+report8Value;
+        double remainingPoints=Double.parseDouble(points_textfield.getText())-totalPoints;
+        String calculatePoints=Double.toString(remainingPoints);
+        
+        String sql = "update DriverInfo set Points=? where Id=?";
+        try {
+            pst = connection.prepareStatement(sql);
+
+            pst.setString(1,calculatePoints);
+           
+
+            pst.setString(2, report_driver_id_text_field.getText());
+
+            pst.execute();
+
+            JOptionPane.showMessageDialog(rootPane, "Points decreased: "+totalPoints);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        //calling two Tables manually after insertion to emidiate show
+        DriverInfoUpdateTable();
+        DriverShortInfoTable();
+    }
 
     private void close_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_menuitemActionPerformed
         // TODO add your handling code here:
@@ -1805,6 +1857,9 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         String issuedDate = issuedDate_textfield.getText().toString();
         String expiredDate = expiredDate_textfield.getText().toString();
         String previousPoint = points_textfield.getText().toString();
+        
+        //calling calculating points to check broken rules
+        calculatePoints();
 
         try {
             File file = new File(report_driver_id_text_field.getText().toString());
