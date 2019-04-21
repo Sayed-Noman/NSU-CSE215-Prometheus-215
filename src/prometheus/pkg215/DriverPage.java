@@ -4,18 +4,42 @@
  * and open the template in the editor.
  */
 package prometheus.pkg215;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author Acer
  */
 public class DriverPage extends javax.swing.JFrame {
+    
+     //creating connection to database
+    Connection connection;
+    ResultSet rs;
+    PreparedStatement pst;
+    private byte[] personImage;
+    private String filePath = null;
 
     /**
      * Creates new form DriverPage
      */
     public DriverPage() {
         initComponents();
+         connection = JavaDbConnect.databaseConnect();
     }
 
     /**
@@ -27,21 +51,1133 @@ public class DriverPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Action_panel = new javax.swing.JPanel();
+        panel_for_tabpane = new javax.swing.JPanel();
+        tabpane = new javax.swing.JTabbedPane();
+        datatable_tabpane = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        driverinfo_table = new javax.swing.JTable();
+        report_tabpane = new javax.swing.JPanel();
+        statistics_tabpane = new javax.swing.JPanel();
+        docuuments_tabpane = new javax.swing.JPanel();
+        panel_for_documents = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        document_data_table = new javax.swing.JTable();
+        document_attach_textfield = new javax.swing.JTextField();
+        document_attach_button = new javax.swing.JButton();
+        document_doc_id_textfield = new javax.swing.JTextField();
+        document_add_button = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        document_drivers_id_label = new javax.swing.JLabel();
+        document_drivers_id_textfield = new javax.swing.JTextField();
+        document_delete_button = new javax.swing.JButton();
+        document_clear_button = new javax.swing.JButton();
+        document_doc_name_textfield = new javax.swing.JTextField();
+        documents_doc_name_label = new javax.swing.JLabel();
+        email_tabpane = new javax.swing.JPanel();
+        email_components_panel = new javax.swing.JPanel();
+        form_label = new javax.swing.JLabel();
+        from_textfield = new javax.swing.JTextField();
+        password_label = new javax.swing.JLabel();
+        to_textfield = new javax.swing.JTextField();
+        to_label = new javax.swing.JLabel();
+        subject_label = new javax.swing.JLabel();
+        subject_textfield = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        mail_textarea = new javax.swing.JTextArea();
+        attachment_mail_document_textfield = new javax.swing.JTextField();
+        attach_document_mail_button = new javax.swing.JButton();
+        attachmentName_textfield = new javax.swing.JTextField();
+        attachmentName_label = new javax.swing.JLabel();
+        send_mail_button = new javax.swing.JButton();
+        password_textfield = new javax.swing.JPasswordField();
+        jPanel1 = new javax.swing.JPanel();
+        clear_button = new javax.swing.JButton();
+        delete_button = new javax.swing.JButton();
+        edit_button = new javax.swing.JButton();
+        search_textfield = new javax.swing.JTextField();
+        search_button = new javax.swing.JButton();
+        jToolBar1 = new javax.swing.JToolBar();
+        panel_for_information = new javax.swing.JPanel();
+        drivers_id_label = new javax.swing.JLabel();
+        drivers_id_textfield = new javax.swing.JTextField();
+        firstName_label = new javax.swing.JLabel();
+        firstName_textfield = new javax.swing.JTextField();
+        lastName_label = new javax.swing.JLabel();
+        lastName_textfield = new javax.swing.JTextField();
+        fullName_label = new javax.swing.JLabel();
+        fullName_textfield = new javax.swing.JTextField();
+        dob_textfield = new javax.swing.JTextField();
+        dob_label = new javax.swing.JLabel();
+        gender_label = new javax.swing.JLabel();
+        gender_combobox = new javax.swing.JComboBox<>();
+        bloodGroup_textfield = new javax.swing.JTextField();
+        bloodGroup_label = new javax.swing.JLabel();
+        religion_label = new javax.swing.JLabel();
+        religion_textfield = new javax.swing.JTextField();
+        emailAddress_label = new javax.swing.JLabel();
+        city_label = new javax.swing.JLabel();
+        emailAddress_textfield = new javax.swing.JTextField();
+        city_textfield = new javax.swing.JTextField();
+        address_textfield = new javax.swing.JTextField();
+        address_label = new javax.swing.JLabel();
+        drivingLicenseNo_label = new javax.swing.JLabel();
+        drivingLicenseNo_textfield = new javax.swing.JTextField();
+        licenseType_combobox = new javax.swing.JComboBox<>();
+        licenseType_label = new javax.swing.JLabel();
+        issuedDate_label = new javax.swing.JLabel();
+        issuedDate_textfield = new javax.swing.JTextField();
+        expiredDate_label = new javax.swing.JLabel();
+        expiredDate_textfield = new javax.swing.JTextField();
+        points_textfield = new javax.swing.JTextField();
+        points_label = new javax.swing.JLabel();
+        image_panel = new javax.swing.JPanel();
+        driver_image_show_panel = new javax.swing.JPanel();
+        show_image_label = new javax.swing.JLabel();
+        upload_iamge_textfield = new javax.swing.JTextField();
+        upload_image_button = new javax.swing.JButton();
+        save_image_button = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        file_menu = new javax.swing.JMenu();
+        edit_menu = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(1015, 551));
+
+        panel_for_tabpane.setBackground(new java.awt.Color(0, 153, 153));
+
+        tabpane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Action Panel", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB Demi", 1, 10))); // NOI18N
+        tabpane.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+
+        driverinfo_table.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        driverinfo_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        driverinfo_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                driverinfo_tableMouseClicked(evt);
+            }
+        });
+        driverinfo_table.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                driverinfo_tableKeyReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(driverinfo_table);
+
+        javax.swing.GroupLayout datatable_tabpaneLayout = new javax.swing.GroupLayout(datatable_tabpane);
+        datatable_tabpane.setLayout(datatable_tabpaneLayout);
+        datatable_tabpaneLayout.setHorizontalGroup(
+            datatable_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(datatable_tabpaneLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        datatable_tabpaneLayout.setVerticalGroup(
+            datatable_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(datatable_tabpaneLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 55, Short.MAX_VALUE))
+        );
+
+        tabpane.addTab("Data Table", datatable_tabpane);
+
+        javax.swing.GroupLayout report_tabpaneLayout = new javax.swing.GroupLayout(report_tabpane);
+        report_tabpane.setLayout(report_tabpaneLayout);
+        report_tabpaneLayout.setHorizontalGroup(
+            report_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        report_tabpaneLayout.setVerticalGroup(
+            report_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 166, Short.MAX_VALUE)
+        );
+
+        tabpane.addTab("Report", report_tabpane);
+
+        javax.swing.GroupLayout statistics_tabpaneLayout = new javax.swing.GroupLayout(statistics_tabpane);
+        statistics_tabpane.setLayout(statistics_tabpaneLayout);
+        statistics_tabpaneLayout.setHorizontalGroup(
+            statistics_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        statistics_tabpaneLayout.setVerticalGroup(
+            statistics_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 166, Short.MAX_VALUE)
+        );
+
+        tabpane.addTab("Statistics", statistics_tabpane);
+
+        docuuments_tabpane.setBackground(new java.awt.Color(0, 153, 102));
+
+        document_data_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        document_data_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                document_data_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(document_data_table);
+
+        document_attach_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        document_attach_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        document_attach_button.setText("Attach");
+        document_attach_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                document_attach_buttonActionPerformed(evt);
+            }
+        });
+
+        document_doc_id_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        document_add_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        document_add_button.setText("Add");
+        document_add_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                document_add_buttonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        jLabel1.setText("Doc ID");
+
+        document_drivers_id_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        document_drivers_id_label.setText("Driver's Id");
+
+        document_drivers_id_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        document_delete_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        document_delete_button.setText("Delete");
+        document_delete_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                document_delete_buttonActionPerformed(evt);
+            }
+        });
+
+        document_clear_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        document_clear_button.setText("Clear");
+        document_clear_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                document_clear_buttonActionPerformed(evt);
+            }
+        });
+
+        document_doc_name_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        documents_doc_name_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        documents_doc_name_label.setText("Doc Name");
+
+        javax.swing.GroupLayout panel_for_documentsLayout = new javax.swing.GroupLayout(panel_for_documents);
+        panel_for_documents.setLayout(panel_for_documentsLayout);
+        panel_for_documentsLayout.setHorizontalGroup(
+            panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_documentsLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(document_drivers_id_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(documents_doc_name_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                                .addComponent(document_doc_name_textfield)
+                                .addGap(18, 18, 18)
+                                .addComponent(document_clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                                .addComponent(document_drivers_id_textfield)
+                                .addGap(18, 18, 18)
+                                .addComponent(document_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                                .addComponent(document_doc_id_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(document_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_documentsLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(document_attach_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(document_attach_button, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(88, 88, 88)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+        );
+        panel_for_documentsLayout.setVerticalGroup(
+            panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(document_attach_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(document_attach_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(document_doc_id_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(document_add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(document_drivers_id_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(document_drivers_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(document_delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel_for_documentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(document_doc_name_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(documents_doc_name_label, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(document_clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel_for_documentsLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout docuuments_tabpaneLayout = new javax.swing.GroupLayout(docuuments_tabpane);
+        docuuments_tabpane.setLayout(docuuments_tabpaneLayout);
+        docuuments_tabpaneLayout.setHorizontalGroup(
+            docuuments_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(docuuments_tabpaneLayout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addComponent(panel_for_documents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        docuuments_tabpaneLayout.setVerticalGroup(
+            docuuments_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(docuuments_tabpaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panel_for_documents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        tabpane.addTab("Documents", docuuments_tabpane);
+
+        email_tabpane.setBackground(new java.awt.Color(204, 204, 255));
+
+        form_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 16)); // NOI18N
+        form_label.setForeground(new java.awt.Color(153, 0, 0));
+        form_label.setText("From");
+
+        password_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 16)); // NOI18N
+        password_label.setForeground(new java.awt.Color(153, 0, 0));
+        password_label.setText("Password");
+
+        to_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 16)); // NOI18N
+        to_label.setForeground(new java.awt.Color(153, 0, 0));
+        to_label.setText("To");
+
+        subject_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 16)); // NOI18N
+        subject_label.setForeground(new java.awt.Color(153, 0, 0));
+        subject_label.setText("Subject");
+
+        mail_textarea.setColumns(20);
+        mail_textarea.setRows(5);
+        jScrollPane3.setViewportView(mail_textarea);
+
+        attachment_mail_document_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 11)); // NOI18N
+
+        attach_document_mail_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        attach_document_mail_button.setText("Attach");
+        attach_document_mail_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                attach_document_mail_buttonActionPerformed(evt);
+            }
+        });
+
+        attachmentName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+
+        attachmentName_label.setFont(new java.awt.Font("Berlin Sans FB", 0, 10)); // NOI18N
+        attachmentName_label.setForeground(new java.awt.Color(153, 0, 0));
+        attachmentName_label.setText("Attachment Name");
+
+        send_mail_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        send_mail_button.setText("Send Mail");
+        send_mail_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                send_mail_buttonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout email_components_panelLayout = new javax.swing.GroupLayout(email_components_panel);
+        email_components_panel.setLayout(email_components_panelLayout);
+        email_components_panelLayout.setHorizontalGroup(
+            email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(email_components_panelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(password_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(password_textfield))
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(form_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(from_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(to_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(to_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(subject_label, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(subject_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(attachment_mail_document_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(attach_document_mail_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(attachmentName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(attachmentName_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(37, 37, 37))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, email_components_panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(send_mail_button, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
+        );
+        email_components_panelLayout.setVerticalGroup(
+            email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(email_components_panelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(from_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(form_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(password_label, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                            .addComponent(password_textfield))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(to_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(to_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(subject_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(subject_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(email_components_panelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(attach_document_mail_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(attachment_mail_document_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(email_components_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(attachmentName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(attachmentName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(send_mail_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout email_tabpaneLayout = new javax.swing.GroupLayout(email_tabpane);
+        email_tabpane.setLayout(email_tabpaneLayout);
+        email_tabpaneLayout.setHorizontalGroup(
+            email_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(email_tabpaneLayout.createSequentialGroup()
+                .addGap(246, 246, 246)
+                .addComponent(email_components_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        email_tabpaneLayout.setVerticalGroup(
+            email_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(email_tabpaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(email_components_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        tabpane.addTab("Email", email_tabpane);
+
+        javax.swing.GroupLayout panel_for_tabpaneLayout = new javax.swing.GroupLayout(panel_for_tabpane);
+        panel_for_tabpane.setLayout(panel_for_tabpaneLayout);
+        panel_for_tabpaneLayout.setHorizontalGroup(
+            panel_for_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tabpane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+        panel_for_tabpaneLayout.setVerticalGroup(
+            panel_for_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_tabpaneLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(tabpane, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Commands", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 12), new java.awt.Color(0, 102, 153))); // NOI18N
+
+        clear_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        clear_button.setText("Clear");
+        clear_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clear_buttonActionPerformed(evt);
+            }
+        });
+
+        delete_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        delete_button.setText("Delete");
+        delete_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_buttonActionPerformed(evt);
+            }
+        });
+
+        edit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        edit_button.setText("Edit");
+        edit_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_buttonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(clear_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(delete_button, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                    .addComponent(edit_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(edit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(clear_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        search_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
+        search_textfield.setText("Search");
+        search_textfield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                search_textfieldKeyReleased(evt);
+            }
+        });
+
+        search_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\search_icon.png")); // NOI18N
+
+        javax.swing.GroupLayout Action_panelLayout = new javax.swing.GroupLayout(Action_panel);
+        Action_panel.setLayout(Action_panelLayout);
+        Action_panelLayout.setHorizontalGroup(
+            Action_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Action_panelLayout.createSequentialGroup()
+                .addGroup(Action_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Action_panelLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(search_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Action_panelLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(Action_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Action_panelLayout.createSequentialGroup()
+                    .addGap(0, 137, Short.MAX_VALUE)
+                    .addComponent(panel_for_tabpane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 137, Short.MAX_VALUE)))
+        );
+        Action_panelLayout.setVerticalGroup(
+            Action_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Action_panelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(Action_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(search_button, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(search_textfield))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(Action_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Action_panelLayout.createSequentialGroup()
+                    .addGap(0, 3, Short.MAX_VALUE)
+                    .addComponent(panel_for_tabpane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 3, Short.MAX_VALUE)))
+        );
+
+        jToolBar1.setRollover(true);
+
+        drivers_id_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        drivers_id_label.setText("Driver's Id");
+
+        firstName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        firstName_label.setText("First Name");
+
+        lastName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        lastName_label.setText("Last Name");
+
+        fullName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        fullName_label.setText("Full Name");
+
+        dob_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        dob_label.setText("Dathe of Birth");
+
+        gender_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        gender_label.setText("Gender");
+
+        gender_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+
+        bloodGroup_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        bloodGroup_label.setText("Blood Group");
+
+        religion_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        religion_label.setText("Religion");
+
+        emailAddress_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        emailAddress_label.setText("Email Address");
+
+        city_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        city_label.setText("City");
+
+        address_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        address_label.setText("Address");
+
+        drivingLicenseNo_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        drivingLicenseNo_label.setText("Driving License No");
+
+        licenseType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professional", "Non-Professional" }));
+
+        licenseType_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        licenseType_label.setText("License Type");
+
+        issuedDate_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        issuedDate_label.setText("Issued Date");
+
+        expiredDate_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        expiredDate_label.setText("Expired Date");
+
+        points_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
+        points_label.setText("Points");
+
+        javax.swing.GroupLayout panel_for_informationLayout = new javax.swing.GroupLayout(panel_for_information);
+        panel_for_information.setLayout(panel_for_informationLayout);
+        panel_for_informationLayout.setHorizontalGroup(
+            panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_for_informationLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addComponent(bloodGroup_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bloodGroup_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addComponent(drivers_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(drivers_id_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addComponent(firstName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(firstName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addComponent(lastName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lastName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addComponent(fullName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fullName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addComponent(dob_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dob_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addComponent(gender_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gender_combobox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addComponent(religion_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(religion_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_informationLayout.createSequentialGroup()
+                            .addComponent(licenseType_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(licenseType_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel_for_informationLayout.createSequentialGroup()
+                            .addComponent(emailAddress_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(emailAddress_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel_for_informationLayout.createSequentialGroup()
+                            .addComponent(city_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(city_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel_for_informationLayout.createSequentialGroup()
+                            .addComponent(address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(address_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel_for_informationLayout.createSequentialGroup()
+                            .addComponent(drivingLicenseNo_label)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(drivingLicenseNo_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addComponent(issuedDate_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(issuedDate_textfield))
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addComponent(expiredDate_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(expiredDate_textfield))
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addComponent(points_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(points_textfield)))
+                .addGap(28, 28, 28))
+        );
+        panel_for_informationLayout.setVerticalGroup(
+            panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_for_informationLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(drivers_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(drivers_id_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(firstName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(firstName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lastName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lastName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fullName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fullName_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dob_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dob_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(gender_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(gender_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bloodGroup_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bloodGroup_textfield, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(religion_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(religion_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel_for_informationLayout.createSequentialGroup()
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(emailAddress_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailAddress_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(city_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(city_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(address_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(drivingLicenseNo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(drivingLicenseNo_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(licenseType_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(licenseType_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(issuedDate_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(issuedDate_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(expiredDate_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(expiredDate_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(points_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(points_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        image_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        driver_image_show_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        show_image_label.setBackground(new java.awt.Color(204, 0, 204));
+
+        javax.swing.GroupLayout driver_image_show_panelLayout = new javax.swing.GroupLayout(driver_image_show_panel);
+        driver_image_show_panel.setLayout(driver_image_show_panelLayout);
+        driver_image_show_panelLayout.setHorizontalGroup(
+            driver_image_show_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, driver_image_show_panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(show_image_label, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+        );
+        driver_image_show_panelLayout.setVerticalGroup(
+            driver_image_show_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(driver_image_show_panelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(show_image_label, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        upload_iamge_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+
+        upload_image_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 11)); // NOI18N
+        upload_image_button.setText("Upload");
+        upload_image_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upload_image_buttonActionPerformed(evt);
+            }
+        });
+
+        save_image_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        save_image_button.setText("Save");
+        save_image_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save_image_buttonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout image_panelLayout = new javax.swing.GroupLayout(image_panel);
+        image_panel.setLayout(image_panelLayout);
+        image_panelLayout.setHorizontalGroup(
+            image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(image_panelLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(save_image_button, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, image_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(driver_image_show_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(image_panelLayout.createSequentialGroup()
+                        .addComponent(upload_iamge_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(upload_image_button, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        image_panelLayout.setVerticalGroup(
+            image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(image_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(driver_image_show_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(upload_iamge_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(upload_image_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(save_image_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(2, 2, 2))
+        );
+
+        file_menu.setText("File");
+        jMenuBar1.add(file_menu);
+
+        edit_menu.setText("Edit");
+        jMenuBar1.add(edit_menu);
+
+        jMenu1.setText("Help");
+        jMenuBar1.add(jMenu1);
+
+        jMenu3.setText("Date");
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Time");
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Action_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panel_for_information, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Action_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(panel_for_information, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(image_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(201, 201, 201))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void getValues() {
+        try {
+
+            drivers_id_textfield.setText(rs.getString("Id"));
+            firstName_textfield.setText(rs.getString("First_Name"));
+            lastName_textfield.setText(rs.getString("Last_Name"));
+            fullName_textfield.setText(rs.getString("Full_Name"));
+            dob_textfield.setText(rs.getString("Dob"));
+            gender_combobox.setSelectedItem(rs.getString("Gender"));
+            bloodGroup_textfield.setText(rs.getString("Blood_Group"));
+            religion_textfield.setText(rs.getString("Religion"));
+            emailAddress_textfield.setText(rs.getString("Email"));
+            city_textfield.setText(rs.getString("City"));
+            address_textfield.setText(rs.getString("Address"));
+            drivingLicenseNo_textfield.setText(rs.getString("Driving_License_No"));
+            licenseType_combobox.setSelectedItem(rs.getString("License_Type"));
+            issuedDate_textfield.setText(rs.getString("Issued"));
+            expiredDate_textfield.setText(rs.getString("Expired"));
+            points_textfield.setText(rs.getString("Points"));
+
+            byte[] imagedata = rs.getBytes("Photo");
+            ImageIcon img = new ImageIcon(imageResize(imagedata, show_image_label.getWidth(), show_image_label.getHeight()));
+            show_image_label.setIcon(img);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    private Image imageResize(byte[] img, int width, int height) {
+        BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        try {
+            Graphics2D ghrapicImg = resizedImage.createGraphics();
+            ghrapicImg.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+
+            //converting byte array back to buffered image
+            ByteArrayInputStream in = new ByteArrayInputStream(img);
+            BufferedImage BImageFromConvert = ImageIO.read(in);
+
+            ghrapicImg.drawImage(BImageFromConvert, 0, 0, width, height, null);
+            ghrapicImg.dispose();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+
+        return resizedImage;
+    }
+    private void driverinfo_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driverinfo_tableMouseClicked
+        
+    }//GEN-LAST:event_driverinfo_tableMouseClicked
+
+    private void driverinfo_tableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_driverinfo_tableKeyReleased
+
+    }//GEN-LAST:event_driverinfo_tableKeyReleased
+
+    private void document_data_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_document_data_tableMouseClicked
+        
+    }//GEN-LAST:event_document_data_tableMouseClicked
+
+    private void document_attach_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_attach_buttonActionPerformed
+       
+    }//GEN-LAST:event_document_attach_buttonActionPerformed
+
+    private void document_add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_add_buttonActionPerformed
+ 
+        
+    }//GEN-LAST:event_document_add_buttonActionPerformed
+
+    private void document_delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_delete_buttonActionPerformed
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_document_delete_buttonActionPerformed
+
+    private void document_clear_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_clear_buttonActionPerformed
+       
+    }//GEN-LAST:event_document_clear_buttonActionPerformed
+
+    private void attach_document_mail_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attach_document_mail_buttonActionPerformed
+
+    }//GEN-LAST:event_attach_document_mail_buttonActionPerformed
+
+    private void send_mail_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_send_mail_buttonActionPerformed
+
+    }//GEN-LAST:event_send_mail_buttonActionPerformed
+
+    private void search_textfieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_textfieldKeyReleased
+        // TODO add your handling code here:
+        String sql = "select * from DriverInfo where Full_Name=?";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, search_textfield.getText());
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                getValues();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        String sql1 = "select * from DriverInfo where Id=?";
+        try {
+            pst = connection.prepareStatement(sql1);
+            pst.setString(1, search_textfield.getText());
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                getValues();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_search_textfieldKeyReleased
+
+    private void clear_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_buttonActionPerformed
+        // TODO add your handling code here:
+        drivers_id_textfield.setText(null);
+        firstName_textfield.setText(null);
+        lastName_textfield.setText(null);
+        fullName_textfield.setText(null);
+        dob_textfield.setText(null);
+        gender_combobox.setSelectedItem("Male");
+        bloodGroup_textfield.setText(null);
+        religion_textfield.setText(null);
+        emailAddress_textfield.setText(null);
+        city_textfield.setText(null);
+        address_textfield.setText(null);
+        drivingLicenseNo_textfield.setText(null);
+        licenseType_combobox.setSelectedItem("Professional");
+        issuedDate_textfield.setText(null);
+        expiredDate_textfield.setText(null);
+        points_textfield.setText(null);
+    }//GEN-LAST:event_clear_buttonActionPerformed
+
+    private void delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_buttonActionPerformed
+        // TODO add your handling code here:
+        int del = JOptionPane.showConfirmDialog(rootPane, "Do you really want to delete this Entry ?", "Delete", JOptionPane.YES_NO_OPTION);
+        if (del == 0) {
+            String sql = "delete from DriverInfo where Id=?";
+            try {
+                pst = connection.prepareStatement(sql);
+                pst.setString(1, drivers_id_textfield.getText());
+                pst.execute();
+
+                JOptionPane.showMessageDialog(rootPane, "Entry Deleted");
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e);
+            }
+        }
+        //calling two Tables manually after insertion to emidiate show
+      
+    }//GEN-LAST:event_delete_buttonActionPerformed
+
+    private void edit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_buttonActionPerformed
+        // TODO add your handling code here:
+        String sql = "update DriverInfo set First_Name=?,Last_Name=?,Full_Name=?,Dob=?,Gender=?,Blood_Group=?,Religion=?,Email=?,City=?,Address=?,Driving_License_No=?,License_Type=?,Issued=?,Expired=?,Points=? where Id=?";
+        try {
+            pst = connection.prepareStatement(sql);
+
+            pst.setString(1, firstName_textfield.getText());
+            pst.setString(2, lastName_textfield.getText());
+            pst.setString(3, fullName_textfield.getText());
+            pst.setString(4, dob_textfield.getText());
+            pst.setString(5, (String) gender_combobox.getSelectedItem());
+            pst.setString(6, bloodGroup_textfield.getText());
+            pst.setString(7, religion_textfield.getText());
+            pst.setString(8, emailAddress_textfield.getText());
+            pst.setString(9, city_textfield.getText());
+            pst.setString(10, address_textfield.getText());
+            pst.setString(11, drivingLicenseNo_textfield.getText());
+            pst.setString(12, (String) licenseType_combobox.getSelectedItem());
+            pst.setString(13, issuedDate_textfield.getText());
+            pst.setString(14, expiredDate_textfield.getText());
+            pst.setString(15, points_textfield.getText());
+
+            pst.setString(16, drivers_id_textfield.getText());
+
+            pst.execute();
+
+            JOptionPane.showMessageDialog(rootPane, "Info Updated");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        //calling two Tables manually after insertion to emidiate show
+       
+    }//GEN-LAST:event_edit_buttonActionPerformed
+
+    private void upload_image_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upload_image_buttonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+
+        File f = chooser.getSelectedFile();
+        String fileName = f.getAbsolutePath();
+        upload_iamge_textfield.setText(fileName);
+
+        try {
+            FileInputStream fIS = new FileInputStream(f);
+            ByteArrayOutputStream bAOS = new ByteArrayOutputStream();
+            byte[] bufferimage = new byte[1024];
+            for (int readNum; (readNum = fIS.read(bufferimage)) != -1;) {
+                bAOS.write(bufferimage, 0, readNum);
+            }
+            personImage = bAOS.toByteArray();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+    }//GEN-LAST:event_upload_image_buttonActionPerformed
+
+    private void save_image_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_image_buttonActionPerformed
+        // TODO add your handling code here:
+        String sql = "update DriverInfo set Photo=? where Id=?";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setBytes(1, personImage);
+            pst.setString(2, drivers_id_textfield.getText());
+
+            pst.execute();
+            JOptionPane.showMessageDialog(rootPane, "Image Saved Successfully");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+    }//GEN-LAST:event_save_image_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +1215,97 @@ public class DriverPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Action_panel;
+    private javax.swing.JLabel address_label;
+    private javax.swing.JTextField address_textfield;
+    private javax.swing.JButton attach_document_mail_button;
+    private javax.swing.JLabel attachmentName_label;
+    private javax.swing.JTextField attachmentName_textfield;
+    private javax.swing.JTextField attachment_mail_document_textfield;
+    private javax.swing.JLabel bloodGroup_label;
+    private javax.swing.JTextField bloodGroup_textfield;
+    private javax.swing.JLabel city_label;
+    private javax.swing.JTextField city_textfield;
+    private javax.swing.JButton clear_button;
+    private javax.swing.JPanel datatable_tabpane;
+    private javax.swing.JButton delete_button;
+    private javax.swing.JLabel dob_label;
+    private javax.swing.JTextField dob_textfield;
+    private javax.swing.JButton document_add_button;
+    private javax.swing.JButton document_attach_button;
+    private javax.swing.JTextField document_attach_textfield;
+    private javax.swing.JButton document_clear_button;
+    private javax.swing.JTable document_data_table;
+    private javax.swing.JButton document_delete_button;
+    private javax.swing.JTextField document_doc_id_textfield;
+    private javax.swing.JTextField document_doc_name_textfield;
+    private javax.swing.JLabel document_drivers_id_label;
+    private javax.swing.JTextField document_drivers_id_textfield;
+    private javax.swing.JLabel documents_doc_name_label;
+    private javax.swing.JPanel docuuments_tabpane;
+    private javax.swing.JPanel driver_image_show_panel;
+    private javax.swing.JTable driverinfo_table;
+    private javax.swing.JLabel drivers_id_label;
+    private javax.swing.JTextField drivers_id_textfield;
+    private javax.swing.JLabel drivingLicenseNo_label;
+    private javax.swing.JTextField drivingLicenseNo_textfield;
+    private javax.swing.JButton edit_button;
+    private javax.swing.JMenu edit_menu;
+    private javax.swing.JLabel emailAddress_label;
+    private javax.swing.JTextField emailAddress_textfield;
+    private javax.swing.JPanel email_components_panel;
+    private javax.swing.JPanel email_tabpane;
+    private javax.swing.JLabel expiredDate_label;
+    private javax.swing.JTextField expiredDate_textfield;
+    private javax.swing.JMenu file_menu;
+    private javax.swing.JLabel firstName_label;
+    private javax.swing.JTextField firstName_textfield;
+    private javax.swing.JLabel form_label;
+    private javax.swing.JTextField from_textfield;
+    private javax.swing.JLabel fullName_label;
+    private javax.swing.JTextField fullName_textfield;
+    private javax.swing.JComboBox<String> gender_combobox;
+    private javax.swing.JLabel gender_label;
+    private javax.swing.JPanel image_panel;
+    private javax.swing.JLabel issuedDate_label;
+    private javax.swing.JTextField issuedDate_textfield;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel lastName_label;
+    private javax.swing.JTextField lastName_textfield;
+    private javax.swing.JComboBox<String> licenseType_combobox;
+    private javax.swing.JLabel licenseType_label;
+    private javax.swing.JTextArea mail_textarea;
+    private javax.swing.JPanel panel_for_documents;
+    private javax.swing.JPanel panel_for_information;
+    private javax.swing.JPanel panel_for_tabpane;
+    private javax.swing.JLabel password_label;
+    private javax.swing.JPasswordField password_textfield;
+    private javax.swing.JLabel points_label;
+    private javax.swing.JTextField points_textfield;
+    private javax.swing.JLabel religion_label;
+    private javax.swing.JTextField religion_textfield;
+    private javax.swing.JPanel report_tabpane;
+    private javax.swing.JButton save_image_button;
+    private javax.swing.JButton search_button;
+    private javax.swing.JTextField search_textfield;
+    private javax.swing.JButton send_mail_button;
+    private javax.swing.JLabel show_image_label;
+    private javax.swing.JPanel statistics_tabpane;
+    private javax.swing.JLabel subject_label;
+    private javax.swing.JTextField subject_textfield;
+    private javax.swing.JTabbedPane tabpane;
+    private javax.swing.JLabel to_label;
+    private javax.swing.JTextField to_textfield;
+    private javax.swing.JTextField upload_iamge_textfield;
+    private javax.swing.JButton upload_image_button;
     // End of variables declaration//GEN-END:variables
 }
