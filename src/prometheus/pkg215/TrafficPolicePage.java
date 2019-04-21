@@ -81,6 +81,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         driverinfo_table = new javax.swing.JTable();
         report_tabpane = new javax.swing.JPanel();
+        panel_for_reports = new javax.swing.JPanel();
         statistics_tabpane = new javax.swing.JPanel();
         docuuments_tabpane = new javax.swing.JPanel();
         panel_for_documents = new javax.swing.JPanel();
@@ -243,15 +244,34 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         tabpane.addTab("Data Table", datatable_tabpane);
 
+        panel_for_reports.setBackground(new java.awt.Color(0, 102, 153));
+
+        javax.swing.GroupLayout panel_for_reportsLayout = new javax.swing.GroupLayout(panel_for_reports);
+        panel_for_reports.setLayout(panel_for_reportsLayout);
+        panel_for_reportsLayout.setHorizontalGroup(
+            panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 932, Short.MAX_VALUE)
+        );
+        panel_for_reportsLayout.setVerticalGroup(
+            panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 216, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout report_tabpaneLayout = new javax.swing.GroupLayout(report_tabpane);
         report_tabpane.setLayout(report_tabpaneLayout);
         report_tabpaneLayout.setHorizontalGroup(
             report_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1688, Short.MAX_VALUE)
+            .addGroup(report_tabpaneLayout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(panel_for_reports, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(428, Short.MAX_VALUE))
         );
         report_tabpaneLayout.setVerticalGroup(
             report_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 238, Short.MAX_VALUE)
+            .addGroup(report_tabpaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panel_for_reports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         tabpane.addTab("Report", report_tabpane);
@@ -1770,6 +1790,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JMenuBar menubar;
     private javax.swing.JMenuItem offline_help_menu_item;
     private javax.swing.JPanel panel_for_documents;
+    private javax.swing.JPanel panel_for_reports;
     private javax.swing.JPanel panel_for_tabpane;
     private javax.swing.JLabel password_label;
     private javax.swing.JPasswordField password_textfield;
