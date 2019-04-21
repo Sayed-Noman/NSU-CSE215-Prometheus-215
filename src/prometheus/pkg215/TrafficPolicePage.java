@@ -82,7 +82,17 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         driverinfo_table = new javax.swing.JTable();
         report_tabpane = new javax.swing.JPanel();
         panel_for_reports = new javax.swing.JPanel();
-        statistics_tabpane = new javax.swing.JPanel();
+        report_driver_id_text_field = new javax.swing.JTextField();
+        report_Driver_id_label = new javax.swing.JLabel();
+        report1_label = new javax.swing.JLabel();
+        report1_combo_box = new javax.swing.JComboBox<>();
+        report2_label = new javax.swing.JLabel();
+        report2_combo_box = new javax.swing.JComboBox<>();
+        report3_combo_box = new javax.swing.JComboBox<>();
+        report3_label = new javax.swing.JLabel();
+        submit_repport_button = new javax.swing.JButton();
+        report_Driver_id_label1 = new javax.swing.JLabel();
+        report_driver_id_text_field1 = new javax.swing.JTextField();
         docuuments_tabpane = new javax.swing.JPanel();
         panel_for_documents = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -246,15 +256,111 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         panel_for_reports.setBackground(new java.awt.Color(0, 102, 153));
 
+        report_Driver_id_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        report_Driver_id_label.setForeground(new java.awt.Color(255, 255, 255));
+        report_Driver_id_label.setText("Date");
+
+        report1_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        report1_label.setForeground(new java.awt.Color(255, 255, 255));
+        report1_label.setText("Report 1 :");
+
+        report1_combo_box.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        report1_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Don't have Valid driving license ?", "Don't have Vehicle registration certificate ?", "Don't have Permit and vehicle's certificate of fitness ?", "Skipping traffic lights ?", "Increasing population of vehicles ?", "Driving without Seatbelt ?", "Driving under influence of Alcohol ?", "Parking a vehicle in “No Parking” zone ?" }));
+
+        report2_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        report2_label.setForeground(new java.awt.Color(255, 255, 255));
+        report2_label.setText("Report 2 :");
+
+        report2_combo_box.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        report2_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Don't have Valid driving license ?", "Don't have Vehicle registration certificate ?", "Don't have Permit and vehicle's certificate of fitness ?", "Skipping traffic lights ?", "Increasing population of vehicles ?", "Driving without Seatbelt ?", "Driving under influence of Alcohol ?", "Parking a vehicle in “No Parking” zone ?" }));
+
+        report3_combo_box.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        report3_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Don't have Valid driving license ?", "Don't have Vehicle registration certificate ?", "Don't have Permit and vehicle's certificate of fitness ?", "Skipping traffic lights ?", "Increasing population of vehicles ?", "Driving without Seatbelt ?", "Driving under influence of Alcohol ?", "Parking a vehicle in “No Parking” zone ?" }));
+
+        report3_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        report3_label.setForeground(new java.awt.Color(255, 255, 255));
+        report3_label.setText("Report 3 :");
+
+        submit_repport_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        submit_repport_button.setForeground(new java.awt.Color(255, 255, 255));
+        submit_repport_button.setText("Submit");
+
+        report_Driver_id_label1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        report_Driver_id_label1.setForeground(new java.awt.Color(255, 255, 255));
+        report_Driver_id_label1.setText("Driver's Id");
+
         javax.swing.GroupLayout panel_for_reportsLayout = new javax.swing.GroupLayout(panel_for_reports);
         panel_for_reports.setLayout(panel_for_reportsLayout);
         panel_for_reportsLayout.setHorizontalGroup(
             panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 932, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_reportsLayout.createSequentialGroup()
+                .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panel_for_reportsLayout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(report2_label, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(report3_label, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(report3_combo_box, 0, 418, Short.MAX_VALUE)
+                            .addComponent(report2_combo_box, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panel_for_reportsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(report_Driver_id_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_for_reportsLayout.createSequentialGroup()
+                                .addGap(0, 45, Short.MAX_VALUE)
+                                .addComponent(report1_label, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(report1_combo_box, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_for_reportsLayout.createSequentialGroup()
+                                .addComponent(report_driver_id_text_field1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_for_reportsLayout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(report_Driver_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(report_driver_id_text_field, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_for_reportsLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(submit_repport_button, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(35, 35, 35))
         );
         panel_for_reportsLayout.setVerticalGroup(
             panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 216, Short.MAX_VALUE)
+            .addGroup(panel_for_reportsLayout.createSequentialGroup()
+                .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_for_reportsLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(report_Driver_id_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(report_driver_id_text_field1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel_for_reportsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(report_Driver_id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(report_driver_id_text_field, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(report1_combo_box, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(report1_label, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(report2_combo_box, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(report2_label, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_for_reportsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_for_reportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(report3_combo_box, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(report3_label, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_reportsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(submit_repport_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))))
         );
 
         javax.swing.GroupLayout report_tabpaneLayout = new javax.swing.GroupLayout(report_tabpane);
@@ -262,9 +368,9 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         report_tabpaneLayout.setHorizontalGroup(
             report_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(report_tabpaneLayout.createSequentialGroup()
-                .addGap(196, 196, 196)
+                .addGap(136, 136, 136)
                 .addComponent(panel_for_reports, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(428, Short.MAX_VALUE))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
         report_tabpaneLayout.setVerticalGroup(
             report_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,19 +381,6 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         );
 
         tabpane.addTab("Report", report_tabpane);
-
-        javax.swing.GroupLayout statistics_tabpaneLayout = new javax.swing.GroupLayout(statistics_tabpane);
-        statistics_tabpane.setLayout(statistics_tabpaneLayout);
-        statistics_tabpaneLayout.setHorizontalGroup(
-            statistics_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1688, Short.MAX_VALUE)
-        );
-        statistics_tabpaneLayout.setVerticalGroup(
-            statistics_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 238, Short.MAX_VALUE)
-        );
-
-        tabpane.addTab("Statistics", statistics_tabpane);
 
         docuuments_tabpane.setBackground(new java.awt.Color(0, 153, 102));
 
@@ -1798,6 +1891,16 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JTextField points_textfield;
     private javax.swing.JLabel religion_label;
     private javax.swing.JTextField religion_textfield;
+    private javax.swing.JComboBox<String> report1_combo_box;
+    private javax.swing.JLabel report1_label;
+    private javax.swing.JComboBox<String> report2_combo_box;
+    private javax.swing.JLabel report2_label;
+    private javax.swing.JComboBox<String> report3_combo_box;
+    private javax.swing.JLabel report3_label;
+    private javax.swing.JLabel report_Driver_id_label;
+    private javax.swing.JLabel report_Driver_id_label1;
+    private javax.swing.JTextField report_driver_id_text_field;
+    private javax.swing.JTextField report_driver_id_text_field1;
     private javax.swing.JPanel report_tabpane;
     private javax.swing.JButton save_image_button;
     private javax.swing.JButton search_button;
@@ -1805,9 +1908,9 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JButton send_mail_button;
     private javax.swing.JLabel show_image_label;
     private javax.swing.JButton signout_toobar_button;
-    private javax.swing.JPanel statistics_tabpane;
     private javax.swing.JLabel subject_label;
     private javax.swing.JTextField subject_textfield;
+    private javax.swing.JButton submit_repport_button;
     private javax.swing.JTabbedPane tabpane;
     private javax.swing.JMenu time_menu;
     private javax.swing.JLabel to_label;
