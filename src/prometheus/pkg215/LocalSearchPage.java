@@ -88,9 +88,6 @@ public class LocalSearchPage extends javax.swing.JFrame {
         image_panel = new javax.swing.JPanel();
         driver_image_show_panel = new javax.swing.JPanel();
         show_image_label = new javax.swing.JLabel();
-        upload_iamge_textfield = new javax.swing.JTextField();
-        upload_image_button = new javax.swing.JButton();
-        save_image_button = new javax.swing.JButton();
         back_button = new javax.swing.JButton();
         login_page_button = new javax.swing.JButton();
 
@@ -217,7 +214,7 @@ public class LocalSearchPage extends javax.swing.JFrame {
                         .addComponent(religion_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(religion_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_informationLayout.createSequentialGroup()
@@ -339,7 +336,7 @@ public class LocalSearchPage extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jLabel1.setText("Please Enter Your Name or Id for Search");
 
-        image_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        image_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Your Image", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 1, 12), new java.awt.Color(204, 0, 102))); // NOI18N
 
         driver_image_show_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -362,40 +359,12 @@ public class LocalSearchPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        upload_iamge_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
-
-        upload_image_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 11)); // NOI18N
-        upload_image_button.setText("Upload");
-        upload_image_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                upload_image_buttonActionPerformed(evt);
-            }
-        });
-
-        save_image_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
-        save_image_button.setText("Save");
-        save_image_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                save_image_buttonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout image_panelLayout = new javax.swing.GroupLayout(image_panel);
         image_panel.setLayout(image_panelLayout);
         image_panelLayout.setHorizontalGroup(
             image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(image_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(upload_iamge_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(upload_image_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(image_panelLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(save_image_button, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, image_panelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addComponent(driver_image_show_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -404,13 +373,7 @@ public class LocalSearchPage extends javax.swing.JFrame {
             .addGroup(image_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(driver_image_show_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(upload_iamge_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(upload_image_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(save_image_button, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         back_button.setText("Back");
@@ -425,21 +388,23 @@ public class LocalSearchPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(search_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(back_button)
                         .addGap(18, 18, 18)
                         .addComponent(login_page_button)
-                        .addGap(47, 47, 47))))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panel_for_information, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addGap(47, 47, 47))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(search_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(panel_for_information, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,8 +421,8 @@ public class LocalSearchPage extends javax.swing.JFrame {
                     .addComponent(search_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panel_for_information, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panel_for_information, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
 
@@ -542,45 +507,6 @@ public class LocalSearchPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_search_textfieldKeyReleased
 
-    private void upload_image_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upload_image_buttonActionPerformed
-        // TODO add your handling code here:
-        JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(null);
-
-        File f = chooser.getSelectedFile();
-        String fileName = f.getAbsolutePath();
-        upload_iamge_textfield.setText(fileName);
-
-        try {
-            FileInputStream fIS = new FileInputStream(f);
-            ByteArrayOutputStream bAOS = new ByteArrayOutputStream();
-            byte[] bufferimage = new byte[1024];
-            for (int readNum; (readNum = fIS.read(bufferimage)) != -1;) {
-                bAOS.write(bufferimage, 0, readNum);
-            }
-            personImage = bAOS.toByteArray();
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, e);
-        }
-    }//GEN-LAST:event_upload_image_buttonActionPerformed
-
-    private void save_image_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_image_buttonActionPerformed
-        // TODO add your handling code here:
-        String sql = "update DriverInfo set Photo=? where Id=?";
-        try {
-            pst = connection.prepareStatement(sql);
-            pst.setBytes(1, personImage);
-            pst.setString(2, drivers_id_textfield.getText());
-
-            pst.execute();
-            JOptionPane.showMessageDialog(rootPane, "Image Saved Successfully");
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, e);
-        }
-    }//GEN-LAST:event_save_image_buttonActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -655,11 +581,8 @@ public class LocalSearchPage extends javax.swing.JFrame {
     private javax.swing.JTextField points_textfield;
     private javax.swing.JLabel religion_label;
     private javax.swing.JTextField religion_textfield;
-    private javax.swing.JButton save_image_button;
     private javax.swing.JButton search_button;
     private javax.swing.JTextField search_textfield;
     private javax.swing.JLabel show_image_label;
-    private javax.swing.JTextField upload_iamge_textfield;
-    private javax.swing.JButton upload_image_button;
     // End of variables declaration//GEN-END:variables
 }
