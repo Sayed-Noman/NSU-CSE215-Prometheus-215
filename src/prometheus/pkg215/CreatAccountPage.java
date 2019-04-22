@@ -57,7 +57,6 @@ public class CreatAccountPage extends javax.swing.JFrame {
         answer_label = new javax.swing.JLabel();
         answer_textfield = new javax.swing.JTextField();
         confirm_password_label = new javax.swing.JLabel();
-        confirm_password_textfield = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -67,7 +66,6 @@ public class CreatAccountPage extends javax.swing.JFrame {
         admin_type_label = new javax.swing.JLabel();
         security_question_label = new javax.swing.JLabel();
         firstName_textfield = new javax.swing.JTextField();
-        password_textfield = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
@@ -82,6 +80,8 @@ public class CreatAccountPage extends javax.swing.JFrame {
         admin_type_combobox = new javax.swing.JComboBox<>();
         exitpage_button = new javax.swing.JButton();
         homepage_button = new javax.swing.JButton();
+        confirm_password_textfield = new javax.swing.JPasswordField();
+        password_textfield = new javax.swing.JPasswordField();
         creatAccount_page_bacground_image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,13 +123,6 @@ public class CreatAccountPage extends javax.swing.JFrame {
         confirm_password_label.setForeground(new java.awt.Color(255, 255, 255));
         confirm_password_label.setText("Confirm Password");
         create_account_base_panel.add(confirm_password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 210, 40));
-
-        confirm_password_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
-        confirm_password_textfield.setForeground(new java.awt.Color(51, 51, 51));
-        confirm_password_textfield.setText("Retype your password");
-        confirm_password_textfield.setBorder(null);
-        confirm_password_textfield.setOpaque(false);
-        create_account_base_panel.add(confirm_password_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 210, 40));
 
         jSeparator1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         create_account_base_panel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, 210, 20));
@@ -177,13 +170,6 @@ public class CreatAccountPage extends javax.swing.JFrame {
         firstName_textfield.setOpaque(false);
         create_account_base_panel.add(firstName_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 210, 40));
 
-        password_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
-        password_textfield.setForeground(new java.awt.Color(51, 51, 51));
-        password_textfield.setText("Enter your password");
-        password_textfield.setBorder(null);
-        password_textfield.setOpaque(false);
-        create_account_base_panel.add(password_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 210, 40));
-
         jSeparator5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         create_account_base_panel.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 210, 20));
 
@@ -198,6 +184,7 @@ public class CreatAccountPage extends javax.swing.JFrame {
         password_label.setText("Password");
         create_account_base_panel.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 210, 40));
 
+        security_question_combobox.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         security_question_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Who is the best player Messi or Ronaldo?", "Who the best defender Ramos or pique?", "Who is the best GK Courtois or Navas?", "Who is best Coach Zidane or Mourniho?" }));
         create_account_base_panel.add(security_question_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 280, 40));
 
@@ -265,6 +252,16 @@ public class CreatAccountPage extends javax.swing.JFrame {
             }
         });
         create_account_base_panel.add(homepage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 40));
+
+        confirm_password_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        confirm_password_textfield.setBorder(null);
+        confirm_password_textfield.setOpaque(false);
+        create_account_base_panel.add(confirm_password_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 210, 40));
+
+        password_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        password_textfield.setBorder(null);
+        password_textfield.setOpaque(false);
+        create_account_base_panel.add(password_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 210, 40));
 
         creatAccount_page_bacground_image.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_backgrounds\\CreatAccount_page_background.jpg")); // NOI18N
         create_account_base_panel.add(creatAccount_page_bacground_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -388,7 +385,7 @@ public class CreatAccountPage extends javax.swing.JFrame {
     private javax.swing.JLabel answer_label;
     private javax.swing.JTextField answer_textfield;
     private javax.swing.JLabel confirm_password_label;
-    private javax.swing.JTextField confirm_password_textfield;
+    private javax.swing.JPasswordField confirm_password_textfield;
     private javax.swing.JLabel creatAccount_page_bacground_image;
     private javax.swing.JButton creat_account_button;
     private javax.swing.JPanel create_account_base_panel;
@@ -408,7 +405,7 @@ public class CreatAccountPage extends javax.swing.JFrame {
     private javax.swing.JLabel lastName_label;
     private javax.swing.JTextField lastName_textfield;
     private javax.swing.JLabel password_label;
-    private javax.swing.JTextField password_textfield;
+    private javax.swing.JPasswordField password_textfield;
     private javax.swing.JComboBox<String> security_question_combobox;
     private javax.swing.JLabel security_question_label;
     private javax.swing.JLabel terms_and_condition_label;

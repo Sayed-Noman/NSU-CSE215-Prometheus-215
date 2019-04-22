@@ -46,6 +46,8 @@ public class DriverPage extends javax.swing.JFrame {
         initComponents();
         dateAndTime();
         connection = JavaDbConnect.databaseConnect();
+        
+        security_message_textfield.setBackground(new Color(0, 0, 0, 0));
     }
 
     public DriverPage(String pass_user_name) {
@@ -153,11 +155,19 @@ public class DriverPage extends javax.swing.JFrame {
         upload_image_button = new javax.swing.JButton();
         save_image_button = new javax.swing.JButton();
         panel_for_indicator = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        indicator_slider = new javax.swing.JSlider();
         panel_for_log = new javax.swing.JPanel();
         fileName_label = new javax.swing.JLabel();
         fileName_textfiled = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         open_log_file_button = new javax.swing.JButton();
+        panel_for_indicator1 = new javax.swing.JPanel();
+        security_message_textfield = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         menubar = new javax.swing.JMenuBar();
         file_menu = new javax.swing.JMenu();
         close_menuitem = new javax.swing.JMenuItem();
@@ -686,14 +696,24 @@ public class DriverPage extends javax.swing.JFrame {
         drivers_id_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         drivers_id_label.setText("Driver's Id");
 
+        drivers_id_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
         firstName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         firstName_label.setText("First Name");
+
+        firstName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         lastName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         lastName_label.setText("Last Name");
 
+        lastName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
         fullName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         fullName_label.setText("Full Name");
+
+        fullName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        dob_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         dob_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         dob_label.setText("Dathe of Birth");
@@ -701,7 +721,10 @@ public class DriverPage extends javax.swing.JFrame {
         gender_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         gender_label.setText("Gender");
 
+        gender_combobox.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         gender_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+
+        bloodGroup_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         bloodGroup_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         bloodGroup_label.setText("Blood Group");
@@ -709,11 +732,19 @@ public class DriverPage extends javax.swing.JFrame {
         religion_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         religion_label.setText("Religion");
 
+        religion_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
         emailAddress_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         emailAddress_label.setText("Email Address");
 
         city_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         city_label.setText("City");
+
+        emailAddress_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        city_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        address_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         address_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         address_label.setText("Address");
@@ -721,6 +752,9 @@ public class DriverPage extends javax.swing.JFrame {
         drivingLicenseNo_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         drivingLicenseNo_label.setText("Driving License No");
 
+        drivingLicenseNo_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        licenseType_combobox.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         licenseType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professional", "Non-Professional" }));
 
         licenseType_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
@@ -729,8 +763,14 @@ public class DriverPage extends javax.swing.JFrame {
         issuedDate_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         issuedDate_label.setText("Issued Date");
 
+        issuedDate_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
         expiredDate_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         expiredDate_label.setText("Expired Date");
+
+        expiredDate_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        points_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         points_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         points_label.setText("Points");
@@ -894,16 +934,16 @@ public class DriverPage extends javax.swing.JFrame {
         driver_image_show_panelLayout.setHorizontalGroup(
             driver_image_show_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, driver_image_show_panelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(show_image_label, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addContainerGap()
+                .addComponent(show_image_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         driver_image_show_panelLayout.setVerticalGroup(
             driver_image_show_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(driver_image_show_panelLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(show_image_label, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(show_image_label, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         upload_iamge_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
@@ -958,15 +998,55 @@ public class DriverPage extends javax.swing.JFrame {
 
         panel_for_indicator.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Indicator", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB Demi", 1, 12), new java.awt.Color(153, 0, 0))); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setText("High");
+
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 204, 51));
+        jLabel4.setText("Medium");
+
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel5.setText("Low");
+
+        indicator_slider.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        indicator_slider.setForeground(new java.awt.Color(102, 102, 255));
+        indicator_slider.setMajorTickSpacing(1);
+        indicator_slider.setMaximum(12);
+        indicator_slider.setPaintLabels(true);
+        indicator_slider.setPaintTicks(true);
+        indicator_slider.setSnapToTicks(true);
+        indicator_slider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        indicator_slider.setEnabled(false);
+
         javax.swing.GroupLayout panel_for_indicatorLayout = new javax.swing.GroupLayout(panel_for_indicator);
         panel_for_indicator.setLayout(panel_for_indicatorLayout);
         panel_for_indicatorLayout.setHorizontalGroup(
             panel_for_indicatorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_indicatorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel_for_indicatorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_for_indicatorLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel4)
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel5))
+                    .addComponent(indicator_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(80, 80, 80))
         );
         panel_for_indicatorLayout.setVerticalGroup(
             panel_for_indicatorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 115, Short.MAX_VALUE)
+            .addGroup(panel_for_indicatorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_for_indicatorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(indicator_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panel_for_log.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Show Logs", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB Demi", 1, 12), new java.awt.Color(102, 0, 0))); // NOI18N
@@ -1007,7 +1087,7 @@ public class DriverPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panel_for_logLayout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 45, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panel_for_logLayout.setVerticalGroup(
             panel_for_logLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1019,7 +1099,47 @@ public class DriverPage extends javax.swing.JFrame {
                     .addComponent(fileName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fileName_textfiled, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(open_log_file_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
+        panel_for_indicator1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Message", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB Demi", 1, 12), new java.awt.Color(153, 0, 0))); // NOI18N
+
+        security_message_textfield.setEditable(false);
+        security_message_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        security_message_textfield.setBorder(null);
+        security_message_textfield.setOpaque(false);
+
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        jLabel6.setText("You Are");
+
+        jSeparator1.setBackground(new java.awt.Color(153, 0, 153));
+
+        javax.swing.GroupLayout panel_for_indicator1Layout = new javax.swing.GroupLayout(panel_for_indicator1);
+        panel_for_indicator1.setLayout(panel_for_indicator1Layout);
+        panel_for_indicator1Layout.setHorizontalGroup(
+            panel_for_indicator1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_indicator1Layout.createSequentialGroup()
+                .addGroup(panel_for_indicator1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator1)
+                    .addGroup(panel_for_indicator1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(security_message_textfield))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_for_indicator1Layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 105, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        panel_for_indicator1Layout.setVerticalGroup(
+            panel_for_indicator1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_indicator1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(security_message_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         file_menu.setText("File");
@@ -1084,9 +1204,11 @@ public class DriverPage extends javax.swing.JFrame {
                         .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(123, 123, 123)
-                        .addComponent(panel_for_indicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(panel_for_log, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panel_for_indicator, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(panel_for_log, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(panel_for_indicator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -1100,10 +1222,11 @@ public class DriverPage extends javax.swing.JFrame {
                         .addComponent(image_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panel_for_information, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panel_for_indicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panel_for_log, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 108, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panel_for_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_for_indicator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_for_indicator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 81, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(1369, 705));
@@ -1133,10 +1256,30 @@ public class DriverPage extends javax.swing.JFrame {
             byte[] imagedata = rs.getBytes("Photo");
             ImageIcon img = new ImageIcon(imageResize(imagedata, show_image_label.getWidth(), show_image_label.getHeight()));
             show_image_label.setIcon(img);
+            indicator_slider.setValue((int)Double.parseDouble(points_textfield.getText()));
+            showMessage();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+    private void showMessage(){
+        double messagePoint=Double.parseDouble(points_textfield.getText());
+        if(messagePoint >=0 && messagePoint<1){
+            security_message_textfield.setText("not Eligible to drive anymore"); 
+        }
+        else if(messagePoint >=1 && messagePoint<4){
+            security_message_textfield.setText("at a very High Risk"); 
+        }
+        else if(messagePoint >=4 && messagePoint<8){
+            security_message_textfield.setText("at a Neutral Position"); 
+        }
+        else if(messagePoint >=8 && messagePoint<12){
+            security_message_textfield.setText("are Safe"); 
+        }
+        else
+            security_message_textfield.setText("Super Safe");
+            
     }
 
     private void dateAndTime() {
@@ -1506,14 +1649,20 @@ public class DriverPage extends javax.swing.JFrame {
     private javax.swing.JMenu help_menu;
     private javax.swing.JButton home_button;
     private javax.swing.JPanel image_panel;
+    private javax.swing.JSlider indicator_slider;
     private javax.swing.JLabel issuedDate_label;
     private javax.swing.JTextField issuedDate_textfield;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lastName_label;
     private javax.swing.JTextField lastName_textfield;
@@ -1525,6 +1674,7 @@ public class DriverPage extends javax.swing.JFrame {
     private javax.swing.JButton open_log_file_button;
     private javax.swing.JPanel panel_for_documents;
     private javax.swing.JPanel panel_for_indicator;
+    private javax.swing.JPanel panel_for_indicator1;
     private javax.swing.JPanel panel_for_information;
     private javax.swing.JPanel panel_for_log;
     private javax.swing.JPanel panel_for_tabpane;
@@ -1538,6 +1688,7 @@ public class DriverPage extends javax.swing.JFrame {
     private javax.swing.JButton save_image_button;
     private javax.swing.JButton search_button;
     private javax.swing.JTextField search_textfield;
+    private javax.swing.JTextField security_message_textfield;
     private javax.swing.JButton send_mail_button;
     private javax.swing.JLabel show_image_label;
     private javax.swing.JButton sign_out_button;

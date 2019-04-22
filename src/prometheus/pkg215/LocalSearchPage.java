@@ -106,23 +106,28 @@ public class LocalSearchPage extends javax.swing.JFrame {
         drivers_id_label.setText("Driver's Id");
 
         drivers_id_textfield.setEditable(false);
+        drivers_id_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         firstName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         firstName_label.setText("First Name");
 
         firstName_textfield.setEditable(false);
+        firstName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         lastName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         lastName_label.setText("Last Name");
 
         lastName_textfield.setEditable(false);
+        lastName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         fullName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         fullName_label.setText("Full Name");
 
         fullName_textfield.setEditable(false);
+        fullName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         dob_textfield.setEditable(false);
+        dob_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         dob_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         dob_label.setText("Dathe of Birth");
@@ -130,9 +135,11 @@ public class LocalSearchPage extends javax.swing.JFrame {
         gender_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         gender_label.setText("Gender");
 
+        gender_combobox.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         gender_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
         bloodGroup_textfield.setEditable(false);
+        bloodGroup_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         bloodGroup_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         bloodGroup_label.setText("Blood Group");
@@ -141,6 +148,7 @@ public class LocalSearchPage extends javax.swing.JFrame {
         religion_label.setText("Religion");
 
         religion_textfield.setEditable(false);
+        religion_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         emailAddress_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         emailAddress_label.setText("Email Address");
@@ -149,10 +157,13 @@ public class LocalSearchPage extends javax.swing.JFrame {
         city_label.setText("City");
 
         emailAddress_textfield.setEditable(false);
+        emailAddress_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         city_textfield.setEditable(false);
+        city_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         address_textfield.setEditable(false);
+        address_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         address_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         address_label.setText("Address");
@@ -161,7 +172,9 @@ public class LocalSearchPage extends javax.swing.JFrame {
         drivingLicenseNo_label.setText("Driving License No");
 
         drivingLicenseNo_textfield.setEditable(false);
+        drivingLicenseNo_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
+        licenseType_combobox.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         licenseType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professional", "Non-Professional" }));
 
         licenseType_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
@@ -171,13 +184,16 @@ public class LocalSearchPage extends javax.swing.JFrame {
         issuedDate_label.setText("Issued Date");
 
         issuedDate_textfield.setEditable(false);
+        issuedDate_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         expiredDate_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         expiredDate_label.setText("Expired Date");
 
         expiredDate_textfield.setEditable(false);
+        expiredDate_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         points_textfield.setEditable(false);
+        points_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         points_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         points_label.setText("Points");
@@ -313,15 +329,15 @@ public class LocalSearchPage extends javax.swing.JFrame {
                             .addComponent(licenseType_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(licenseType_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(issuedDate_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(issuedDate_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(expiredDate_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(expiredDate_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(points_label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(points_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(16, Short.MAX_VALUE))

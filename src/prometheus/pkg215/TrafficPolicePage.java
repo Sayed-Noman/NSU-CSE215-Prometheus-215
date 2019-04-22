@@ -82,6 +82,11 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         datatable_tabpane = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         driverinfo_table = new javax.swing.JTable();
+        Indicator_panel = new javax.swing.JPanel();
+        indicator_slider = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         report_tabpane = new javax.swing.JPanel();
         panel_for_reports = new javax.swing.JPanel();
         report_date_textfield = new javax.swing.JTextField();
@@ -244,24 +249,83 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(driverinfo_table);
 
+        Indicator_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Indicator", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 0, 12), new java.awt.Color(204, 0, 0))); // NOI18N
+
+        indicator_slider.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        indicator_slider.setForeground(new java.awt.Color(102, 102, 255));
+        indicator_slider.setMajorTickSpacing(1);
+        indicator_slider.setMaximum(12);
+        indicator_slider.setPaintLabels(true);
+        indicator_slider.setPaintTicks(true);
+        indicator_slider.setSnapToTicks(true);
+        indicator_slider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        indicator_slider.setEnabled(false);
+
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setText("High");
+
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 204, 51));
+        jLabel3.setText("Medium");
+
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel4.setText("Low");
+
+        javax.swing.GroupLayout Indicator_panelLayout = new javax.swing.GroupLayout(Indicator_panel);
+        Indicator_panel.setLayout(Indicator_panelLayout);
+        Indicator_panelLayout.setHorizontalGroup(
+            Indicator_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Indicator_panelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(Indicator_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(indicator_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(Indicator_panelLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        Indicator_panelLayout.setVerticalGroup(
+            Indicator_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Indicator_panelLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(Indicator_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(indicator_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout datatable_tabpaneLayout = new javax.swing.GroupLayout(datatable_tabpane);
         datatable_tabpane.setLayout(datatable_tabpaneLayout);
         datatable_tabpaneLayout.setHorizontalGroup(
             datatable_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datatable_tabpaneLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 773, Short.MAX_VALUE))
+                .addGap(88, 88, 88)
+                .addComponent(Indicator_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 247, Short.MAX_VALUE))
         );
         datatable_tabpaneLayout.setVerticalGroup(
             datatable_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datatable_tabpaneLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 127, Short.MAX_VALUE))
+                .addGroup(datatable_tabpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Indicator_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         tabpane.addTab("Data Table", datatable_tabpane);
 
         panel_for_reports.setBackground(new java.awt.Color(0, 102, 153));
+
+        report_date_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         report_date_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         report_date_label.setForeground(new java.awt.Color(255, 255, 255));
@@ -301,6 +365,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         report_Driver_id_label1.setForeground(new java.awt.Color(255, 255, 255));
         report_Driver_id_label1.setText("Driver's Id");
 
+        report_driver_id_text_field.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         report_driver_id_text_field.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 report_driver_id_text_fieldKeyReleased(evt);
@@ -562,9 +627,13 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         form_label.setForeground(new java.awt.Color(153, 0, 0));
         form_label.setText("From");
 
+        from_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+
         password_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 16)); // NOI18N
         password_label.setForeground(new java.awt.Color(153, 0, 0));
         password_label.setText("Password");
+
+        to_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
 
         to_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 16)); // NOI18N
         to_label.setForeground(new java.awt.Color(153, 0, 0));
@@ -573,6 +642,8 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         subject_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 16)); // NOI18N
         subject_label.setForeground(new java.awt.Color(153, 0, 0));
         subject_label.setText("Subject");
+
+        subject_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
 
         mail_textarea.setColumns(20);
         mail_textarea.setRows(5);
@@ -601,6 +672,8 @@ public class TrafficPolicePage extends javax.swing.JFrame {
                 send_mail_buttonActionPerformed(evt);
             }
         });
+
+        password_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout email_components_panelLayout = new javax.swing.GroupLayout(email_components_panel);
         email_components_panel.setLayout(email_components_panelLayout);
@@ -815,21 +888,32 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         drivers_id_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         drivers_id_label.setText("Driver's Id");
 
+        drivers_id_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
         firstName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         firstName_label.setText("First Name");
+
+        firstName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         lastName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         lastName_label.setText("Last Name");
 
+        lastName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
         fullName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         fullName_label.setText("Full Name");
+
+        fullName_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         dob_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         dob_label.setText("Dathe of Birth");
 
+        dob_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
         gender_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         gender_label.setText("Gender");
 
+        gender_combobox.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         gender_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
         bloodGroup_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
@@ -838,14 +922,22 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         religion_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         religion_label.setText("Religion");
 
+        religion_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
         emailAddress_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         emailAddress_label.setText("Email Address");
+
+        emailAddress_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         city_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         city_label.setText("City");
 
+        city_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
         address_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         address_label.setText("Address");
+
+        address_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         drivingLicenseNo_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         drivingLicenseNo_label.setText("Driving License No");
@@ -853,16 +945,23 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         licenseType_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         licenseType_label.setText("License Type");
 
+        licenseType_combobox.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         licenseType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professional", "Non-Professional" }));
 
         issuedDate_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         issuedDate_label.setText("Issued Date");
+
+        expiredDate_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         expiredDate_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         expiredDate_label.setText("Expired Date");
 
         points_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         points_label.setText("Points");
+
+        points_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+
+        bloodGroup_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout drivers_info_panelLayout = new javax.swing.GroupLayout(drivers_info_panel);
         drivers_info_panel.setLayout(drivers_info_panelLayout);
@@ -1365,6 +1464,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
             issuedDate_textfield.setText(rs.getString("Issued"));
             expiredDate_textfield.setText(rs.getString("Expired"));
             points_textfield.setText(rs.getString("Points"));
+            indicator_slider.setValue((int)Double.parseDouble(points_textfield.getText()));
 
             byte[] imagedata = rs.getBytes("Photo");
             ImageIcon img = new ImageIcon(imageResize(imagedata, show_image_label.getWidth(), show_image_label.getHeight()));
@@ -1990,6 +2090,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Indicator_panel;
     private javax.swing.JPanel action_panel;
     private javax.swing.JButton add_button;
     private javax.swing.JLabel address_label;
@@ -2050,9 +2151,13 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     private javax.swing.JMenu help_menu;
     private javax.swing.JButton home_toolber_button;
     private javax.swing.JPanel image_panel;
+    private javax.swing.JSlider indicator_slider;
     private javax.swing.JLabel issuedDate_label;
     private javax.swing.JTextField issuedDate_textfield;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
