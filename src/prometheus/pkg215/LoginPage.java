@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package prometheus.pkg215;
+
 import java.awt.Toolkit;
 import java.awt.Dimension;
 import java.awt.Color;
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author Acer
  */
 public class LoginPage extends javax.swing.JFrame {
-    
+
     //creating connection to database
     Connection connection;
     ResultSet rs;
@@ -28,25 +29,17 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-        
-        connection=JavaDbConnect.databaseConnect();
-        
+
+        connection = JavaDbConnect.databaseConnect();
+
         //thes two line will ste the jframe screen into the middle
         //Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();
-       // this.setLocation(dim.width/2-this.getSize().width/2,dim.height/2-this.getSize().height/2);
-       // this.setBackground(new Color(0,0,0,0));
-        Login_base_panel.setBackground(new Color(0,0,0,0));
-        Username_textfield.setBackground(new Color(0,0,0,0));
-        password_field.setBackground(new Color(0,0,0,0));
-        
-    
-        
-                
-      
-        
-        
-        
-        
+        // this.setLocation(dim.width/2-this.getSize().width/2,dim.height/2-this.getSize().height/2);
+        // this.setBackground(new Color(0,0,0,0));
+        Login_base_panel.setBackground(new Color(0, 0, 0, 0));
+        Username_textfield.setBackground(new Color(0, 0, 0, 0));
+        password_field.setBackground(new Color(0, 0, 0, 0));
+
     }
 
     /**
@@ -118,6 +111,12 @@ public class LoginPage extends javax.swing.JFrame {
         dont_have_account_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
         dont_have_account_label.setForeground(new java.awt.Color(204, 204, 204));
         dont_have_account_label.setText("Don't have an accoun?");
+        dont_have_account_label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dont_have_account_label.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dont_have_account_labelMouseClicked(evt);
+            }
+        });
         Login_base_panel.add(dont_have_account_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 130, 50));
 
         login_adminType_combobox.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 13)); // NOI18N
@@ -132,16 +131,32 @@ public class LoginPage extends javax.swing.JFrame {
         forgot_password_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
         forgot_password_label.setForeground(new java.awt.Color(204, 204, 204));
         forgot_password_label.setText("Forgot Password?");
+        forgot_password_label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        forgot_password_label.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgot_password_labelMouseClicked(evt);
+            }
+        });
         Login_base_panel.add(forgot_password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 100, 50));
 
         exit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         exit_button.setForeground(new java.awt.Color(255, 255, 255));
         exit_button.setText("Exit");
+        exit_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exit_buttonActionPerformed(evt);
+            }
+        });
         Login_base_panel.add(exit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 70, 30));
 
         home_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         home_button.setForeground(new java.awt.Color(255, 255, 255));
         home_button.setText("Home");
+        home_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                home_buttonActionPerformed(evt);
+            }
+        });
         Login_base_panel.add(home_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 70, 30));
 
         login_adminType_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 20)); // NOI18N
@@ -174,42 +189,101 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void Login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_buttonActionPerformed
         // TODO add your handling code here:
-        String sql="select * from accounts where UserName=? and Password=? and AdminType=?";
-        try{
-             pst=connection.prepareStatement(sql);
-             pst.setString(1,Username_textfield.getText());
-             pst.setString(2,password_field.getText());
-             pst.setString(3,(String)login_adminType_combobox.getSelectedItem());
-              rs=pst.executeQuery();
-             
-             
-             if(rs.next()){
-                 
-                 JOptionPane.showMessageDialog(null,"Username and Password Matched and You are Loged in as "+rs.getString("AdminType"));
-                 rs.close();
-                 pst.close();
-                 if(login_adminType_combobox.getSelectedIndex()==0){
-                     this.setVisible(false);
-                     TrafficPolicePage tf=new TrafficPolicePage();
-                     tf.setVisible(true);
-                 }else if(login_adminType_combobox.getSelectedIndex()==1 ){
-                     this.setVisible(false);
-                     DriverPage dp=new DriverPage();
-                     dp.setVisible(true);
-                 }else{   
-                    JOptionPane.showMessageDialog(null,"Invalid UserName and Password" );    
+        String sql = "select * from accounts where UserName=? and Password=? and AdminType=?";
+
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, Username_textfield.getText());
+            pst.setString(2, password_field.getText());
+            pst.setString(3, (String) login_adminType_combobox.getSelectedItem());
+            String pass_user_name = Username_textfield.getText();
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                JOptionPane.showMessageDialog(null, "Username and Password Matched and You are Loged in as " + rs.getString("AdminType"));
+                rs.close();
+                pst.close();
+                if (login_adminType_combobox.getSelectedIndex() == 0) {
+                    try {
+                        this.setVisible(false);
+                        TrafficPolicePage tf = new TrafficPolicePage();
+                        tf.setVisible(true);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    } finally {
+                        try {
+                            rs.close();
+                            pst.close();
+                            connection.close();
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(null, e);
+                        }
+                    }
+                } else if (login_adminType_combobox.getSelectedIndex() == 1) {
+                    try {
+                        this.setVisible(false);
+                        DriverPage dp = new DriverPage(pass_user_name);
+                        dp.setVisible(true);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    } finally {
+                        try {
+                            rs.close();
+                            pst.close();
+                            connection.close();
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(null, e);
+                        }
+                    }
                 }
-             }
-             else{   
-                    JOptionPane.showMessageDialog(null,"Invalid UserName and Password" );    
-                }
-           
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-            
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid UserName and Password");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
         }
-        
+
     }//GEN-LAST:event_Login_buttonActionPerformed
+
+    private void home_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_buttonActionPerformed
+        // TODO add your handling code here:
+
+        this.setVisible(false);
+        HomePage hp = new HomePage();
+        hp.setVisible(true);
+
+
+    }//GEN-LAST:event_home_buttonActionPerformed
+
+    private void exit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_buttonActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_exit_buttonActionPerformed
+
+    private void forgot_password_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgot_password_labelMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        forgotPasswordPage fp = new forgotPasswordPage();
+        fp.setVisible(true);
+    }//GEN-LAST:event_forgot_password_labelMouseClicked
+
+    private void dont_have_account_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dont_have_account_labelMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        CreatAccountPage cp = new CreatAccountPage();
+        cp.setVisible(true);
+    }//GEN-LAST:event_dont_have_account_labelMouseClicked
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package prometheus.pkg215;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -23,19 +24,19 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author Acer
  */
 public class DriverPage extends javax.swing.JFrame {
-    
-     //creating connection to database
+
+    //creating connection to database
     Connection connection;
     ResultSet rs;
     PreparedStatement pst;
     private byte[] personImage;
     private String filePath = null;
+    private String userName_from_login;
 
     /**
      * Creates new form DriverPage
@@ -43,7 +44,14 @@ public class DriverPage extends javax.swing.JFrame {
     public DriverPage() {
         initComponents();
         dateAndTime();
-         connection = JavaDbConnect.databaseConnect();
+        connection = JavaDbConnect.databaseConnect();
+    }
+
+    public DriverPage(String pass_user_name) {
+        initComponents();
+        dateAndTime();
+        connection = JavaDbConnect.databaseConnect();
+        userName_from_login = pass_user_name;
     }
 
     /**
@@ -587,8 +595,13 @@ public class DriverPage extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
+        search_textfield.setEditable(false);
         search_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
-        search_textfield.setText("Search");
+        search_textfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_textfieldActionPerformed(evt);
+            }
+        });
         search_textfield.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 search_textfieldKeyReleased(evt);
@@ -1037,6 +1050,7 @@ public class DriverPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+
     private void dateAndTime() {
         //static date and time
         Calendar cal = new GregorianCalendar();
@@ -1053,7 +1067,7 @@ public class DriverPage extends javax.swing.JFrame {
         time_menu.setForeground(Color.RED);
 
     }
-    
+
     private Image imageResize(byte[] img, int width, int height) {
         BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         try {
@@ -1074,7 +1088,7 @@ public class DriverPage extends javax.swing.JFrame {
         return resizedImage;
     }
     private void driverinfo_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driverinfo_tableMouseClicked
-        
+
     }//GEN-LAST:event_driverinfo_tableMouseClicked
 
     private void driverinfo_tableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_driverinfo_tableKeyReleased
@@ -1082,25 +1096,25 @@ public class DriverPage extends javax.swing.JFrame {
     }//GEN-LAST:event_driverinfo_tableKeyReleased
 
     private void document_data_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_document_data_tableMouseClicked
-        
+
     }//GEN-LAST:event_document_data_tableMouseClicked
 
     private void document_attach_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_attach_buttonActionPerformed
-       
+
     }//GEN-LAST:event_document_attach_buttonActionPerformed
 
     private void document_add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_add_buttonActionPerformed
- 
-        
+
+
     }//GEN-LAST:event_document_add_buttonActionPerformed
 
     private void document_delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_delete_buttonActionPerformed
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_document_delete_buttonActionPerformed
 
     private void document_clear_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_document_clear_buttonActionPerformed
-       
+
     }//GEN-LAST:event_document_clear_buttonActionPerformed
 
     private void attach_document_mail_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attach_document_mail_buttonActionPerformed
@@ -1113,7 +1127,8 @@ public class DriverPage extends javax.swing.JFrame {
 
     private void search_textfieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_textfieldKeyReleased
         // TODO add your handling code here:
-        String sql = "select * from DriverInfo where Full_Name=?";
+        String sql = "select * from DriverInfo where userName=?";
+        search_textfield.setText(userName_from_login);
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, search_textfield.getText());
@@ -1126,18 +1141,6 @@ public class DriverPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
 
-        String sql1 = "select * from DriverInfo where Id=?";
-        try {
-            pst = connection.prepareStatement(sql1);
-            pst.setString(1, search_textfield.getText());
-            rs = pst.executeQuery();
-            if (rs.next()) {
-                getValues();
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
     }//GEN-LAST:event_search_textfieldKeyReleased
 
     private void clear_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_buttonActionPerformed
@@ -1177,7 +1180,7 @@ public class DriverPage extends javax.swing.JFrame {
             }
         }
         //calling two Tables manually after insertion to emidiate show
-      
+
     }//GEN-LAST:event_delete_buttonActionPerformed
 
     private void edit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_buttonActionPerformed
@@ -1212,7 +1215,7 @@ public class DriverPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         //calling two Tables manually after insertion to emidiate show
-       
+
     }//GEN-LAST:event_edit_buttonActionPerformed
 
     private void upload_image_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upload_image_buttonActionPerformed
@@ -1256,11 +1259,11 @@ public class DriverPage extends javax.swing.JFrame {
 
     private void close_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_menuitemActionPerformed
         // TODO add your handling code here:
-       
-            setVisible(false);
-            LoginPage lp = new LoginPage();
-            lp.setVisible(true);
-        
+
+        setVisible(false);
+        LoginPage lp = new LoginPage();
+        lp.setVisible(true);
+
     }//GEN-LAST:event_close_menuitemActionPerformed
 
     private void exit_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_menuitemActionPerformed
@@ -1280,23 +1283,26 @@ public class DriverPage extends javax.swing.JFrame {
 
     private void home_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_buttonActionPerformed
         // TODO add your handling code here:
-        
-       
-            setVisible(false);
-            HomePage hp = new HomePage();
-            hp.setVisible(true);
+
+        setVisible(false);
+        HomePage hp = new HomePage();
+        hp.setVisible(true);
 
     }//GEN-LAST:event_home_buttonActionPerformed
 
     private void sign_out_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sign_out_buttonActionPerformed
         // TODO add your handling code here:
-        
-            setVisible(false);
-            LoginPage lp = new LoginPage();
-            lp.setVisible(true);
 
-        
+        setVisible(false);
+        LoginPage lp = new LoginPage();
+        lp.setVisible(true);
+
+
     }//GEN-LAST:event_sign_out_buttonActionPerformed
+
+    private void search_textfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_textfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search_textfieldActionPerformed
 
     /**
      * @param args the command line arguments

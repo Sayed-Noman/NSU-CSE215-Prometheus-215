@@ -322,7 +322,16 @@ public class CreatAccountPage extends javax.swing.JFrame {
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
         }
+        
     }//GEN-LAST:event_creat_account_buttonActionPerformed
 
     private void homepage_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homepage_buttonActionPerformed
