@@ -100,6 +100,8 @@ public class LocalSearchPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        print_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         panel_for_information.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Your Information", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 1, 12), new java.awt.Color(204, 0, 51))); // NOI18N
 
         drivers_id_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
@@ -246,9 +248,9 @@ public class LocalSearchPage extends javax.swing.JFrame {
                             .addComponent(points_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(expiredDate_textfield, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                            .addComponent(issuedDate_textfield, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                            .addComponent(points_textfield, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)))
+                            .addComponent(expiredDate_textfield, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(issuedDate_textfield)
+                            .addComponent(points_textfield)))
                     .addGroup(panel_for_informationLayout.createSequentialGroup()
                         .addComponent(city_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -256,15 +258,15 @@ public class LocalSearchPage extends javax.swing.JFrame {
                     .addGroup(panel_for_informationLayout.createSequentialGroup()
                         .addComponent(address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(address_textfield, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                        .addComponent(address_textfield))
                     .addGroup(panel_for_informationLayout.createSequentialGroup()
                         .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(drivingLicenseNo_label)
                             .addComponent(licenseType_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(licenseType_combobox, 0, 171, Short.MAX_VALUE)
-                            .addComponent(drivingLicenseNo_textfield, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)))
+                            .addComponent(licenseType_combobox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(drivingLicenseNo_textfield)))
                     .addGroup(panel_for_informationLayout.createSequentialGroup()
                         .addComponent(emailAddress_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -343,6 +345,8 @@ public class LocalSearchPage extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        print_panel.add(panel_for_information, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 103, -1, -1));
+
         search_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
         search_textfield.setText("Search");
         search_textfield.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -350,11 +354,14 @@ public class LocalSearchPage extends javax.swing.JFrame {
                 search_textfieldKeyReleased(evt);
             }
         });
+        print_panel.add(search_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 62, 152, 35));
 
         search_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\search_icon.png")); // NOI18N
+        print_panel.add(search_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 62, 70, 35));
 
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         jLabel1.setText("Please Enter Your Name or Id for Search");
+        print_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 18, 515, 33));
 
         image_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Your Image", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 1, 12), new java.awt.Color(204, 0, 102))); // NOI18N
 
@@ -369,7 +376,7 @@ public class LocalSearchPage extends javax.swing.JFrame {
             .addGroup(driver_image_show_panelLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(show_image_label, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         driver_image_show_panelLayout.setVerticalGroup(
             driver_image_show_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,10 +390,10 @@ public class LocalSearchPage extends javax.swing.JFrame {
         image_panel.setLayout(image_panelLayout);
         image_panelLayout.setHorizontalGroup(
             image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(image_panelLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, image_panelLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(driver_image_show_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(20, 20, 20))
         );
         image_panelLayout.setVerticalGroup(
             image_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -396,19 +403,27 @@ public class LocalSearchPage extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        back_button.setText("Back");
+        print_panel.add(image_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 103, 270, -1));
+
+        back_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\back_icon.png")); // NOI18N
+        back_button.setBorder(null);
+        back_button.setOpaque(false);
         back_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back_buttonActionPerformed(evt);
             }
         });
+        print_panel.add(back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(741, 11, -1, -1));
 
-        login_page_button.setText("Login");
+        login_page_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\login_big_icon.png")); // NOI18N
+        login_page_button.setBorder(null);
+        login_page_button.setOpaque(false);
         login_page_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 login_page_buttonActionPerformed(evt);
             }
         });
+        print_panel.add(login_page_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(818, 11, -1, -1));
 
         print_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         print_button.setText("Print");
@@ -417,68 +432,13 @@ public class LocalSearchPage extends javax.swing.JFrame {
                 print_buttonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout print_panelLayout = new javax.swing.GroupLayout(print_panel);
-        print_panel.setLayout(print_panelLayout);
-        print_panelLayout.setHorizontalGroup(
-            print_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, print_panelLayout.createSequentialGroup()
-                .addContainerGap(719, Short.MAX_VALUE)
-                .addComponent(print_button, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83))
-            .addGroup(print_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(print_panelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(print_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(print_panelLayout.createSequentialGroup()
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(back_button)
-                            .addGap(18, 18, 18)
-                            .addComponent(login_page_button)
-                            .addGap(37, 37, 37))
-                        .addGroup(print_panelLayout.createSequentialGroup()
-                            .addComponent(search_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(search_button, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(print_panelLayout.createSequentialGroup()
-                            .addComponent(panel_for_information, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap()))
-        );
-        print_panelLayout.setVerticalGroup(
-            print_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, print_panelLayout.createSequentialGroup()
-                .addContainerGap(346, Short.MAX_VALUE)
-                .addComponent(print_button, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
-            .addGroup(print_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(print_panelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(print_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(print_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(login_page_button, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(print_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(search_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(search_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(print_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panel_for_information, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        print_panel.add(print_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 350, 127, 43));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(print_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(print_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

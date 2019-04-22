@@ -235,23 +235,26 @@ public class CreatAccountPage extends javax.swing.JFrame {
 
         exitpage_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         exitpage_button.setForeground(new java.awt.Color(255, 255, 255));
-        exitpage_button.setText("Exit");
+        exitpage_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\exit_big_icon.png")); // NOI18N
+        exitpage_button.setOpaque(false);
         exitpage_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitpage_buttonActionPerformed(evt);
             }
         });
-        create_account_base_panel.add(exitpage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 110, 40));
+        create_account_base_panel.add(exitpage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 50, 40));
 
         homepage_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         homepage_button.setForeground(new java.awt.Color(255, 255, 255));
-        homepage_button.setText("Home");
+        homepage_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\home_big2_icon.png")); // NOI18N
+        homepage_button.setBorder(null);
+        homepage_button.setOpaque(false);
         homepage_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homepage_buttonActionPerformed(evt);
             }
         });
-        create_account_base_panel.add(homepage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 40));
+        create_account_base_panel.add(homepage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 50));
 
         confirm_password_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         confirm_password_textfield.setBorder(null);

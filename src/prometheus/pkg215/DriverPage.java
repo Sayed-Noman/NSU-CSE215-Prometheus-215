@@ -669,7 +669,7 @@ public class DriverPage extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        home_button.setText("Home");
+        home_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\home_icon.png")); // NOI18N
         home_button.setFocusable(false);
         home_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         home_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -680,7 +680,7 @@ public class DriverPage extends javax.swing.JFrame {
         });
         jToolBar1.add(home_button);
 
-        sign_out_button.setText("Sign out");
+        sign_out_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\signout_icon.png")); // NOI18N
         sign_out_button.setFocusable(false);
         sign_out_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         sign_out_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

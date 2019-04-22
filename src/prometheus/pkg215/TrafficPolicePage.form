@@ -150,7 +150,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="home_toolber_button">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Home"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\Acer\Desktop\java home examples\Prometheus-215\images\prometheus_icons\home_icon.png"/>
+            </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
@@ -161,7 +163,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="signout_toobar_button">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sign Out"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\Acer\Desktop\java home examples\Prometheus-215\images\prometheus_icons\signout_icon.png"/>
+            </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>

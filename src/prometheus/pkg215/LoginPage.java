@@ -141,23 +141,27 @@ public class LoginPage extends javax.swing.JFrame {
 
         exit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         exit_button.setForeground(new java.awt.Color(255, 255, 255));
-        exit_button.setText("Exit");
+        exit_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\exit_big_icon.png")); // NOI18N
+        exit_button.setBorder(null);
+        exit_button.setOpaque(false);
         exit_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exit_buttonActionPerformed(evt);
             }
         });
-        Login_base_panel.add(exit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 70, 30));
+        Login_base_panel.add(exit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 50, 30));
 
         home_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         home_button.setForeground(new java.awt.Color(255, 255, 255));
-        home_button.setText("Home");
+        home_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\home_big_icon.png")); // NOI18N
+        home_button.setBorder(null);
+        home_button.setOpaque(false);
         home_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 home_buttonActionPerformed(evt);
             }
         });
-        Login_base_panel.add(home_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 70, 30));
+        Login_base_panel.add(home_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 40, 30));
 
         login_adminType_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 20)); // NOI18N
         login_adminType_label.setForeground(new java.awt.Color(255, 255, 255));

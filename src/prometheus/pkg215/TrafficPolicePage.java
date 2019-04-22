@@ -198,7 +198,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
         toolber.setRollover(true);
 
-        home_toolber_button.setText("Home");
+        home_toolber_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\home_icon.png")); // NOI18N
         home_toolber_button.setFocusable(false);
         home_toolber_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         home_toolber_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -209,7 +209,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         });
         toolber.add(home_toolber_button);
 
-        signout_toobar_button.setText("Sign Out");
+        signout_toobar_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\signout_icon.png")); // NOI18N
         signout_toobar_button.setFocusable(false);
         signout_toobar_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         signout_toobar_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -1347,33 +1347,82 @@ public class TrafficPolicePage extends javax.swing.JFrame {
     }
     private void calculatePoints(){
         
-        double report1Value=0,report2Value=0,report3Value=0,report4Value=0,report5Value=0,report6Value=0,report7Value=0,report8Value=0,totalPoints=0;
-        if((report1_combo_box.getSelectedIndex()==0)||(report2_combo_box.getSelectedIndex()==0)||(report3_combo_box.getSelectedIndex()==0)){
+        double report1Value=0,report2Value=0,report3Value=0,report4Value=0,report5Value=0,report6Value=0,report7Value=0,report8Value=0,report9Value=0,report10Value=0,report11Value=0,report12Value=0,report13Value=0,report14Value=0,report15Value=0,report16Value=0,report17Value=0,report18Value=0,report19Value=0,report20Value=0,report21Value=0,report22Value=0,report23Value=0,report24Value=0,totalPoints=0;
+        if(report1_combo_box.getSelectedIndex()==0){
            report1Value=0.0;
         }
-        else if((report1_combo_box.getSelectedIndex()==1)||(report2_combo_box.getSelectedIndex()==1)||(report3_combo_box.getSelectedIndex()==1)){
-            report2Value=2.0;
+        else if(report2_combo_box.getSelectedIndex()==0){
+           report2Value=0.0;
         }
-        else if((report1_combo_box.getSelectedIndex()==2)||(report2_combo_box.getSelectedIndex()==2)||(report3_combo_box.getSelectedIndex()==2)){
-            report3Value=1.0;
+        else if(report3_combo_box.getSelectedIndex()==0){
+           report3Value=0.0;
         }
-        else if((report1_combo_box.getSelectedIndex()==3)||(report2_combo_box.getSelectedIndex()==3)||(report3_combo_box.getSelectedIndex()==3)){
-            report4Value=0.50;
+        else if(report1_combo_box.getSelectedIndex()==1){
+            report4Value=2.0;
         }
-        else if((report1_combo_box.getSelectedIndex()==4)||(report2_combo_box.getSelectedIndex()==4)||(report3_combo_box.getSelectedIndex()==4)){
-            report5Value=0.30;
+        else if(report2_combo_box.getSelectedIndex()==1){
+            report5Value=2.0;
         }
-        else if((report1_combo_box.getSelectedIndex()==5)||(report2_combo_box.getSelectedIndex()==5)||(report3_combo_box.getSelectedIndex()==5)){
-            report6Value=0.20;
+        else if(report3_combo_box.getSelectedIndex()==1){
+            report6Value=2.0;
         }
-        else if((report1_combo_box.getSelectedIndex()==6)||(report2_combo_box.getSelectedIndex()==6)||(report3_combo_box.getSelectedIndex()==6)){
-            report7Value=1.5;
+        else if(report1_combo_box.getSelectedIndex()==2){
+            report7Value=1.0;
         }
-        else if((report1_combo_box.getSelectedIndex()==7)||(report2_combo_box.getSelectedIndex()==7)||(report3_combo_box.getSelectedIndex()==0)){
-            report8Value=0.10;
+         else if(report2_combo_box.getSelectedIndex()==2){
+            report8Value=1.0;
+        }
+         else if(report3_combo_box.getSelectedIndex()==2){
+            report9Value=1.0;
+        }
+        else if(report1_combo_box.getSelectedIndex()==3){
+            report10Value=0.50;
+        }
+        else if(report2_combo_box.getSelectedIndex()==3){
+            report11Value=0.50;
+        }
+        else if(report3_combo_box.getSelectedIndex()==3){
+            report12Value=0.50;
+        }
+        else if(report1_combo_box.getSelectedIndex()==4){
+            report13Value=0.30;
+        }
+        else if(report2_combo_box.getSelectedIndex()==4){
+            report14Value=0.30;
+        }
+        else if(report3_combo_box.getSelectedIndex()==4){
+            report15Value=0.30;
+        }
+        else if(report1_combo_box.getSelectedIndex()==5){
+            report16Value=0.20;
+        }
+        else if(report2_combo_box.getSelectedIndex()==5){
+            report17Value=0.20;
+        }
+        else if(report3_combo_box.getSelectedIndex()==5){
+            report18Value=0.20;
+        }
+        else if(report1_combo_box.getSelectedIndex()==6){
+            report19Value=1.5;
+        }
+         else if(report2_combo_box.getSelectedIndex()==6){
+            report20Value=1.5;
+        }
+          else if(report3_combo_box.getSelectedIndex()==6){
+            report21Value=1.5;
+        }
+        else if((report1_combo_box.getSelectedIndex()==7)){
+            report22Value=0.10;
+        }
+        else if((report2_combo_box.getSelectedIndex()==7)){
+            report23Value=0.10;
+        }
+        else if((report3_combo_box.getSelectedIndex()==7)){
+            report24Value=0.10;
         }
         
-        totalPoints=report1Value+report2Value+report3Value+report4Value+report5Value+report6Value+report7Value+report8Value;
+        
+        totalPoints=report1Value+report2Value+report3Value+report4Value+report5Value+report6Value+report7Value+report8Value+report9Value+report10Value+report11Value+report12Value+report13Value+report14Value+report15Value+report16Value+report17Value+report18Value+report19Value+report20Value+report21Value+report22Value+report23Value+report24Value;
         double remainingPoints=Double.parseDouble(points_textfield.getText())-totalPoints;
         String calculatePoints=Double.toString(remainingPoints);
         

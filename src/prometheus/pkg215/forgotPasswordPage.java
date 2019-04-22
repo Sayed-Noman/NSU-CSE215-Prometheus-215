@@ -232,13 +232,15 @@ public class forgotPasswordPage extends javax.swing.JFrame {
 
         exit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         exit_button.setForeground(new java.awt.Color(255, 255, 255));
-        exit_button.setText("Exit");
+        exit_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\exit_big_icon.png")); // NOI18N
+        exit_button.setBorder(null);
+        exit_button.setOpaque(false);
         exit_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exit_buttonActionPerformed(evt);
             }
         });
-        forgot_password_base_panel.add(exit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, 30));
+        forgot_password_base_panel.add(exit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, 30));
 
         email_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         email_label.setForeground(new java.awt.Color(255, 255, 255));
@@ -247,7 +249,9 @@ public class forgotPasswordPage extends javax.swing.JFrame {
 
         home_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         home_button.setForeground(new java.awt.Color(255, 255, 255));
-        home_button.setText("Home");
+        home_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\home_big_icon.png")); // NOI18N
+        home_button.setBorder(null);
+        home_button.setOpaque(false);
         home_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 home_buttonActionPerformed(evt);
