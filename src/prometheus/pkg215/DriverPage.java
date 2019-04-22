@@ -46,7 +46,7 @@ public class DriverPage extends javax.swing.JFrame {
         initComponents();
         dateAndTime();
         connection = JavaDbConnect.databaseConnect();
-        
+
         security_message_textfield.setBackground(new Color(0, 0, 0, 0));
     }
 
@@ -1260,32 +1260,38 @@ public class DriverPage extends javax.swing.JFrame {
             byte[] imagedata = rs.getBytes("Photo");
             ImageIcon img = new ImageIcon(imageResize(imagedata, show_image_label.getWidth(), show_image_label.getHeight()));
             show_image_label.setIcon(img);
-            indicator_slider.setValue((int)Double.parseDouble(points_textfield.getText()));
+            indicator_slider.setValue((int) Double.parseDouble(points_textfield.getText()));
             fileName_textfiled.setText(drivers_id_textfield.getText());
             showMessage();
-            
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
         }
+
     }
-    private void showMessage(){
-        double messagePoint=Double.parseDouble(points_textfield.getText());
-        if(messagePoint >=0 && messagePoint<1){
-            security_message_textfield.setText("not Eligible to drive anymore"); 
-        }
-        else if(messagePoint >=1 && messagePoint<4){
-            security_message_textfield.setText("at a very High Risk"); 
-        }
-        else if(messagePoint >=4 && messagePoint<8){
-            security_message_textfield.setText("at a Neutral Position"); 
-        }
-        else if(messagePoint >=8 && messagePoint<12){
-            security_message_textfield.setText("are Safe"); 
-        }
-        else
+
+    private void showMessage() {
+        double messagePoint = Double.parseDouble(points_textfield.getText());
+        if (messagePoint >= 0 && messagePoint < 1) {
+            security_message_textfield.setText("not Eligible to drive anymore");
+        } else if (messagePoint >= 1 && messagePoint < 4) {
+            security_message_textfield.setText("at a very High Risk");
+        } else if (messagePoint >= 4 && messagePoint < 8) {
+            security_message_textfield.setText("at a Neutral Position");
+        } else if (messagePoint >= 8 && messagePoint < 12) {
+            security_message_textfield.setText("are Safe");
+        } else {
             security_message_textfield.setText("Super Safe");
-            
+        }
+
     }
 
     private void dateAndTime() {
@@ -1304,11 +1310,14 @@ public class DriverPage extends javax.swing.JFrame {
         time_menu.setForeground(Color.RED);
 
     }
-    private void openFile()throws IOException{
-        Runtime runtime=Runtime.getRuntime();
-        String file=fileName_textfiled.getText();
-        Process process=runtime.exec("notepad "+file);
-    };
+
+    private void openFile() throws IOException {
+        Runtime runtime = Runtime.getRuntime();
+        String file = fileName_textfiled.getText();
+        Process process = runtime.exec("notepad " + file);
+    }
+
+    ;
 
     private Image imageResize(byte[] img, int width, int height) {
         BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -1382,7 +1391,16 @@ public class DriverPage extends javax.swing.JFrame {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
         }
+
 
     }//GEN-LAST:event_search_textfieldKeyReleased
 
@@ -1420,7 +1438,16 @@ public class DriverPage extends javax.swing.JFrame {
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, e);
+            } finally {
+                try {
+                    rs.close();
+                    pst.close();
+                    connection.close();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
             }
+
         }
         //calling two Tables manually after insertion to emidiate show
 
@@ -1456,7 +1483,16 @@ public class DriverPage extends javax.swing.JFrame {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
         }
+
         //calling two Tables manually after insertion to emidiate show
 
     }//GEN-LAST:event_edit_buttonActionPerformed
@@ -1497,15 +1533,36 @@ public class DriverPage extends javax.swing.JFrame {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
         }
+
     }//GEN-LAST:event_save_image_buttonActionPerformed
 
     private void close_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_menuitemActionPerformed
         // TODO add your handling code here:
+        try {
+            setVisible(false);
+            LoginPage lp = new LoginPage();
+            lp.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
 
-        setVisible(false);
-        LoginPage lp = new LoginPage();
-        lp.setVisible(true);
 
     }//GEN-LAST:event_close_menuitemActionPerformed
 
@@ -1535,10 +1592,21 @@ public class DriverPage extends javax.swing.JFrame {
 
     private void sign_out_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sign_out_buttonActionPerformed
         // TODO add your handling code here:
-
-        setVisible(false);
-        LoginPage lp = new LoginPage();
-        lp.setVisible(true);
+        try {
+            setVisible(false);
+            LoginPage lp = new LoginPage();
+            lp.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
 
 
     }//GEN-LAST:event_sign_out_buttonActionPerformed
@@ -1549,12 +1617,12 @@ public class DriverPage extends javax.swing.JFrame {
 
     private void open_log_file_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_open_log_file_buttonActionPerformed
         // TODO add your handling code here:
-        try{
-        openFile();
-        }catch(IOException e){
+        try {
+            openFile();
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(rootPane, e);
         }
-        
+
     }//GEN-LAST:event_open_log_file_buttonActionPerformed
 
     private void fileName_textfiledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileName_textfiledActionPerformed
