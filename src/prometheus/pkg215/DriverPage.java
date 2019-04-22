@@ -567,6 +567,7 @@ public class DriverPage extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Commands", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 12), new java.awt.Color(0, 102, 153))); // NOI18N
 
         clear_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        clear_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\clear_icon.png")); // NOI18N
         clear_button.setText("Clear");
         clear_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -575,6 +576,7 @@ public class DriverPage extends javax.swing.JFrame {
         });
 
         delete_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        delete_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\delete_icon.png")); // NOI18N
         delete_button.setText("Delete");
         delete_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -583,6 +585,7 @@ public class DriverPage extends javax.swing.JFrame {
         });
 
         edit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        edit_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\edit_icon.png")); // NOI18N
         edit_button.setText("Edit");
         edit_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1257,7 +1260,9 @@ public class DriverPage extends javax.swing.JFrame {
             ImageIcon img = new ImageIcon(imageResize(imagedata, show_image_label.getWidth(), show_image_label.getHeight()));
             show_image_label.setIcon(img);
             indicator_slider.setValue((int)Double.parseDouble(points_textfield.getText()));
+            fileName_textfiled.setText(drivers_id_textfield.getText());
             showMessage();
+            
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

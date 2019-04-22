@@ -100,6 +100,9 @@ public class LoginPage extends javax.swing.JFrame {
         Login_base_panel.add(password_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 390, 50));
         Login_base_panel.add(separetor_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 390, 30));
 
+        Login_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
+        Login_button.setForeground(new java.awt.Color(255, 255, 255));
+        Login_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\login_big_icon.png")); // NOI18N
         Login_button.setText("Login");
         Login_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -426,6 +426,7 @@ public class LocalSearchPage extends javax.swing.JFrame {
         print_panel.add(login_page_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(818, 11, -1, -1));
 
         print_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        print_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\print_icon.png")); // NOI18N
         print_button.setText("Print");
         print_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -5,6 +5,7 @@
  */
 package prometheus.pkg215;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author Acer
  */
 public class forgotPasswordPage extends javax.swing.JFrame {
-    
+
     //creating connection to database
     Connection connection;
     ResultSet rs;
@@ -26,50 +27,54 @@ public class forgotPasswordPage extends javax.swing.JFrame {
      */
     public forgotPasswordPage() {
         initComponents();
-        connection=JavaDbConnect.databaseConnect();
+        connection = JavaDbConnect.databaseConnect();
+        username_textfield.setBackground(new Color(0, 0, 0, 0));
+        email_textfield.setBackground(new Color(0, 0, 0, 0));
+        security_question_textfield.setBackground(new Color(0, 0, 0, 0));
+        answer_textfield.setBackground(new Color(0, 0, 0, 0));
+        your_password_textfield.setBackground(new Color(0, 0, 0, 0));
+        admin_type_textfield.setBackground(new Color(0, 0, 0, 0));
     }
-    
+
     //Search function to show information
-    public void Search(){
-        String usr_name=username_textfield.getText();
-        String sql="select * from accounts where UserName='"+usr_name+"'";
-        try{
-            pst=connection.prepareStatement(sql);
-            rs=pst.executeQuery();
-            if (rs.next()){
-            email_textfield.setText(rs.getString(4));
-            security_question_textfield.setText(rs.getString(7));
-            admin_type_textfield.setText(rs.getString(9));
-            rs.close();
-            pst.close();
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Incorrect Username");
-        }
-        }catch(Exception e){
+    public void Search() {
+        String usr_name = username_textfield.getText();
+        String sql = "select * from accounts where UserName='" + usr_name + "'";
+        try {
+            pst = connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                email_textfield.setText(rs.getString(4));
+                security_question_textfield.setText(rs.getString(7));
+                admin_type_textfield.setText(rs.getString(9));
+                rs.close();
+                pst.close();
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrect Username");
+            }
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        
+
     }
-    
-    
+
     //to retrive password
-    public void Retrive(){
-        String usr_name=username_textfield.getText();
-        String seq_answer=answer_textfield.getText();
-        String sql="select * from accounts where SecurityQuestionAnswer='"+seq_answer+"'";
-        try{
-            pst=connection.prepareStatement(sql);
-            rs=pst.executeQuery();
-            
-            if(rs.next()){
-            your_password_textfield.setText(rs.getString(5));
-            
-           }
-        }catch(Exception e) {
-            JOptionPane.showMessageDialog(null,e);
-        }  
-        
+    public void Retrive() {
+        String usr_name = username_textfield.getText();
+        String seq_answer = answer_textfield.getText();
+        String sql = "select * from accounts where SecurityQuestionAnswer='" + seq_answer + "'";
+        try {
+            pst = connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                your_password_textfield.setText(rs.getString(5));
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }
 
     /**
@@ -212,23 +217,26 @@ public class forgotPasswordPage extends javax.swing.JFrame {
 
         retrive_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         retrive_button.setForeground(new java.awt.Color(255, 255, 255));
+        retrive_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\retrive_icon.png")); // NOI18N
         retrive_button.setText("Retrive");
+        retrive_button.setOpaque(false);
         retrive_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 retrive_buttonActionPerformed(evt);
             }
         });
-        forgot_password_base_panel.add(retrive_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 90, 40));
+        forgot_password_base_panel.add(retrive_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 110, 40));
 
         email_search_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         email_search_button.setForeground(new java.awt.Color(255, 255, 255));
+        email_search_button.setIcon(new javax.swing.ImageIcon("C:\\Users\\Acer\\Desktop\\java home examples\\Prometheus-215\\images\\prometheus_icons\\search_icon.png")); // NOI18N
         email_search_button.setText("Search");
         email_search_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 email_search_buttonActionPerformed(evt);
             }
         });
-        forgot_password_base_panel.add(email_search_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 90, 40));
+        forgot_password_base_panel.add(email_search_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 100, 40));
 
         exit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         exit_button.setForeground(new java.awt.Color(255, 255, 255));
@@ -306,7 +314,7 @@ public class forgotPasswordPage extends javax.swing.JFrame {
     private void home_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_buttonActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        HomePage hp=new HomePage();
+        HomePage hp = new HomePage();
         hp.setVisible(true);
     }//GEN-LAST:event_home_buttonActionPerformed
 

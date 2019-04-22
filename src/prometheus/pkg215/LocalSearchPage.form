@@ -683,6 +683,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Berlin Sans FB Demi" size="14" style="1"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\Acer\Desktop\java home examples\Prometheus-215\images\prometheus_icons\print_icon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Print"/>
           </Properties>
           <Events>
