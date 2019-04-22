@@ -14,6 +14,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -151,6 +152,12 @@ public class DriverPage extends javax.swing.JFrame {
         upload_iamge_textfield = new javax.swing.JTextField();
         upload_image_button = new javax.swing.JButton();
         save_image_button = new javax.swing.JButton();
+        panel_for_indicator = new javax.swing.JPanel();
+        panel_for_log = new javax.swing.JPanel();
+        fileName_label = new javax.swing.JLabel();
+        fileName_textfiled = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        open_log_file_button = new javax.swing.JButton();
         menubar = new javax.swing.JMenuBar();
         file_menu = new javax.swing.JMenu();
         close_menuitem = new javax.swing.JMenuItem();
@@ -162,6 +169,8 @@ public class DriverPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1015, 551));
+
+        Action_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Action Center", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB Demi", 1, 12), new java.awt.Color(204, 0, 51))); // NOI18N
 
         panel_for_tabpane.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -624,12 +633,12 @@ public class DriverPage extends javax.swing.JFrame {
                     .addGroup(Action_panelLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(Action_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(Action_panelLayout.createSequentialGroup()
-                    .addGap(0, 137, Short.MAX_VALUE)
+                    .addGap(0, 133, Short.MAX_VALUE)
                     .addComponent(panel_for_tabpane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 137, Short.MAX_VALUE)))
+                    .addGap(0, 133, Short.MAX_VALUE)))
         );
         Action_panelLayout.setVerticalGroup(
             Action_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -671,6 +680,8 @@ public class DriverPage extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(sign_out_button);
+
+        panel_for_information.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Driver's Information", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 1, 12), new java.awt.Color(153, 0, 0))); // NOI18N
 
         drivers_id_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N
         drivers_id_label.setText("Driver's Id");
@@ -763,7 +774,7 @@ public class DriverPage extends javax.swing.JFrame {
                         .addComponent(religion_label, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(religion_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panel_for_informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_for_informationLayout.createSequentialGroup()
@@ -872,7 +883,7 @@ public class DriverPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        image_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        image_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Image Panel", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB Demi", 1, 12), new java.awt.Color(153, 0, 0))); // NOI18N
 
         driver_image_show_panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -928,7 +939,7 @@ public class DriverPage extends javax.swing.JFrame {
                     .addGroup(image_panelLayout.createSequentialGroup()
                         .addComponent(upload_iamge_textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(upload_image_button, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)))
+                        .addComponent(upload_image_button, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         image_panelLayout.setVerticalGroup(
@@ -943,6 +954,72 @@ public class DriverPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(save_image_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(2, 2, 2))
+        );
+
+        panel_for_indicator.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Indicator", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB Demi", 1, 12), new java.awt.Color(153, 0, 0))); // NOI18N
+
+        javax.swing.GroupLayout panel_for_indicatorLayout = new javax.swing.GroupLayout(panel_for_indicator);
+        panel_for_indicator.setLayout(panel_for_indicatorLayout);
+        panel_for_indicatorLayout.setHorizontalGroup(
+            panel_for_indicatorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 461, Short.MAX_VALUE)
+        );
+        panel_for_indicatorLayout.setVerticalGroup(
+            panel_for_indicatorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 115, Short.MAX_VALUE)
+        );
+
+        panel_for_log.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Show Logs", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB Demi", 1, 12), new java.awt.Color(102, 0, 0))); // NOI18N
+
+        fileName_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        fileName_label.setText("File Name");
+
+        fileName_textfiled.setEditable(false);
+        fileName_textfiled.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        fileName_textfiled.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileName_textfiledActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jLabel3.setText("Press Open \"Log Fille\" to Show Your Log");
+
+        open_log_file_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        open_log_file_button.setText("Open Log File");
+        open_log_file_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                open_log_file_buttonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_for_logLayout = new javax.swing.GroupLayout(panel_for_log);
+        panel_for_log.setLayout(panel_for_logLayout);
+        panel_for_logLayout.setHorizontalGroup(
+            panel_for_logLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_for_logLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(fileName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fileName_textfiled, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(open_log_file_button)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panel_for_logLayout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 45, Short.MAX_VALUE))
+        );
+        panel_for_logLayout.setVerticalGroup(
+            panel_for_logLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_for_logLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panel_for_logLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fileName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fileName_textfiled, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(open_log_file_button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         file_menu.setText("File");
@@ -997,13 +1074,20 @@ public class DriverPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Action_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panel_for_information, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Action_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panel_for_information, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(panel_for_indicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(panel_for_log, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1011,15 +1095,19 @@ public class DriverPage extends javax.swing.JFrame {
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Action_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(panel_for_information, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(image_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(201, 201, 201))
+                    .addComponent(Action_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(image_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panel_for_information, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panel_for_indicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel_for_log, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 108, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1369, 705));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void getValues() {
@@ -1067,6 +1155,11 @@ public class DriverPage extends javax.swing.JFrame {
         time_menu.setForeground(Color.RED);
 
     }
+    private void openFile()throws IOException{
+        Runtime runtime=Runtime.getRuntime();
+        String file=fileName_textfiled.getText();
+        Process process=runtime.exec("notepad "+file);
+    };
 
     private Image imageResize(byte[] img, int width, int height) {
         BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -1129,6 +1222,7 @@ public class DriverPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         String sql = "select * from DriverInfo where userName=?";
         search_textfield.setText(userName_from_login);
+        fileName_textfiled.setText(drivers_id_textfield.getText());
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, search_textfield.getText());
@@ -1304,6 +1398,20 @@ public class DriverPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_search_textfieldActionPerformed
 
+    private void open_log_file_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_open_log_file_buttonActionPerformed
+        // TODO add your handling code here:
+        try{
+        openFile();
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+        
+    }//GEN-LAST:event_open_log_file_buttonActionPerformed
+
+    private void fileName_textfiledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileName_textfiledActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fileName_textfiledActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1384,6 +1492,8 @@ public class DriverPage extends javax.swing.JFrame {
     private javax.swing.JMenuItem exit_menuitem;
     private javax.swing.JLabel expiredDate_label;
     private javax.swing.JTextField expiredDate_textfield;
+    private javax.swing.JLabel fileName_label;
+    private javax.swing.JTextField fileName_textfiled;
     private javax.swing.JMenu file_menu;
     private javax.swing.JLabel firstName_label;
     private javax.swing.JTextField firstName_textfield;
@@ -1399,6 +1509,7 @@ public class DriverPage extends javax.swing.JFrame {
     private javax.swing.JLabel issuedDate_label;
     private javax.swing.JTextField issuedDate_textfield;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1411,8 +1522,11 @@ public class DriverPage extends javax.swing.JFrame {
     private javax.swing.JTextArea mail_textarea;
     private javax.swing.JMenuBar menubar;
     private javax.swing.JMenuItem offline_help_menu_item;
+    private javax.swing.JButton open_log_file_button;
     private javax.swing.JPanel panel_for_documents;
+    private javax.swing.JPanel panel_for_indicator;
     private javax.swing.JPanel panel_for_information;
+    private javax.swing.JPanel panel_for_log;
     private javax.swing.JPanel panel_for_tabpane;
     private javax.swing.JLabel password_label;
     private javax.swing.JPasswordField password_textfield;

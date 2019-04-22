@@ -81,8 +81,10 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="menubar"/>
-    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-63,0,0,5,89"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="0"/>
+    <SyntheticProperty name="generateSize" type="boolean" value="true"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -101,13 +103,23 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jToolBar1" alignment="0" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="Action_panel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="panel_for_information" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="image_panel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Action_panel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="panel_for_information" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="image_panel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="panel_for_indicator" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="panel_for_log" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="55" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -117,20 +129,34 @@
               <Component id="jToolBar1" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="Action_panel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="Action_panel" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="image_panel" max="32767" attributes="0"/>
+                      <Component id="panel_for_information" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="panel_for_information" max="32767" attributes="0"/>
-                  <Component id="image_panel" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="panel_for_indicator" min="-2" max="-2" attributes="0"/>
+                  <Component id="panel_for_log" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="0" pref="108" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="Action_panel">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder justification="2" title="Action Center">
+              <Font PropertyName="font" name="Berlin Sans FB Demi" size="12" style="1"/>
+              <Color PropertyName="color" blue="33" green="0" red="cc" type="rgb"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -148,13 +174,13 @@
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="137" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
                       <Component id="panel_for_tabpane" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="137" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -960,6 +986,16 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panel_for_information">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder justification="2" title="Driver&apos;s Information">
+              <Font PropertyName="font" name="Berlin Sans FB" size="12" style="1"/>
+              <Color PropertyName="color" blue="0" green="0" red="99" type="rgb"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -1008,7 +1044,7 @@
                           <Component id="religion_textfield" min="-2" pref="142" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="95" max="32767" attributes="0"/>
+                  <EmptySpace pref="82" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
@@ -1338,8 +1374,11 @@
     <Container class="javax.swing.JPanel" name="image_panel">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder/>
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder justification="2" title="Image Panel">
+              <Font PropertyName="font" name="Berlin Sans FB Demi" size="12" style="1"/>
+              <Color PropertyName="color" blue="0" green="0" red="99" type="rgb"/>
+            </TitledBorder>
           </Border>
         </Property>
       </Properties>
@@ -1359,7 +1398,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="upload_iamge_textfield" min="-2" pref="167" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="upload_image_button" pref="109" max="32767" attributes="0"/>
+                          <Component id="upload_image_button" pref="78" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1450,6 +1489,118 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="save_image_buttonActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panel_for_indicator">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder justification="2" title="Indicator">
+              <Font PropertyName="font" name="Berlin Sans FB Demi" size="12" style="1"/>
+              <Color PropertyName="color" blue="0" green="0" red="99" type="rgb"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="461" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="115" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panel_for_log">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder justification="2" title="Show Logs">
+              <Font PropertyName="font" name="Berlin Sans FB Demi" size="12" style="1"/>
+              <Color PropertyName="color" blue="0" green="0" red="66" type="rgb"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="fileName_label" min="-2" pref="93" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="fileName_textfiled" min="-2" pref="178" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="open_log_file_button" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jLabel3" min="-2" pref="468" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="45" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="fileName_label" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="fileName_textfiled" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="open_log_file_button" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="27" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="fileName_label">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Berlin Sans FB Demi" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="File Name"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="fileName_textfiled">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Berlin Sans FB" size="12" style="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fileName_textfiledActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Berlin Sans FB" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Press Open &quot;Log Fille&quot; to Show Your Log"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="open_log_file_button">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Berlin Sans FB Demi" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Open Log File"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="open_log_file_buttonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
