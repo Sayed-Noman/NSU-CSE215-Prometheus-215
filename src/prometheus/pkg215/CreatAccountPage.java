@@ -198,6 +198,7 @@ public class CreatAccountPage extends javax.swing.JFrame {
         password_label.setText("Password");
         create_account_base_panel.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 210, 40));
 
+        security_question_combobox.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         security_question_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Who is the best player Messi or Ronaldo?", "Who the best defender Ramos or pique?", "Who is the best GK Courtois or Navas?", "Who is best Coach Zidane or Mourniho?" }));
         create_account_base_panel.add(security_question_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 280, 40));
 

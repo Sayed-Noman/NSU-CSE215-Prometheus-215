@@ -288,19 +288,19 @@
                                   <Component id="licenseType_combobox" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="issuedDate_label" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="issuedDate_textfield" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="issuedDate_textfield" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="expiredDate_label" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="expiredDate_textfield" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="expiredDate_textfield" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="points_label" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="points_textfield" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="points_textfield" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -321,6 +321,9 @@
             <Component class="javax.swing.JTextField" name="drivers_id_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="firstName_label">
@@ -334,6 +337,9 @@
             <Component class="javax.swing.JTextField" name="firstName_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lastName_label">
@@ -347,6 +353,9 @@
             <Component class="javax.swing.JTextField" name="lastName_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="fullName_label">
@@ -360,11 +369,17 @@
             <Component class="javax.swing.JTextField" name="fullName_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="dob_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="dob_label">
@@ -385,6 +400,9 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="gender_combobox">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="2">
                     <StringItem index="0" value="Male"/>
@@ -399,6 +417,9 @@
             <Component class="javax.swing.JTextField" name="bloodGroup_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="bloodGroup_label">
@@ -420,6 +441,9 @@
             <Component class="javax.swing.JTextField" name="religion_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="emailAddress_label">
@@ -441,16 +465,25 @@
             <Component class="javax.swing.JTextField" name="emailAddress_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="city_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="address_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="address_label">
@@ -472,10 +505,16 @@
             <Component class="javax.swing.JTextField" name="drivingLicenseNo_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="licenseType_combobox">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="2">
                     <StringItem index="0" value="Professional"/>
@@ -506,6 +545,9 @@
             <Component class="javax.swing.JTextField" name="issuedDate_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="expiredDate_label">
@@ -519,11 +561,17 @@
             <Component class="javax.swing.JTextField" name="expiredDate_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="points_textfield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="points_label">
