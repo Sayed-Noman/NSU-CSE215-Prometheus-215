@@ -106,10 +106,14 @@ public class HomePage extends javax.swing.JFrame {
 
     private void Exit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit_buttonActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_Exit_buttonActionPerformed
 
     private void Request_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Request_buttonActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        LocalSearchPage lp=new LocalSearchPage();
+        lp.setVisible(true);
     }//GEN-LAST:event_Request_buttonActionPerformed
 
     private void CreatAccount_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreatAccount_buttonActionPerformed

@@ -377,8 +377,18 @@ public class LocalSearchPage extends javax.swing.JFrame {
         );
 
         back_button.setText("Back");
+        back_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_buttonActionPerformed(evt);
+            }
+        });
 
         login_page_button.setText("Login");
+        login_page_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login_page_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -506,6 +516,20 @@ public class LocalSearchPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_search_textfieldKeyReleased
+
+    private void login_page_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_page_buttonActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        LoginPage lp=new LoginPage();
+        lp.setVisible(true);
+    }//GEN-LAST:event_login_page_buttonActionPerformed
+
+    private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        HomePage hp=new HomePage();
+        hp.setVisible(true);
+    }//GEN-LAST:event_back_buttonActionPerformed
 
     /**
      * @param args the command line arguments

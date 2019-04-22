@@ -5,7 +5,6 @@
  */
 package prometheus.pkg215;
 
-import static com.oracle.jrockit.jfr.Transition.To;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -209,6 +208,11 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         signout_toobar_button.setFocusable(false);
         signout_toobar_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         signout_toobar_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        signout_toobar_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signout_toobar_buttonActionPerformed(evt);
+            }
+        });
         toolber.add(signout_toobar_button);
 
         panel_for_tabpane.setBackground(new java.awt.Color(0, 153, 153));
@@ -1927,6 +1931,28 @@ public class TrafficPolicePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_report_driver_id_text_fieldKeyReleased
+
+    private void signout_toobar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signout_toobar_buttonActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            setVisible(false);
+            LoginPage lp = new LoginPage();
+            lp.setVisible(true);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+
+    }//GEN-LAST:event_signout_toobar_buttonActionPerformed
 
     /**
      * @param args the command line arguments

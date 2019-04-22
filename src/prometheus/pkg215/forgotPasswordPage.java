@@ -233,6 +233,11 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         exit_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         exit_button.setForeground(new java.awt.Color(255, 255, 255));
         exit_button.setText("Exit");
+        exit_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exit_buttonActionPerformed(evt);
+            }
+        });
         forgot_password_base_panel.add(exit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, 30));
 
         email_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
@@ -300,6 +305,11 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         HomePage hp=new HomePage();
         hp.setVisible(true);
     }//GEN-LAST:event_home_buttonActionPerformed
+
+    private void exit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_buttonActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_exit_buttonActionPerformed
 
     /**
      * @param args the command line arguments
