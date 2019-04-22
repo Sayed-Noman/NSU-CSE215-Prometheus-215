@@ -773,6 +773,7 @@ public class DriverPage extends javax.swing.JFrame {
 
         expiredDate_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
+        points_textfield.setEditable(false);
         points_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
 
         points_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 12)); // NOI18N

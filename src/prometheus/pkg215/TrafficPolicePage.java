@@ -1359,73 +1359,73 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         if(report1_combo_box.getSelectedIndex()==0){
            report1Value=0.0;
         }
-        else if(report2_combo_box.getSelectedIndex()==0){
+        if(report2_combo_box.getSelectedIndex()==0){
            report2Value=0.0;
         }
-        else if(report3_combo_box.getSelectedIndex()==0){
+        if(report3_combo_box.getSelectedIndex()==0){
            report3Value=0.0;
         }
-        else if(report1_combo_box.getSelectedIndex()==1){
+        if(report1_combo_box.getSelectedIndex()==1){
             report4Value=2.0;
         }
-        else if(report2_combo_box.getSelectedIndex()==1){
+        if(report2_combo_box.getSelectedIndex()==1){
             report5Value=2.0;
         }
-        else if(report3_combo_box.getSelectedIndex()==1){
+        if(report3_combo_box.getSelectedIndex()==1){
             report6Value=2.0;
         }
-        else if(report1_combo_box.getSelectedIndex()==2){
+        if(report1_combo_box.getSelectedIndex()==2){
             report7Value=1.0;
         }
-         else if(report2_combo_box.getSelectedIndex()==2){
+        if(report2_combo_box.getSelectedIndex()==2){
             report8Value=1.0;
         }
-         else if(report3_combo_box.getSelectedIndex()==2){
+        if(report3_combo_box.getSelectedIndex()==2){
             report9Value=1.0;
         }
-        else if(report1_combo_box.getSelectedIndex()==3){
+        if(report1_combo_box.getSelectedIndex()==3){
             report10Value=0.50;
         }
-        else if(report2_combo_box.getSelectedIndex()==3){
+        if(report2_combo_box.getSelectedIndex()==3){
             report11Value=0.50;
         }
-        else if(report3_combo_box.getSelectedIndex()==3){
+        if(report3_combo_box.getSelectedIndex()==3){
             report12Value=0.50;
         }
-        else if(report1_combo_box.getSelectedIndex()==4){
+        if(report1_combo_box.getSelectedIndex()==4){
             report13Value=0.30;
         }
-        else if(report2_combo_box.getSelectedIndex()==4){
+        if(report2_combo_box.getSelectedIndex()==4){
             report14Value=0.30;
         }
-        else if(report3_combo_box.getSelectedIndex()==4){
+        if(report3_combo_box.getSelectedIndex()==4){
             report15Value=0.30;
         }
-        else if(report1_combo_box.getSelectedIndex()==5){
+        if(report1_combo_box.getSelectedIndex()==5){
             report16Value=0.20;
         }
-        else if(report2_combo_box.getSelectedIndex()==5){
+        if(report2_combo_box.getSelectedIndex()==5){
             report17Value=0.20;
         }
-        else if(report3_combo_box.getSelectedIndex()==5){
+        if(report3_combo_box.getSelectedIndex()==5){
             report18Value=0.20;
         }
-        else if(report1_combo_box.getSelectedIndex()==6){
+        if(report1_combo_box.getSelectedIndex()==6){
             report19Value=1.5;
         }
-         else if(report2_combo_box.getSelectedIndex()==6){
+        if(report2_combo_box.getSelectedIndex()==6){
             report20Value=1.5;
         }
-          else if(report3_combo_box.getSelectedIndex()==6){
+        if(report3_combo_box.getSelectedIndex()==6){
             report21Value=1.5;
         }
-        else if((report1_combo_box.getSelectedIndex()==7)){
+       if((report1_combo_box.getSelectedIndex()==7)){
             report22Value=0.10;
         }
-        else if((report2_combo_box.getSelectedIndex()==7)){
+       if((report2_combo_box.getSelectedIndex()==7)){
             report23Value=0.10;
         }
-        else if((report3_combo_box.getSelectedIndex()==7)){
+       if((report3_combo_box.getSelectedIndex()==7)){
             report24Value=0.10;
         }
         
