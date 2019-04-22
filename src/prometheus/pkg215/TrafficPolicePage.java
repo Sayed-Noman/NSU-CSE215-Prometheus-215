@@ -1006,16 +1006,16 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         driver_image_show_panelLayout.setHorizontalGroup(
             driver_image_show_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, driver_image_show_panelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(show_image_label, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addContainerGap()
+                .addComponent(show_image_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         driver_image_show_panelLayout.setVerticalGroup(
             driver_image_show_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(driver_image_show_panelLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(show_image_label, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(show_image_label, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         upload_iamge_textfield.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
@@ -1804,7 +1804,7 @@ public class TrafficPolicePage extends javax.swing.JFrame {
         try {
             int row = document_data_table.getSelectedRow();
             String tableClick = (document_data_table.getModel().getValueAt(row, 3).toString());
-            Runtime.getRuntime().exec("rundll32.url.dll,FileProtocolHandler " + tableClick);
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + tableClick);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
