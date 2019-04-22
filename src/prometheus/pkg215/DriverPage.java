@@ -1256,21 +1256,11 @@ public class DriverPage extends javax.swing.JFrame {
 
     private void close_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_menuitemActionPerformed
         // TODO add your handling code here:
-        try {
+       
             setVisible(false);
             LoginPage lp = new LoginPage();
             lp.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } finally {
-            try {
-                rs.close();
-                pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
+        
     }//GEN-LAST:event_close_menuitemActionPerformed
 
     private void exit_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_menuitemActionPerformed
@@ -1291,42 +1281,21 @@ public class DriverPage extends javax.swing.JFrame {
     private void home_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_buttonActionPerformed
         // TODO add your handling code here:
         
-        try {
+       
             setVisible(false);
             HomePage hp = new HomePage();
             hp.setVisible(true);
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } finally {
-            try {
-                rs.close();
-                pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
     }//GEN-LAST:event_home_buttonActionPerformed
 
     private void sign_out_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sign_out_buttonActionPerformed
         // TODO add your handling code here:
-        try {
+        
             setVisible(false);
             LoginPage lp = new LoginPage();
             lp.setVisible(true);
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } finally {
-            try {
-                rs.close();
-                pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
+        
     }//GEN-LAST:event_sign_out_buttonActionPerformed
 
     /**

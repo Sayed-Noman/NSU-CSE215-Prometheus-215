@@ -249,6 +249,11 @@ public class CreatAccountPage extends javax.swing.JFrame {
         exitpage_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         exitpage_button.setForeground(new java.awt.Color(255, 255, 255));
         exitpage_button.setText("Exit");
+        exitpage_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitpage_buttonActionPerformed(evt);
+            }
+        });
         create_account_base_panel.add(exitpage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 110, 40));
 
         homepage_button.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
@@ -326,6 +331,11 @@ public class CreatAccountPage extends javax.swing.JFrame {
         HomePage hp= new HomePage();
         hp.setVisible(true);
     }//GEN-LAST:event_homepage_buttonActionPerformed
+
+    private void exitpage_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitpage_buttonActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_exitpage_buttonActionPerformed
 
     /**
      * @param args the command line arguments
