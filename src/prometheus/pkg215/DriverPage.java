@@ -1592,21 +1592,11 @@ public class DriverPage extends javax.swing.JFrame {
 
     private void sign_out_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sign_out_buttonActionPerformed
         // TODO add your handling code here:
-        try {
+       
             setVisible(false);
             LoginPage lp = new LoginPage();
             lp.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } finally {
-            try {
-                rs.close();
-                pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
+      
 
 
     }//GEN-LAST:event_sign_out_buttonActionPerformed
