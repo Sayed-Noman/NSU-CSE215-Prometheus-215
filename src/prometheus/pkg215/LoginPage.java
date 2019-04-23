@@ -37,7 +37,7 @@ public class LoginPage extends javax.swing.JFrame {
         // this.setLocation(dim.width/2-this.getSize().width/2,dim.height/2-this.getSize().height/2);
         // this.setBackground(new Color(0,0,0,0));
         Login_base_panel.setBackground(new Color(0, 0, 0, 0));
-        Username_textfield.setBackground(new Color(0, 0, 0, 0));
+        User_id_textfield.setBackground(new Color(0, 0, 0, 0));
         password_field.setBackground(new Color(0, 0, 0, 0));
 
     }
@@ -53,7 +53,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         Login_base_panel = new javax.swing.JPanel();
         welcome_lable = new javax.swing.JLabel();
-        Username_textfield = new javax.swing.JTextField();
+        User_id_textfield = new javax.swing.JTextField();
         password_lable = new javax.swing.JLabel();
         separetor_username = new javax.swing.JSeparator();
         password_field = new javax.swing.JPasswordField();
@@ -61,7 +61,7 @@ public class LoginPage extends javax.swing.JFrame {
         Login_button = new javax.swing.JButton();
         dont_have_account_label = new javax.swing.JLabel();
         login_adminType_combobox = new javax.swing.JComboBox<>();
-        user_name_lable2 = new javax.swing.JLabel();
+        user_id_lable = new javax.swing.JLabel();
         forgot_password_label = new javax.swing.JLabel();
         exit_button = new javax.swing.JButton();
         home_button = new javax.swing.JButton();
@@ -79,12 +79,17 @@ public class LoginPage extends javax.swing.JFrame {
         welcome_lable.setText("Welcome to Prometheus-215");
         Login_base_panel.add(welcome_lable, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 340, 50));
 
-        Username_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
-        Username_textfield.setForeground(new java.awt.Color(228, 241, 254));
-        Username_textfield.setText("Enter Username");
-        Username_textfield.setBorder(null);
-        Username_textfield.setOpaque(false);
-        Login_base_panel.add(Username_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 390, 50));
+        User_id_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        User_id_textfield.setForeground(new java.awt.Color(228, 241, 254));
+        User_id_textfield.setText("Enter Username");
+        User_id_textfield.setBorder(null);
+        User_id_textfield.setOpaque(false);
+        User_id_textfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                User_id_textfieldActionPerformed(evt);
+            }
+        });
+        Login_base_panel.add(User_id_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 390, 50));
 
         password_lable.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 20)); // NOI18N
         password_lable.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,10 +131,10 @@ public class LoginPage extends javax.swing.JFrame {
         login_adminType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Traffic Police", "Driver" }));
         Login_base_panel.add(login_adminType_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 120, 40));
 
-        user_name_lable2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 20)); // NOI18N
-        user_name_lable2.setForeground(new java.awt.Color(255, 255, 255));
-        user_name_lable2.setText("Username");
-        Login_base_panel.add(user_name_lable2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 340, 50));
+        user_id_lable.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 20)); // NOI18N
+        user_id_lable.setForeground(new java.awt.Color(255, 255, 255));
+        user_id_lable.setText("User Id");
+        Login_base_panel.add(user_id_lable, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 340, 50));
 
         forgot_password_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
         forgot_password_label.setForeground(new java.awt.Color(204, 204, 204));
@@ -196,53 +201,34 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void Login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_buttonActionPerformed
         // TODO add your handling code here:
-        String sql = "select * from accounts where UserName=? and Password=? and AdminType=?";
+        String sql = "select * from accounts where UserId=? and Password=? and AdminType=?";
 
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, Username_textfield.getText());
+            pst.setString(1, User_id_textfield.getText());
             pst.setString(2, password_field.getText());
             pst.setString(3, (String) login_adminType_combobox.getSelectedItem());
-            String pass_user_name = Username_textfield.getText();
+            String pass_user_Id = User_id_textfield.getText();
             rs = pst.executeQuery();
 
             if (rs.next()) {
 
-                JOptionPane.showMessageDialog(null, "Username and Password Matched and You are Loged in as " + rs.getString("AdminType"));
+                JOptionPane.showMessageDialog(null, "User Id and Password Matched and You are Loged in as " + rs.getString("AdminType"));
                 rs.close();
                 pst.close();
                 if (login_adminType_combobox.getSelectedIndex() == 0) {
-                    try {
+                    
                         this.setVisible(false);
                         TrafficPolicePage tf = new TrafficPolicePage();
                         tf.setVisible(true);
-                    } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, e);
-                    } finally {
-                        try {
-                            rs.close();
-                            pst.close();
-                            connection.close();
-                        } catch (Exception e) {
-                            JOptionPane.showMessageDialog(null, e);
-                        }
-                    }
+                     
                 } else if (login_adminType_combobox.getSelectedIndex() == 1) {
-                    try {
+                  
                         this.setVisible(false);
-                        DriverPage dp = new DriverPage(pass_user_name);
+                        DriverPage dp = new DriverPage(pass_user_Id);
                         dp.setVisible(true);
-                    } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, e);
-                    } finally {
-                        try {
-                            rs.close();
-                            pst.close();
-                            connection.close();
-                        } catch (Exception e) {
-                            JOptionPane.showMessageDialog(null, e);
-                        }
-                    }
+                    
+                      
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid UserName and Password");
@@ -318,6 +304,10 @@ public class LoginPage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_dont_have_account_labelMouseClicked
 
+    private void User_id_textfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_User_id_textfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_User_id_textfieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -356,7 +346,7 @@ public class LoginPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Login_base_panel;
     private javax.swing.JButton Login_button;
-    private javax.swing.JTextField Username_textfield;
+    private javax.swing.JTextField User_id_textfield;
     private javax.swing.JLabel dont_have_account_label;
     private javax.swing.JButton exit_button;
     private javax.swing.JLabel forgot_password_label;
@@ -368,7 +358,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel password_lable;
     private javax.swing.JSeparator separetor_password;
     private javax.swing.JSeparator separetor_username;
-    private javax.swing.JLabel user_name_lable2;
+    private javax.swing.JLabel user_id_lable;
     private javax.swing.JLabel welcome_lable;
     // End of variables declaration//GEN-END:variables
 }

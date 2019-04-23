@@ -33,7 +33,7 @@ public class CreatAccountPage extends javax.swing.JFrame {
         this.creatAccount_page_bacground_image.setBackground(new Color(0,0,0,0));
         firstName_textfield.setBackground(new Color(0,0,0,0));
         lastName_textfield.setBackground(new Color(0,0,0,0));
-        username_textfield.setBackground(new Color(0,0,0,0));
+        userId_textfield.setBackground(new Color(0,0,0,0));
         email_textfield.setBackground(new Color(0,0,0,0));
         password_textfield.setBackground(new Color(0,0,0,0));
         confirm_password_textfield.setBackground(new Color(0,0,0,0));
@@ -60,8 +60,8 @@ public class CreatAccountPage extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        username_label = new javax.swing.JLabel();
-        username_textfield = new javax.swing.JTextField();
+        userid_label = new javax.swing.JLabel();
+        userId_textfield = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         admin_type_label = new javax.swing.JLabel();
         security_question_label = new javax.swing.JLabel();
@@ -133,22 +133,22 @@ public class CreatAccountPage extends javax.swing.JFrame {
         jSeparator2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         create_account_base_panel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 440, 20));
 
-        username_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
-        username_label.setForeground(new java.awt.Color(255, 255, 255));
-        username_label.setText("Username");
-        create_account_base_panel.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 210, 40));
+        userid_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
+        userid_label.setForeground(new java.awt.Color(255, 255, 255));
+        userid_label.setText("User Id");
+        create_account_base_panel.add(userid_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 210, 40));
 
-        username_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
-        username_textfield.setForeground(new java.awt.Color(51, 51, 51));
-        username_textfield.setText("Enter your username");
-        username_textfield.setBorder(null);
-        username_textfield.setOpaque(false);
-        username_textfield.addActionListener(new java.awt.event.ActionListener() {
+        userId_textfield.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        userId_textfield.setForeground(new java.awt.Color(51, 51, 51));
+        userId_textfield.setText("Enter your username");
+        userId_textfield.setBorder(null);
+        userId_textfield.setOpaque(false);
+        userId_textfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                username_textfieldActionPerformed(evt);
+                userId_textfieldActionPerformed(evt);
             }
         });
-        create_account_base_panel.add(username_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 440, 40));
+        create_account_base_panel.add(userId_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 440, 40));
 
         jSeparator4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         create_account_base_panel.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, 440, 20));
@@ -292,9 +292,9 @@ public class CreatAccountPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_answer_textfieldActionPerformed
 
-    private void username_textfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_username_textfieldActionPerformed
+    private void userId_textfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userId_textfieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_username_textfieldActionPerformed
+    }//GEN-LAST:event_userId_textfieldActionPerformed
 
     private void email_textfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_textfieldActionPerformed
         // TODO add your handling code here:
@@ -303,11 +303,11 @@ public class CreatAccountPage extends javax.swing.JFrame {
     private void creat_account_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creat_account_buttonActionPerformed
         // TODO add your handling code here:
         try{
-            String sql="Insert into accounts (FirstName,LastName,UserName,Email,Password,ConfirmPassword,SecurityQuestion,SecurityQuestionAnswer,AdminType) values (?,?,?,?,?,?,?,?,?)";
+            String sql="Insert into accounts (FirstName,LastName,UserId,Email,Password,ConfirmPassword,SecurityQuestion,SecurityQuestionAnswer,AdminType) values (?,?,?,?,?,?,?,?,?)";
             pst=connection.prepareStatement(sql);
             pst.setString(1,firstName_textfield.getText());
             pst.setString(2,lastName_textfield.getText());
-            pst.setString(3,username_textfield.getText());
+            pst.setString(3,userId_textfield.getText());
             pst.setString(4,email_textfield.getText());
             pst.setString(5,password_textfield.getText());
             pst.setString(6,confirm_password_textfield.getText());
@@ -412,7 +412,7 @@ public class CreatAccountPage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> security_question_combobox;
     private javax.swing.JLabel security_question_label;
     private javax.swing.JLabel terms_and_condition_label;
-    private javax.swing.JLabel username_label;
-    private javax.swing.JTextField username_textfield;
+    private javax.swing.JTextField userId_textfield;
+    private javax.swing.JLabel userid_label;
     // End of variables declaration//GEN-END:variables
 }

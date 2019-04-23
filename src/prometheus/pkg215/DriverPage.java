@@ -37,7 +37,7 @@ public class DriverPage extends javax.swing.JFrame {
     PreparedStatement pst;
     private byte[] personImage;
     private String filePath = null;
-    private String userName_from_login;
+    private String userId_from_login;
 
     /**
      * Creates new form DriverPage
@@ -50,11 +50,11 @@ public class DriverPage extends javax.swing.JFrame {
         security_message_textfield.setBackground(new Color(0, 0, 0, 0));
     }
 
-    public DriverPage(String pass_user_name) {
+    public DriverPage(String pass_user_Id) {
         initComponents();
         dateAndTime();
         connection = JavaDbConnect.databaseConnect();
-        userName_from_login = pass_user_name;
+       userId_from_login = pass_user_Id;
     }
 
     /**
@@ -1378,8 +1378,8 @@ public class DriverPage extends javax.swing.JFrame {
 
     private void search_textfieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_textfieldKeyReleased
         // TODO add your handling code here:
-        String sql = "select * from DriverInfo where userName=?";
-        search_textfield.setText(userName_from_login);
+        String sql = "select * from DriverInfo where Id=?";
+        search_textfield.setText(userId_from_login);
         fileName_textfiled.setText(drivers_id_textfield.getText());
         try {
             pst = connection.prepareStatement(sql);
