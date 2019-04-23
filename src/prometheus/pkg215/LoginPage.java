@@ -266,41 +266,20 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void forgot_password_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgot_password_labelMouseClicked
         // TODO add your handling code here:
-        try {
+        
             this.setVisible(false);
             forgotPasswordPage fp = new forgotPasswordPage();
             fp.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } finally {
-            try {
-                rs.close();
-                pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
-
+       
     }//GEN-LAST:event_forgot_password_labelMouseClicked
 
     private void dont_have_account_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dont_have_account_labelMouseClicked
         // TODO add your handling code here:
-        try{
+        
         this.setVisible(false);
         CreatAccountPage cp = new CreatAccountPage();
         cp.setVisible(true);
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        } finally {
-            try {
-                rs.close();
-                pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
+        
         
     }//GEN-LAST:event_dont_have_account_labelMouseClicked
 

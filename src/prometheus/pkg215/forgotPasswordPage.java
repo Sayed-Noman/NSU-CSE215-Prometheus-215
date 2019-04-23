@@ -28,7 +28,7 @@ public class forgotPasswordPage extends javax.swing.JFrame {
     public forgotPasswordPage() {
         initComponents();
         connection = JavaDbConnect.databaseConnect();
-        username_textfield.setBackground(new Color(0, 0, 0, 0));
+        userId_textfield.setBackground(new Color(0, 0, 0, 0));
         email_textfield.setBackground(new Color(0, 0, 0, 0));
         security_question_textfield.setBackground(new Color(0, 0, 0, 0));
         answer_textfield.setBackground(new Color(0, 0, 0, 0));
@@ -38,8 +38,8 @@ public class forgotPasswordPage extends javax.swing.JFrame {
 
     //Search function to show information
     public void Search() {
-        String usr_name = username_textfield.getText();
-        String sql = "select * from accounts where UserName='" + usr_name + "'";
+        String usr_id = userId_textfield.getText();
+        String sql = "select * from accounts where UserId='" + usr_id + "'";
         try {
             pst = connection.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -60,7 +60,7 @@ public class forgotPasswordPage extends javax.swing.JFrame {
 
     //to retrive password
     public void Retrive() {
-        String usr_name = username_textfield.getText();
+        String usr_id = userId_textfield.getText();
         String seq_answer = answer_textfield.getText();
         String sql = "select * from accounts where SecurityQuestionAnswer='" + seq_answer + "'";
         try {
@@ -94,7 +94,7 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         email_textfield = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         your_password_label = new javax.swing.JLabel();
-        username_textfield = new javax.swing.JTextField();
+        userId_textfield = new javax.swing.JTextField();
         username_label = new javax.swing.JLabel();
         security_question_textfield = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
@@ -157,16 +157,16 @@ public class forgotPasswordPage extends javax.swing.JFrame {
         your_password_label.setText("Your Password");
         forgot_password_base_panel.add(your_password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 150, 40));
 
-        username_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
-        username_textfield.setForeground(new java.awt.Color(51, 51, 51));
-        username_textfield.setText("Enter Username");
-        username_textfield.setBorder(null);
-        username_textfield.setOpaque(false);
-        forgot_password_base_panel.add(username_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 330, 40));
+        userId_textfield.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
+        userId_textfield.setForeground(new java.awt.Color(51, 51, 51));
+        userId_textfield.setText("Enter User Id");
+        userId_textfield.setBorder(null);
+        userId_textfield.setOpaque(false);
+        forgot_password_base_panel.add(userId_textfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 330, 40));
 
         username_label.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
         username_label.setForeground(new java.awt.Color(255, 255, 255));
-        username_label.setText("Username");
+        username_label.setText("User Id");
         forgot_password_base_panel.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 150, 40));
 
         security_question_textfield.setEditable(false);
@@ -378,8 +378,8 @@ public class forgotPasswordPage extends javax.swing.JFrame {
     private javax.swing.JTextField security_question_textfield;
     private javax.swing.JLabel security_qustion_lable;
     private javax.swing.JLabel select_admin_type_label;
+    private javax.swing.JTextField userId_textfield;
     private javax.swing.JLabel username_label;
-    private javax.swing.JTextField username_textfield;
     private javax.swing.JLabel your_password_label;
     private javax.swing.JTextField your_password_textfield;
     // End of variables declaration//GEN-END:variables
