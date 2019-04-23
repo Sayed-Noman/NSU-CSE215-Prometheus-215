@@ -2059,6 +2059,13 @@ public class TrafficPolicePage extends javax.swing.JFrame {
                 output.println("*****************************************************************************");
                 output.println("*****************************************************************************");
                 output.println();
+                
+                output.println();
+                output.println("Date: " + date);
+                output.println("--------------------");
+                output.println("Report-1: "+report1_combo_box.getSelectedItem().toString());
+                output.println("Report-2: "+report2_combo_box.getSelectedItem().toString());
+                output.println("Report-3: "+report3_combo_box.getSelectedItem().toString());
 
                 output.close();
                  JOptionPane.showMessageDialog(null,"File Created Successfully");
