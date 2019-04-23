@@ -1266,16 +1266,7 @@ public class DriverPage extends javax.swing.JFrame {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        } finally {
-            try {
-                rs.close();
-                pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
-
+        } 
     }
 
     private void showMessage() {
@@ -1318,8 +1309,7 @@ public class DriverPage extends javax.swing.JFrame {
     }
 
     ;
-
-    private Image imageResize(byte[] img, int width, int height) {
+ private Image imageResize(byte[] img, int width, int height) {
         BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         try {
             Graphics2D ghrapicImg = resizedImage.createGraphics();
@@ -1391,15 +1381,8 @@ public class DriverPage extends javax.swing.JFrame {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        } finally {
-            try {
-                rs.close();
-                pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
+        } 
+        
 
 
     }//GEN-LAST:event_search_textfieldKeyReleased
@@ -1455,7 +1438,7 @@ public class DriverPage extends javax.swing.JFrame {
 
     private void edit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_buttonActionPerformed
         // TODO add your handling code here:
-        String sql = "update DriverInfo set First_Name=?,Last_Name=?,Full_Name=?,Dob=?,Gender=?,Blood_Group=?,Religion=?,Email=?,City=?,Address=?,Driving_License_No=?,License_Type=?,Issued=?,Expired=?,Points=? where Id=?";
+       String sql = "update DriverInfo set First_Name=?,Last_Name=?,Full_Name=?,Dob=?,Gender=?,Blood_Group=?,Religion=?,Email=?,City=?,Address=?,Driving_License_No=?,License_Type=?,Issued=?,Expired=?,Points=? where Id=?";
         try {
             pst = connection.prepareStatement(sql);
 
@@ -1475,7 +1458,7 @@ public class DriverPage extends javax.swing.JFrame {
             pst.setString(14, expiredDate_textfield.getText());
             pst.setString(15, points_textfield.getText());
 
-            pst.setString(16, search_textfield.getText());
+            pst.setString(16,search_textfield.getText());
 
             pst.execute();
 
@@ -1483,7 +1466,7 @@ public class DriverPage extends javax.swing.JFrame {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        } 
+        }
         //calling two Tables manually after insertion to emidiate show
 
     }//GEN-LAST:event_edit_buttonActionPerformed
@@ -1517,21 +1500,14 @@ public class DriverPage extends javax.swing.JFrame {
         try {
             pst = connection.prepareStatement(sql);
             pst.setBytes(1, personImage);
-            pst.setString(2, drivers_id_textfield.getText());
+            pst.setString(2, search_textfield.getText());
 
             pst.execute();
             JOptionPane.showMessageDialog(rootPane, "Image Saved Successfully");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e);
-        } finally {
-            try {
-                rs.close();
-                pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
+        
         }
 
     }//GEN-LAST:event_save_image_buttonActionPerformed
@@ -1584,9 +1560,21 @@ public class DriverPage extends javax.swing.JFrame {
     private void sign_out_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sign_out_buttonActionPerformed
         // TODO add your handling code here:
        
+        try{
             setVisible(false);
             LoginPage lp = new LoginPage();
             lp.setVisible(true);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, e);
+        }finally {
+            try {
+                rs.close();
+                pst.close();
+                connection.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e);
+            }
+        }
       
 
 
