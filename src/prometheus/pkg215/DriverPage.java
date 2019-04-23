@@ -1475,7 +1475,7 @@ public class DriverPage extends javax.swing.JFrame {
             pst.setString(14, expiredDate_textfield.getText());
             pst.setString(15, points_textfield.getText());
 
-            pst.setString(16, drivers_id_textfield.getText());
+            pst.setString(16, search_textfield.getText());
 
             pst.execute();
 
@@ -1483,16 +1483,7 @@ public class DriverPage extends javax.swing.JFrame {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        } finally {
-            try {
-                rs.close();
-                pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
-
+        } 
         //calling two Tables manually after insertion to emidiate show
 
     }//GEN-LAST:event_edit_buttonActionPerformed

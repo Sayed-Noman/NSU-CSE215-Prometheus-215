@@ -42,7 +42,7 @@ public class HomePage extends javax.swing.JFrame {
         Request_button.setBackground(new java.awt.Color(1, 50, 67));
         Request_button.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         Request_button.setForeground(new java.awt.Color(255, 255, 255));
-        Request_button.setText("Request Form");
+        Request_button.setText("Search your Status");
         Request_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Request_buttonActionPerformed(evt);
