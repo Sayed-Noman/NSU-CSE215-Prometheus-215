@@ -1456,22 +1456,11 @@ public class TrafficPolicePage extends javax.swing.JFrame {
 
     private void close_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_menuitemActionPerformed
         // TODO add your handling code here:
-        try {
+     
             setVisible(false);
             LoginPage lp = new LoginPage();
             lp.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } finally {
-            try {
-                rs.close();
-                pst.close();
-                connection.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
-
+       
     }//GEN-LAST:event_close_menuitemActionPerformed
 
     private void exit_menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_menuitemActionPerformed
