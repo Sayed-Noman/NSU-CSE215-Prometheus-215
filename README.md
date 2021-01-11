@@ -3,8 +3,8 @@
 #### CSE215 (Programming language-2)
 ##### Project Name: Prometheus-215
 ##### Project Members:
-    ##### Sayed Abu Noman Siddik (1811655642)
-    ##### Abul Kalam (1811501642)
+    Sayed Abu Noman Siddik (1811655642)
+    Abul Kalam (1811501642)
 
 ## Contents
 •	Introduction
